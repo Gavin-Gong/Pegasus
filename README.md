@@ -1,6 +1,6 @@
 # pegasus
 
-> A thrid dirbbble web app build with vue.js.
+> A blog system build with vue.js.
 
 ## Build Setup
 
@@ -26,5 +26,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-# Dribbble Api
