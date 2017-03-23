@@ -1,71 +1,75 @@
  <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <el-button>ggg</el-button>
-    <router-view></router-view>
+    <el-menu mode="horizontal">
+      <!-- <span>logo</span> -->
+      <el-menu-item index="1-1">Home</el-menu-item>
+      <el-menu-item index="1-2">Topics</el-menu-item>
+      <el-menu-item index="1-3">Archives</el-menu-item>
+      <el-menu-item index="1-4">Tags</el-menu-item>
+      <el-menu-item index="1-5">About</el-menu-item>
+      <el-input
+        class="search-bar"
+        placeholder=""
+        icon="search"
+        v-model="search">
+      </el-input>
+    </el-menu>
+    <el-card>
+      <el-row :gutter="10">
+        <el-col v-if="lg$" :xs="0" :sm="0" :md="8 " :lg="4">
+          <profile></profile>
+        </el-col>
+        <el-col :xs="8" :sm="12" :md="8" :lg="{span: 16, offset: 0}">
+          {{ screenWidth }}
+          <router-view></router-view>
+        </el-col>
+        <el-col v-if="screenWidth > 992" :xs="0" :sm="12" :md="8" :lg="4">sidebar</el-col>
+      </el-row>
+    </el-card>
   </div>
 </template>
 
 <script>
-import { Button } from 'element-ui';
-import { encodeQuery, decodeQuery } from './utils';
-import { dribbble } from './config';
 
-Vue.use(Button);
+import { Row, Col, Menu, MenuItem, Input } from 'element-ui';
+import screenMixin from 'mixins/screen';
+import Profile from './pages/components/profile';
+
+Vue.use(Row);
+Vue.use(Col);
+Vue.use(Menu);
+Vue.use(MenuItem);
+Vue.use(Input);
 
 export default {
-  name: 'app',
+  components: {
+    Profile,
+  },
+  mixins: [screenMixin],
   data() {
     return {
-
+      search: '',
     };
   },
-  created() {
-    if (!this.isAuth) {
-      this.saveDribbbleCode();
-    }
-  },
   methods: {
-    saveDribbbleCode() {
-      if (location.search) {
-        localStorage.setItem('DRIBBBLE_CODE', decodeQuery(location.search).code);
-      }
-    },
-    fetchToken() {
-      this.$http.post('https://dribbble.com/oauth/token', {
-        client_id: dribbble.client_id,
-        client_secret: dribbble.client_secret,
-        code: localStorage.getItem('DRIBBBLE_CODE'),
-      }).then(({ data }) => {
-        localStorage.setItem('DRIBBBLE_TOKEN', data.token);
-      });
-    },
   },
-  computed: {
-    authUrl() {
-      const baseUrl = 'https://dribbble.com/oauth/authorize';
-      const object = {
-        client_id: dribbble.client_id,
-        scope: 'public write comment upload',
-        // redirect_uri: 'https://www.baidu.com',
-      };
-      return `${baseUrl}?${encodeQuery(object)}`;
-    },
-    isAuth() {
-      const code = localStorage.getItem('DRIBBBLE_CODE');
-      return code && code !== 'undefined';
-    },
+  watch: {
   },
 };
 </script>
 
 <style lang='scss'>
+@import '~styles/index';
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  .search-bar {
+    width: 200px!important;
+    height: 60px;
+    input {
+      margin-top: 10px
+    }
+    @include res-to(20, 360) {
+      display: none;
+    }
+  }
 }
 </style>
