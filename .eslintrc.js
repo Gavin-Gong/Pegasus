@@ -31,6 +31,7 @@ module.exports = {
     // don't require .vue extension when importing
     'linebreak-style': 'off',
     'no-console': 'off',
+    'global-require': 'off',
     'import/extensions': ['error', 'always', {
       'js': 'never',
       'vue': 'never'

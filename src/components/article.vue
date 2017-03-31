@@ -52,10 +52,12 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
   @import '~styles/mixins';
   .article-card {
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .12), 0px 0px 6px 0px rgba(0, 0, 0, .04);
     line-height: 1.7;
     letter-spacing: .7px;
     word-spacing: 1px;
