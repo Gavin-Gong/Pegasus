@@ -1,31 +1,16 @@
  <template>
   <div id="app">
     <div class="main-content">
-      <el-menu mode="horizontal">
-        <!-- <span>logo</span> -->
-        <el-menu-item index="1-1">Home</el-menu-item>
-        <el-menu-item index="1-2">Topics</el-menu-item>
-        <el-menu-item index="1-3">Archives</el-menu-item>
-        <el-menu-item index="1-4">Tags</el-menu-item>
-        <el-menu-item index="1-5">About</el-menu-item>
-        <el-input
-          class="search-bar"
-          placeholder=""
-          icon="search"
-          v-model="search">
-        </el-input>
-      </el-menu>
-      <el-card>
-        <el-row :gutter="10">
-          <el-col v-if="lg$" :xs="0" :sm="0" :md="8 " :lg="5">
-            <profile></profile>
-          </el-col>
-          <el-col :xs="8" :sm="12" :md="8" :lg="{span: 15, offset: 0}">
-            <router-view></router-view>
-          </el-col>
-          <el-col v-if="screenWidth > 992" :xs="0" :sm="12" :md="8" :lg="4">sidebar</el-col>
-        </el-row>
-      </el-card>
+      <top-nav></top-nav>
+      <el-row :gutter="20" class="main-body">
+        <el-col v-if="lg$" :xs="0" :sm="0" :md="8 " :lg="5">
+          <profile></profile>
+        </el-col>
+        <el-col :xs="8" :sm="12" :md="8" :lg="{span: 15, offset: 0}">
+          <router-view></router-view>
+        </el-col>
+        <el-col v-if="screenWidth > 992" :xs="0" :sm="12" :md="8" :lg="4">sidebar</el-col>
+      </el-row>
     </div>
 
     <x-footer></x-footer>
@@ -34,21 +19,20 @@
 
 <script>
 
-import { Row, Col, Menu, MenuItem, Input } from 'element-ui';
+import { Row, Col } from 'element-ui';
 import screenMixin from 'mixins/screen';
 import Profile from './pages/components/profile';
 import XFooter from './pages/components/footer';
+import TopNav from './pages/components/top-nav';
 
 Vue.use(Row);
 Vue.use(Col);
-Vue.use(Menu);
-Vue.use(MenuItem);
-Vue.use(Input);
 
 export default {
   components: {
     Profile,
     XFooter,
+    TopNav,
   },
   mixins: [screenMixin],
   data() {
@@ -83,6 +67,11 @@ body {
       @include res-to(20, 360) {
         display: none;
       }
+    }
+    .main-body {
+      margin-top: 80px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
   }
 }

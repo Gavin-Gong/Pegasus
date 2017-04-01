@@ -27,10 +27,10 @@ export default {
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 15px;
   height: 100px;
-  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  // background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
   text-align: center;
 }
 </style>

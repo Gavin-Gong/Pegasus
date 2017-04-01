@@ -1,14 +1,19 @@
 <template>
-  <div id="article-detail">
+  <div id="home">
     <article-card body="## anme" title="test Article"></article-card>
-  </div> 
+    <article-card body="## ss" title="test Article"></article-card>
+    <div class="pagination">
+      <el-button>Prev</el-button>
+      <el-button>Next</el-button>
+    </div>
+  </div>
 </template>
 
 <script>
 import ArticleCard from 'components/article';
 import { Button } from 'element-ui';
 
-Vue.use(Button); 
+Vue.use(Button);
 
 export default {
   components: {
