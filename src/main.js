@@ -11,9 +11,6 @@ import mockData from './api/template';
 if (DEV) {
   mockData();
 }
-axios.get('/articles/333').then((res) => {
-  console.log(res.data);
-});
 Vue.prototype.$http = axios;
 
 

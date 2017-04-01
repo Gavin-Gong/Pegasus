@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add highlight: function (code) {
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add font-awesome -S
 
 PATH: 
-  D:\cmder\bin;D:\cmder\vendor\git-for-windows\cmd;D:\cmder\vendor\conemu-maximus5\ConEmu\Scripts;D:\cmder\vendor\conemu-maximus5;D:\cmder\vendor\conemu-maximus5\ConEmu;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin;C:\Program Files\MacType;C:\Users\Gavin\AppData\Local\Microsoft\WindowsApps;C:\Users\Gavin\AppData\Roaming\npm;C:\Users\Gavin\AppData\Local\Yarn\.bin;D:\cmder\vendor\git-for-windows\usr\bin;D:\cmder\vendor\git-for-windows\usr\share\vim\vim74;D:\cmder\
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin;C:\Program Files\MacType;C:\Users\Gavin\AppData\Local\Microsoft\WindowsApps;C:\Users\Gavin\AppData\Roaming\npm;C:\Users\Gavin\AppData\Local\Yarn\.bin;C:\Program Files (x86)\Microsoft VS Code\bin
 
 Yarn version: 
   0.21.3
@@ -31,6 +31,7 @@ npm manifest:
     "dependencies": {
       "axios": "^0.15.3",
       "element-ui": "^1.2.1",
+      "highlightjs": "^9.10.0",
       "marked": "^0.3.6",
       "vue": "^2.1.10",
       "vue-resource": "^1.2.0",
@@ -3005,6 +3006,10 @@ Lockfile:
     version "1.1.1"
     resolved "https://registry.npmjs.org/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
   
+  highlightjs@^9.10.0:
+    version "9.10.0"
+    resolved "http://registry.npm.taobao.org/highlightjs/download/highlightjs-9.10.0.tgz#fca9b78ddaa3b1abca89d6c3ee105ad270a80190"
+  
   hmac-drbg@^1.0.0:
     version "1.0.0"
     resolved "https://registry.npmjs.org/hmac-drbg/-/hmac-drbg-1.0.0.tgz#3db471f45aae4a994a0688322171f51b8b91bee5"
@@ -3952,6 +3957,10 @@ Lockfile:
   map-obj@^1.0.0, map-obj@^1.0.1:
     version "1.0.1"
     resolved "https://registry.npmjs.org/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
+  
+  marked@^0.3.6:
+    version "0.3.6"
+    resolved "http://registry.npm.taobao.org/marked/download/marked-0.3.6.tgz#b2c6c618fccece4ef86c4fc6cb8a7cbf5aeda8d7"
   
   math-expression-evaluator@^1.2.14:
     version "1.2.16"
@@ -6391,14 +6400,4 @@ Lockfile:
     resolved "https://registry.npmjs.org/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
 
 Trace: 
-  Error: highlight:: Invalid URI "highlight:/"
-      at Request.init (C:\Program Files (x86)\Yarn\node_modules\request\request.js:274:31)
-      at new Request (C:\Program Files (x86)\Yarn\node_modules\request\request.js:128:8)
-      at request (C:\Program Files (x86)\Yarn\node_modules\request\index.js:54:10)
-      at RequestManager.execute (C:\Program Files (x86)\Yarn\lib\util\request-manager.js:354:17)
-      at RequestManager.shiftQueue (C:\Program Files (x86)\Yarn\lib\util\request-manager.js:381:10)
-      at Promise (C:\Program Files (x86)\Yarn\lib\util\request-manager.js:166:12)
-      at RequestManager.request (C:\Program Files (x86)\Yarn\lib\util\request-manager.js:164:21)
-      at NpmRegistry.request (C:\Program Files (x86)\Yarn\lib\registries\npm-registry.js:112:32)
-      at C:\Program Files (x86)\Yarn\lib\resolvers\registries\npm-resolver.js:111:54
-      at Generator.next (<anonymous>)
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Gavin\projects\Pegasus\node_modules\node-sass\vendor\win32-x64-51\binding.node'

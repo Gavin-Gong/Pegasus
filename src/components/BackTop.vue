@@ -9,6 +9,11 @@
 <script>
 export default {
   props: {
+    // toTop
+    // color
+    // animate
+    // throttle
+    //
   },
   created() {
     window.onscroll = () => {
@@ -39,7 +44,5 @@ export default {
   border-radius: 50%;
   background: #eee;
   box-shadow: #aaa 0px 2px 10px;
-  i {
-  }
 }
 </style>

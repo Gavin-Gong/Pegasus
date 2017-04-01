@@ -32,6 +32,7 @@ module.exports = {
     'linebreak-style': 'off',
     'no-console': 'off',
     'linebreak-style': 'off',
+    'global-require': 'off',
     'import/extensions': ['error', 'always', {
       'js': 'never',
       'vue': 'never'
