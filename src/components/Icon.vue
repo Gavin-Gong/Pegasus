@@ -13,7 +13,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'black',
+      default: 'inherit',
     },
     fix: {
 

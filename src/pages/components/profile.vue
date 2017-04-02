@@ -1,6 +1,7 @@
 <template>
   <el-card class="profile">
     <img :src="avatar" alt="" class="avatar">
+    <h2 class="name">{{name}}</h2>
     <p class="bio">{{bio}}</p>
     <p class="address"><x-icon type="map-marker" color="#333"></x-icon> {{address}}</p>
     <el-button @click="handleFollow" class="mt-s">Follow Me</el-button>
@@ -10,6 +11,9 @@
           <x-icon :type="item.type" size="2x" color="#222"></x-icon>
         </a>
       </li>
+    </ul>
+    <ul class="data">
+      <li></li>
     </ul>
   </el-card>
 </template>
@@ -27,6 +31,7 @@ export default {
   },
   data() {
     return {
+      name: 'linux',
       avatar: require('assets/images/avatar.png'),
       bio: 'Web developer',
       address: 'Hunan, China',
@@ -51,6 +56,9 @@ export default {
   .avatar {
     max-width: 100px;
     border-radius: 50%;
+  }
+  .name {
+    font-size: 28px;
   }
   .address {
     margin-bottom: 10px;

@@ -20,3 +20,14 @@ $lg: 1200px;
     @media only screen and (min-width: $media + px) and (max-width: $media2 + px) { @content; }
   }
 }
+
+
+// line-camp
+
+@mixin line-clamp($line: 1) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
