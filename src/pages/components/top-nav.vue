@@ -28,6 +28,7 @@ Vue.use(MenuItem);
 Vue.use(Input);
 export default {
   created() {
+    // REVIEW:  throttle the event using requestAnimationFrame, setTimeout or customEvent
     let cache = null;
     window.addEventListener('scroll', () => {
       if (!cache) {

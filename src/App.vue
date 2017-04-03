@@ -70,6 +70,7 @@ body {
     }
     .main-body {
       margin-top: 80px;
+      margin-right: 0!important;
       padding-left: 20px;
       padding-right: 20px;
     }
