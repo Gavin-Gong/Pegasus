@@ -1,7 +1,7 @@
 <template>
   <div id="home">
-    <article-card body="## anme" title="test Article"></article-card>
-    <article-card body="## ss" title="test Article"></article-card>
+    <article-card :body="articleEn" title="test Article" :line-clamp="true"></article-card>
+    <article-card :body="articleCh" title="test Article":line-clamp="true"></article-card>
     <div class="pagination">
       <el-button>Prev</el-button>
       <el-button>Next</el-button>
@@ -12,6 +12,8 @@
 <script>
 import ArticleCard from 'components/article';
 import { Button } from 'element-ui';
+import articleEn from 'api/data/en-article';
+import articleCh from 'api/data/ch-article';
 
 Vue.use(Button);
 
@@ -21,7 +23,8 @@ export default {
   },
   data() {
     return {
-
+      articleEn: articleEn.body,
+      articleCh: articleCh.body,
     };
   },
   methods: {
@@ -35,5 +38,6 @@ export default {
 <style lang="scss" scoped>
 .pagination {
   text-align: center;
+  margin-bottom: 30px;
 }
 </style>

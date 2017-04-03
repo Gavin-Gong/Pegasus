@@ -5,3 +5,8 @@
 .mt-s {
   margin-top: 10px;
 }
+
+@mixin center($top: 0) {
+  display: block;
+  margin: $top auto;
+}

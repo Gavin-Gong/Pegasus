@@ -73,6 +73,9 @@ export default {
     li {
       color: #eee;
     }
+    .el-menu-item:hover {
+      color: #333;
+    }
   }
   &.fixed {
     position: fixed;

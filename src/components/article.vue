@@ -2,13 +2,16 @@
   <div class="article-card article-typo">
     <slot name="banner"></slot>
     <slot name="info"></slot>
-    
-    <div v-html="htmlBody"></div>
+    <a v-if="title" class="title">{{ title }}</a>
+    <div :class="lineClamp ? 'line-clamp' : ''">
+      <div v-html="htmlBody"></div>
+    </div>
+    <el-button v-if="lineClamp" class="more-btn">More</el-button>
   </div>
 </template>
 
 <script>
-import { Card } from 'element-ui';
+import { Card, Button } from 'element-ui';
 import XIcon from 'components/Icon';
 import marked from 'marked';
 import highlight from 'highlightjs';
@@ -16,6 +19,7 @@ import 'highlightjs/styles/github.css';
 
 console.log(highlight);
 Vue.use(Card);
+Vue.use(Button);
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -44,6 +48,14 @@ export default {
       type: String,
       default: 'markdown',
     },
+    lineClamp: {
+      type: Boolean,
+      default: false,
+    },
+    title: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -62,10 +74,23 @@ export default {
 <style lang="scss">
   @import '~styles/mixins';
   @import '~styles/article';
+  @import '~styles/utils';
   .article-card {
     padding: 30px 30px;
     margin-bottom: 30px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .12), 0px 0px 6px 0px rgba(0, 0, 0, .04);
+    .title {
+      font-size: 34px;
+      display: inline-block;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    .line-clamp {
+      @include line-clamp(10);
+    }
+    .more-btn {
+      @include center(20px);
+    }
   }
   .full-screen {
     position: fixed;

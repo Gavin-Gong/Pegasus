@@ -9,11 +9,14 @@
         <el-col :xs="8" :sm="12" :md="8" :lg="{span: 15, offset: 0}">
           <router-view></router-view>
         </el-col>
-        <el-col v-if="screenWidth > 992" :xs="0" :sm="12" :md="8" :lg="4">sidebar</el-col>
+        <el-col v-if="screenWidth > 992" :xs="0" :sm="12" :md="8" :lg="4">
+          <side-bar></side-bar>
+        </el-col>
       </el-row>
     </div>
 
     <x-footer></x-footer>
+    <back-top></back-top>
   </div>
 </template>
 
@@ -21,9 +24,11 @@
 
 import { Row, Col } from 'element-ui';
 import screenMixin from 'mixins/screen';
+import BackTop from 'components/BackTop';
 import Profile from './pages/components/profile';
 import XFooter from './pages/components/footer';
 import TopNav from './pages/components/top-nav';
+import SideBar from './pages/components/sidebar';
 
 Vue.use(Row);
 Vue.use(Col);
@@ -33,6 +38,8 @@ export default {
     Profile,
     XFooter,
     TopNav,
+    SideBar,
+    BackTop,
   },
   mixins: [screenMixin],
   data() {

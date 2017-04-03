@@ -5,15 +5,22 @@
     <p class="bio">{{bio}}</p>
     <p class="address"><x-icon type="map-marker" color="#333"></x-icon> {{address}}</p>
     <el-button @click="handleFollow" class="mt-s">Follow Me</el-button>
+    <ul class="data">
+      <li>
+        <h3>221</h3>
+        <p>Posts</p>
+      </li>
+      <li>
+        <h3>53</h3>
+        <p>Days</p>
+      </li>
+    </ul>
     <ul class="social-list">
       <li v-for="item in socials">
         <a :href="item.link" target="_blank">
           <x-icon :type="item.type" size="2x" color="#222"></x-icon>
         </a>
       </li>
-    </ul>
-    <ul class="data">
-      <li></li>
     </ul>
   </el-card>
 </template>
@@ -50,9 +57,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .profile {
   text-align: center;
+  box-shadow: none;
   .avatar {
     max-width: 100px;
     border-radius: 50%;
@@ -68,11 +76,24 @@ export default {
   .social-list {
     list-style: none;
     margin-left: -20px;
-    margin-top: 25px;
+    // margin-top: 25px;
+    padding: 30px 0 10px;
     li {
       padding-left: 0;
       margin-left: 20px;
       display: inline-block;
+    }
+  }
+  .data {
+    list-style: none;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    li {
+      display: inline-block;
+      padding: 20px;
     }
   }
 }

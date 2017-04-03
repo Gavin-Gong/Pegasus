@@ -1,6 +1,6 @@
 <template>
-  <div id="article-detail" class="article-typo">
-    <article-card :body="articleBody" title="test Article">
+  <div id="article-detail">
+    <article-card :body="articleBody">
 
       <div class="article-banner" slot="banner">
         <img src="~assets/images/article-banner.jpg" :alt="article.title">
@@ -14,7 +14,7 @@
         </ul>
       </div>
     </article-card>
-  </div> 
+  </div>
 </template>
 
 <script>
@@ -63,7 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~styles/article';
 @import '~styles/mixins';
 .pagination {
   text-align: center;
