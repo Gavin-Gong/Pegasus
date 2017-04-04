@@ -1,23 +1,23 @@
 <template>
-  <el-menu v-if="isShow" mode="horizontal" :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
-    <el-menu-item index="1-1">Home</el-menu-item>
-    <el-menu-item index="1-2">Topics</el-menu-item>
-    <el-menu-item index="1-3">Archives</el-menu-item>
-    <el-menu-item index="1-4">Tags</el-menu-item>
-    <el-menu-item index="1-5">About</el-menu-item>
-    <el-input
-      class="search-bar"
-      placeholder=""
-      icon="search"
-      v-model="search">
-    </el-input>
-  </el-menu>  
-  <!--<ul>
-    <li>Home</li>
-    <li>Topics</li>
-    <li>Archives</li>
-    <li>About</li>
-  </ul>-->
+  <transition name="slidetop">
+    <el-menu
+      v-show="isShow"
+      mode="horizontal"
+      default-active="1"
+      :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
+      <el-menu-item index="1" :route="{name: 'Home'}">Home</el-menu-item>
+      <el-menu-item index="2" :route="{name: 'Topic'}">Topics</el-menu-item>
+      <el-menu-item index="3" :route="{name: 'Archive'}">Archives</el-menu-item>
+      <el-menu-item index="4" :route="{name: 'Tag'}">Tags</el-menu-item>
+      <el-menu-item index="5" :route="{name: 'About'}">About</el-menu-item>
+      <el-input
+        class="search-bar"
+        placeholder=""
+        icon="search"
+        v-model="search">
+      </el-input>
+    </el-menu>
+  </transition>
 </template>
 
 <script>
@@ -65,6 +65,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~styles/transitions';
+
 .top-nav {
   border-bottom: 1px solid #ccc;
   z-index: 100;
@@ -74,7 +76,8 @@ export default {
       color: #eee;
     }
     .el-menu-item:hover {
-      color: #333;
+      color: #eee;
+      background: #444;
     }
   }
   &.fixed {

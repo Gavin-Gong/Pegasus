@@ -17,7 +17,6 @@ import marked from 'marked';
 import highlight from 'highlightjs';
 import 'highlightjs/styles/github.css';
 
-console.log(highlight);
 Vue.use(Card);
 Vue.use(Button);
 marked.setOptions({
@@ -30,7 +29,6 @@ marked.setOptions({
   smartLists: true,
   smartypants: false,
   highlight(code) {
-    console.log(code);
     return highlight.highlightAuto(code).value;
   },
 });

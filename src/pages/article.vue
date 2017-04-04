@@ -24,7 +24,6 @@ import articleEn from 'api/data/en-article';
 import articleCh from 'api/data/ch-article';
 import { Button } from 'element-ui';
 
-console.log(articleCh, articleEn);
 Vue.use(Button);
 
 export default {
@@ -33,7 +32,6 @@ export default {
     XIcon,
   },
   created() {
-    // console.log(this.$route);
     if (this.$route.params.id % 2 === 0) {
       this.articleBody = articleCh.body;
     } else {

@@ -1,0 +1,24 @@
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}
+
+.slidetop-enter-active, .slidetop-leave-active {
+  transition: all .5s;
+}
+
+.slidetop-enter {
+  transform: translateY(-100%);
+  // top: -100px;
+}
+.slidetop-leave {
+  // top: 100px;
+  transform: translateY(100%);
+}
+.slidetop-leave-to {
+  // top: -100px;
+  transform: translateY(-100%);
+}
+// slidetop

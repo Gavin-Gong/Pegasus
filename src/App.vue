@@ -47,6 +47,9 @@ export default {
       search: '',
     };
   },
+  created() {
+    this.$store.dispatch('fetchArticleList');
+  },
   methods: {
   },
   watch: {

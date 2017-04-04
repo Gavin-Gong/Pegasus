@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from 'pages/home';
 import Article from 'pages/article';
+import Topic from 'pages/topic';
 
 Vue.use(Router);
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/post/:id',
       name: 'Article',
       component: Article,
+    },
+    {
+      path: '/topic/:id',
+      name: 'Topic',
+      component: Topic,
     },
   ],
 });

@@ -33,6 +33,8 @@ module.exports = {
     'no-console': 'off',
     'linebreak-style': 'off',
     'global-require': 'off',
+    'no-shadow': 'off',
+    'no-param-reassign': 'off',
     'import/extensions': ['error', 'always', {
       'js': 'never',
       'vue': 'never'
