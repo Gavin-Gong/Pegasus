@@ -4,11 +4,12 @@
       v-show="isShow"
       mode="horizontal"
       default-active="1"
+      :router="true"
       :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
       <el-menu-item index="1" :route="{name: 'Home'}">Home</el-menu-item>
       <el-menu-item index="2" :route="{name: 'Topic'}">Topics</el-menu-item>
-      <el-menu-item index="3" :route="{name: 'Archive'}">Archives</el-menu-item>
-      <el-menu-item index="4" :route="{name: 'Tag'}">Tags</el-menu-item>
+      <el-menu-item index="3" :route="{name: 'Archive'}">Line</el-menu-item>
+      <el-menu-item index="4" :route="{name: 'Tags'}">Tags</el-menu-item>
       <el-menu-item index="5" :route="{name: 'About'}">About</el-menu-item>
       <el-input
         class="search-bar"
@@ -31,6 +32,7 @@ export default {
     // REVIEW:  throttle the event using requestAnimationFrame, setTimeout or customEvent
     let cache = null;
     window.addEventListener('scroll', () => {
+      // console.log('nav scroll');
       if (!cache) {
         cache = document.body.scrollTop;
       } else {
@@ -69,7 +71,7 @@ export default {
 
 .top-nav {
   border-bottom: 1px solid #ccc;
-  z-index: 100;
+  z-index: 10001;
   &.dark-mode {
     background: #333;
     li {

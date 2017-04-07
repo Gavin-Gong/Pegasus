@@ -39,3 +39,18 @@ $lg: 1200px;
     padding-left: 0;
   }
 }
+
+// pesudo element background
+
+@mixin blur-mask($color: rgba(0,0,0,.4)) {
+  background: $color;
+  position: absolute;
+  // margin: -30px;
+  overflow: hidden;
+  height: 105%;
+  width: 105%;
+  top: -5%;
+  left: -5%;
+  z-index: -1;
+  filter: blur(5px) contrast(.8) brightness(.8);
+}

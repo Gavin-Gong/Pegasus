@@ -13,11 +13,17 @@ const mutations = {
 };
 
 const actions = {
-  fetchArticleList({ commit }) {
-    return fetchArticleList().then(({ data }) => {
+  fetchArticleList({ commit }, query) {
+    console.log(query);
+    return fetchArticleList(query).then(({ data }) => {
       commit(types.FETCH_ARTICLE_LIST, data);
+      return data;
     });
   },
+  // TODO: append data
+  // addToList({ commit }, query) {
+
+  // },
 };
 
 export default {

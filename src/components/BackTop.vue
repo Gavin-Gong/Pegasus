@@ -19,6 +19,7 @@ export default {
   },
   created() {
     window.onscroll = () => {
+      // console.log('scroll');
       this.toTop = document.body.scrollTop;
     };
   },
