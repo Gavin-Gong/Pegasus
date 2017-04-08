@@ -7,7 +7,7 @@ export function fetchArticleList(params) {
     params,
   });
 }
-export function fetchArticleById(params) {
-  return $http.get(baseUrl, params);
+export function fetchArticleById(id) {
+  return $http.get(`${baseUrl}/${id}`);
 }
 

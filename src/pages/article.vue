@@ -1,18 +1,17 @@
 <template>
   <div id="article-detail">
-    <article-card :body="articleBody">
-
+    <article-card :article="article">
       <div class="article-banner" slot="banner">
         <img src="~assets/images/article-banner.jpg" :alt="article.title">
         <h1 class="dp-ib">{{ article.title }}</h1>
       </div>
-      <div class="article-infobar" slot="info">
+      <!--<div class="article-infobar" slot="info">
         <ul>
           <li><x-icon type="clock-o"></x-icon> {{article.created_at}}</li>
           <li><x-icon type="tag"></x-icon> {{article.tags}}</li>
-          <li><x-icon type="folder"></x-icon> {{article.topic}}</li>
+          <li><x-icon type="folder"></x-icon> {{article.topics}}</li>
         </ul>
-      </div>
+      </div>-->
     </article-card>
   </div>
 </template>
@@ -20,8 +19,6 @@
 <script>
 import ArticleCard from 'components/article';
 import XIcon from 'components/Icon';
-import articleEn from 'api/data/en-article';
-import articleCh from 'api/data/ch-article';
 import { Button } from 'element-ui';
 
 Vue.use(Button);
@@ -32,21 +29,10 @@ export default {
     XIcon,
   },
   created() {
-    if (this.$route.params.id % 2 === 0) {
-      this.articleBody = articleCh.body;
-    } else {
-      this.articleBody = articleEn.body;
-    }
+    this.$store.dispatch('fetchArticleById', this.$route.params.id);
   },
   data() {
     return {
-      article: {
-        title: 'A full-featured markdown parser and compiler, written in JavaScript. Built for speed.',
-        created_at: '2017-09-10',
-        tags: 'name',
-        topic: 'Koa',
-      },
-      articleBody: '',
     };
   },
   methods: {
@@ -55,7 +41,9 @@ export default {
     },
   },
   computed: {
-    // baseUrl: `post/${this.$router.params.id}`,
+    article() {
+      return this.$store.state.article.detail;
+    },
   },
 };
 </script>

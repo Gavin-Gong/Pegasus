@@ -1,8 +1,25 @@
 <template>
   <div class="article-card article-typo">
+    <router-link
+      v-if="!$slots.banner"
+      class="title"
+      :to="{name: 'Article', params:{id: article.id}}"
+      >{{ article.title }}</router-link>
     <slot name="banner"></slot>
+    <ul class="info-bar">
+      <li><x-icon type="clock-o"></x-icon> {{article.created_at}} </li>
+      <li><x-icon type="tag"></x-icon>
+        <ul class="tag-list">
+            <x-tag
+              v-for="tag in article.tags"
+              :route="{name: 'Tag', params: {id: tag.id}}"
+              :text="tag.title">
+            </x-tag>
+        </ul>
+      </li>
+      <li><x-icon type="folder"></x-icon> {{article.topics}}</li>
+    </ul>
     <slot name="info"></slot>
-    <a v-if="title" class="title">{{ title }}</a>
     <div :class="lineClamp ? 'line-clamp' : ''">
       <div v-html="htmlBody"></div>
     </div>
@@ -13,6 +30,7 @@
 <script>
 import { Card, Button } from 'element-ui';
 import XIcon from 'components/Icon';
+import XTag from 'components/Tag';
 import marked from 'marked';
 import highlight from 'highlightjs';
 import 'highlightjs/styles/github.css';
@@ -36,6 +54,7 @@ marked.setOptions({
 export default {
   components: {
     XIcon,
+    XTag,
   },
   props: {
     body: {
@@ -54,16 +73,24 @@ export default {
       type: String,
       default: '',
     },
+    // TODO: 用article代替body, type属性
+    article: {
+      type: Object,
+      required: true,
+    },
   },
   data() {
     return {
       msg: '### Welcome to Your Vue.js App',
     };
   },
+  created() {
+    console.log(this.$slots.banner);
+  },
   computed: {
     htmlBody() {
-      if (this.type === 'html') return this.body;
-      return marked(this.body);
+      if (this.type !== 'html') return this.article.body;
+      return marked(this.article.body);
     },
   },
 };
@@ -77,11 +104,23 @@ export default {
     padding: 30px 30px;
     margin-bottom: 30px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .12), 0px 0px 6px 0px rgba(0, 0, 0, .04);
+    .info-bar {
+      color: #888;
+      margin-left: -15px;
+      margin-bottom: 20px;
+      @include reset-list();
+      > li {
+        margin-left: 15px;
+      }
+      .tag-list {
+        display: inline-block;
+        @include reset-list();
+      }
+    }
     .title {
       font-size: 34px;
       display: inline-block;
       cursor: pointer;
-      margin-bottom: 10px;
     }
     .line-clamp {
       @include line-clamp(10);

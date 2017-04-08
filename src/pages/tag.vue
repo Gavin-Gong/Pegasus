@@ -8,8 +8,8 @@
     <ul class="article-list">
       <li class="" v-for="article in tag.posts">
         <article-card
-          :title="article.title"
-          :body="article.body"></article-card>
+          :article="article"
+          ></article-card>
       </li>
     </ul>
   </div>
@@ -44,13 +44,18 @@
         return this.$store.state.tag.detail;
       },
     },
+    watch: {
+      $route() {
+        this.$store.dispatch('fetchTag', this.$route.params.id);
+      },
+    },
   };
 </script>
 
 <style lang="scss" scoped>
 @import '~styles/mixins';
 #tag {
-  // overflow: hidden;
+  overflow: hidden;
   .tag-info {
     overflow: hidden;
     text-align: center;
@@ -65,6 +70,7 @@
     }
     .tag-banner {
       @include blur-mask();
+      // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12), 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
     }
   }
   .article-list {

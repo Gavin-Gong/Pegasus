@@ -37,6 +37,7 @@ $lg: 1200px;
   list-style: none;
   li {
     padding-left: 0;
+    display: inline-block;
   }
 }
 
@@ -54,3 +55,4 @@ $lg: 1200px;
   z-index: -1;
   filter: blur(5px) contrast(.8) brightness(.8);
 }
+

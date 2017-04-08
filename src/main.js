@@ -8,6 +8,7 @@ import store from './store';
 
 Vue.use(Loading);
 // Vue.prototype.$loading = Loading.service;
+
 if (DEV) {
   axios.defaults.baseURL = 'http://127.0.0.1:3000';
 } else {

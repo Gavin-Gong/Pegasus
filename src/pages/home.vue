@@ -1,11 +1,11 @@
 <template>
   <div id="home">
     <article-card
-      v-loading="true"
+      v-loading=""
       v-for="article in articleList"
-      :body="article.body"
-      :title="article.name"
+      :article="article"
       :line-clamp="true">
+      <div>{{article}}</div>
     </article-card>
 
     <div class="pagination">
@@ -20,13 +20,14 @@
 </template>
 
 <script>
-import { Button } from 'element-ui';
+import { Button, Loading } from 'element-ui';
 // import throttle from 'utils/throttle';
 import ArticleCard from 'components/article';
 import articleEn from 'api/data/en-article';
 import articleCh from 'api/data/ch-article';
 
 Vue.use(Button);
+Vue.use(Loading);
 
 export default {
   components: {
@@ -36,10 +37,21 @@ export default {
     // this.fetchArticles().then((res) => {
     //   console.log(res);
     // });
+    // this.$loading({
+    //   fullscreen: true,
+    // });
+    const fsLoad = Loading.service({
+      fullscreen: true,
+      lock: true,
+      text: 'Loading',
+    });
+    console.log(this.$loading);
     this.$store.dispatch('fetchArticleList', {
       _page: 1,
       _limit: 5,
     }).then(() => {
+      // this.$loading.close();
+      fsLoad.close();
       console.log(this.$store.state.article.list);
     });
     this.scrollLoad();
@@ -56,7 +68,7 @@ export default {
     scrollLoad() {
       /*eslint-disable*/
       let loadStatus = null;
-      window.addEventListener('scroll', (cb, toBottom = 0) => {
+      window.addEventListener('scroll', (toBottom = 0) => {
         const sH = document.body.scrollHeight;
         const sT = document.body.scrollTop;
         // console.log('scrollHeight', document.body.scrollHeight);
@@ -65,7 +77,6 @@ export default {
         if (sH <= sT + window.innerHeight + toBottom) {
           console.log('is-bottom');
           loadStatus = true;
-          cb();
         }
       });
     },
@@ -75,7 +86,7 @@ export default {
   },
   computed: {
     articleList() {
-      return [...this.$store.state.article.list, ...this.scrollLoadedData];
+      return this.$store.state.article.list;
     },
   },
 };
