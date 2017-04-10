@@ -7,8 +7,8 @@
       :router="true"
       :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
       <el-menu-item index="1" :route="{name: 'Home'}">Home</el-menu-item>
-      <el-menu-item index="2" :route="{name: 'Topic'}">Topics</el-menu-item>
-      <el-menu-item index="3" :route="{name: 'Archive'}">Line</el-menu-item>
+      <el-menu-item index="2" :route="{name: 'Topics'}">Topics</el-menu-item>
+      <!--<el-menu-item index="3" :route="{name: 'Archive'}">Line</el-menu-item>-->
       <el-menu-item index="4" :route="{name: 'Tags'}">Tags</el-menu-item>
       <el-menu-item index="5" :route="{name: 'About'}">About</el-menu-item>
       <el-input

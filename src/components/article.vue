@@ -7,7 +7,7 @@
       >{{ article.title }}</router-link>
     <slot name="banner"></slot>
     <ul class="info-bar">
-      <li><x-icon type="clock-o"></x-icon> {{article.created_at}} </li>
+      <li><x-icon type="clock-o"></x-icon> {{article.created_at | timestamp}} </li>
       <li><x-icon type="tag"></x-icon>
         <ul class="tag-list">
             <x-tag
@@ -17,13 +17,19 @@
             </x-tag>
         </ul>
       </li>
-      <li><x-icon type="folder"></x-icon> {{article.topics}}</li>
+      <li v-if="!isEmptyObj(article.topic)"><x-icon type="folder"></x-icon>
+        <router-link :to="{name: 'Topic', params: {id: article.topic.id}}"> {{article.topic.title}} </router-link>
+      </li>
     </ul>
     <slot name="info"></slot>
     <div :class="lineClamp ? 'line-clamp' : ''">
       <div v-html="htmlBody"></div>
     </div>
-    <el-button v-if="lineClamp" class="more-btn">More</el-button>
+    <el-button
+      v-if="lineClamp"
+      @click="$router.push({name: 'Article', params: {id: article.id}})"
+      class="more-btn"
+      >More</el-button>
   </div>
 </template>
 
@@ -34,6 +40,7 @@ import XTag from 'components/Tag';
 import marked from 'marked';
 import highlight from 'highlightjs';
 import 'highlightjs/styles/github.css';
+import { isEmptyObj } from 'src/utils';
 
 Vue.use(Card);
 Vue.use(Button);
@@ -57,21 +64,9 @@ export default {
     XTag,
   },
   props: {
-    body: {
-      type: String,
-      default: '## 暂无内容',
-    },
-    type: {
-      type: String,
-      default: 'markdown',
-    },
     lineClamp: {
       type: Boolean,
       default: false,
-    },
-    title: {
-      type: String,
-      default: '',
     },
     // TODO: 用article代替body, type属性
     article: {
@@ -84,8 +79,11 @@ export default {
       msg: '### Welcome to Your Vue.js App',
     };
   },
+  methods: {
+    isEmptyObj,
+  },
   created() {
-    console.log(this.$slots.banner);
+    // console.log(this.article);
   },
   computed: {
     htmlBody() {
@@ -105,12 +103,16 @@ export default {
     margin-bottom: 30px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .12), 0px 0px 6px 0px rgba(0, 0, 0, .04);
     .info-bar {
-      color: #888;
+      font-size: 14px;
       margin-left: -15px;
       margin-bottom: 20px;
+      color: #888;
       @include reset-list();
       > li {
         margin-left: 15px;
+      }
+      >li:last-child {
+        @include line-clamp(1);
       }
       .tag-list {
         display: inline-block;

@@ -47,8 +47,10 @@ export default {
     });
     console.log(this.$loading);
     this.$store.dispatch('fetchArticleList', {
-      _page: 1,
-      _limit: 5,
+      query: {
+        _page: 1,
+        _limit: 5,
+      },
     }).then(() => {
       // this.$loading.close();
       fsLoad.close();

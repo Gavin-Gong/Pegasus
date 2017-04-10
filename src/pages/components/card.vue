@@ -1,10 +1,13 @@
 <template>
-  <div class="tag">
+  <div class="card">
     <slot></slot>
-    <h3 class="tag-title">{{ title }}</h3>
-    <p class="tag-postCount">{{ count }} Posts</p>
+    <h3 class="card-title">{{ title }}</h3>
+    <div class="description">
+      <slot name="description"></slot>
+    </div>
+    <p class="card-postCount">{{ count }} Posts</p>
     <el-button
-      class="tag-btn"
+      class="card-btn"
       @click="routeTo({name: 'Tag', params: {id: id}})">View</el-button>
     <div class="mask" :style="bg">
     </div>
@@ -57,7 +60,7 @@ export default {
 
 <style lang="scss">
 @import '~styles/mixins';
-.tag {
+.card {
   $offset: 20px;
   position: relative;
   display: inline-block;
@@ -68,16 +71,20 @@ export default {
   text-align: center;
   background-size: cover;
   color: #fff;
+  cursor: pointer;
   // @include mask();
-  .tag-title {
+  .card-title {
     // margin-bottom: 10px;
     color: #fff;
+    @include line-clamp(2);
   }
-  .tag-postCount {
+  .description {
+  }
+  .card-postCount {
     display: block;
     margin: 10px auto 20px;
   }
-  .tag-btn {
+  .card-btn {
     // z-index: 101;
     position: absolute;
     bottom: -10px;
@@ -88,7 +95,7 @@ export default {
     cursor: pointer;
   }
 
-  &:hover .tag-btn {
+  &:hover .card-btn {
     bottom: 10px;
     display: inline-block;
     transition: all .5s ease-in-out;

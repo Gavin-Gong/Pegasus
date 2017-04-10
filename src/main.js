@@ -5,9 +5,12 @@ import axios from 'axios';
 import App from './App';
 import router from './router';
 import store from './store';
+import filters from './filters';
 
 Vue.use(Loading);
 // Vue.prototype.$loading = Loading.service;
+Vue.filter('timestamp', filters);
+// Vue.mixin([]);
 
 if (DEV) {
   axios.defaults.baseURL = 'http://127.0.0.1:3000';

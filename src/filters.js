@@ -1,6 +1,6 @@
 export default function timeStamp(date) {
   if (date) {
-    const jsDate = Math.floor(Date.parse(date) / 1000);
+    const jsDate = new Date(date);
     const nowDate = new Date();
 
     const years = nowDate.getFullYear() - jsDate.getFullYear();

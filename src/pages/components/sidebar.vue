@@ -2,17 +2,17 @@
   <div class="sidebar">
     <h3>Recent</h3>
     <ul class="recent-post">
-      <li v-for="item in recentPost">
+      <li v-for="item in recentArticleList">
         <a>{{item.title}}</a>
-        <p>{{item.created_at}}</p>
+        <p>{{item.created_at | timestamp}}</p>
       </li>
     </ul>
 
     <h3 class="hot-title">Hot</h3>
     <ul class="hot-post">
-      <li v-for="item in recentPost">
+      <li v-for="item in hotArticleList">
         <a>{{item.title}}</a>
-        <p>{{item.created_at}}</p>
+        <p>{{item.created_at | timestamp}}</p>
       </li>
     </ul>
   </div>
@@ -25,17 +25,25 @@ Vue.use(Card);
 Vue.use(Button);
 
 export default {
+  created() {
+    this.$store.dispatch('fetchHotArticleList');
+    this.$store.dispatch('fetchRecentArticleList');
+  },
   data() {
     return {
-      recentPost: [
-        { title: 'namsssssssssssssssssssssssssssssssssssse', created_at: '2014-09-09' },
-        { title: 'name', created_at: '2014-09-09' },
-      ],
     };
   },
   methods: {
     handleFollow() {
       MessageBox.alert('welcome follow me', window.innerWidth);
+    },
+  },
+  computed: {
+    recentArticleList() {
+      return this.$store.state.article.recent;
+    },
+    hotArticleList() {
+      return this.$store.state.article.hot;
     },
   },
 };
@@ -45,21 +53,26 @@ export default {
 @import '~styles/mixins';
 @mixin post-entry {
   margin-left: 10px;
-  a {
-    @include line-clamp(1);
-    font-size: 18px;
-    cursor: pointer;
-  }
-  p {
-    margin-top: -4px;
-    font-size: 14px;
-    color: #999;
+  li {
+    margin-bottom: 12px;
+    a {
+      @include line-clamp(2);
+      font-size: 16px;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+    p {
+      margin-top: 0px;
+      font-size: 12px;
+      color: #999;
+    }
   }
 };
 
 .sidebar {
   h3 {
     color: #666;
+    // font-size: 14px;
   }
   .recent-post {
     @include reset-list;

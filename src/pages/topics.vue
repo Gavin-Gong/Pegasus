@@ -1,11 +1,11 @@
 <template>
-  <div id="tags" class="matrix-layout">
+  <div id="topics" class="matrix-layout">
     <x-card
-      v-for="tag in tagList"
-      :id="tag.id"
-      :title="tag.title"
-      :count="tag.posts_count"
-      :background="tag.banner"
+      v-for="topic in topicList"
+      :id="topic.id"
+      :title="topic.title"
+      :count="topic.post_count"
+      :background="topic.banner"
     ></x-card>
   </div>
 </template>
@@ -23,7 +23,7 @@
       };
     },
     created() {
-      this.$store.dispatch('fetchTagList');
+      this.$store.dispatch('fetchTopicList');
     },
     methods: {
       fetchTags() {
@@ -31,8 +31,8 @@
       },
     },
     computed: {
-      tagList() {
-        return this.$store.state.tag.list;
+      topicList() {
+        return this.$store.state.topic.list;
       },
     },
   };

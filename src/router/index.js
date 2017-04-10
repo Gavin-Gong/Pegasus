@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from 'pages/home';
 import Article from 'pages/article';
 import Topic from 'pages/topic';
+import Topics from 'pages/topics';
 import Tags from 'pages/tags';
 import Tag from 'pages/tag';
 
@@ -21,8 +22,13 @@ export default new Router({
       component: Article,
     },
     {
-      path: '/topics/:id',
+      path: '/topics',
       name: 'Topics',
+      component: Topics,
+    },
+    {
+      path: '/topics/:id',
+      name: 'Topic',
       component: Topic,
     },
     {

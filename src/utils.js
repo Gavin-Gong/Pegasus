@@ -34,3 +34,7 @@ export function repeatToArr(el, count = 1) {
   }
   return Arr;
 }
+
+export function isEmptyObj(ele) {
+  return Object.keys(ele).length === 0 && ele.constructor === Object;
+}

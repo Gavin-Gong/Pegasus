@@ -4,6 +4,7 @@ import * as actions from './actions';
 import * as getters from './getters';
 import article from './modules/article';
 import tag from './modules/tag';
+import topic from './modules/topic';
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
   modules: {
     article,
     tag,
+    topic,
   },
   strict: debug,
 });
