@@ -1,15 +1,16 @@
 <template>
   <div class="card">
-    <slot></slot>
-    <h3 class="card-title">{{ title }}</h3>
-    <div class="description">
-      <slot name="description"></slot>
-    </div>
-    <p class="card-postCount">{{ count }} Posts</p>
-    <el-button
-      class="card-btn"
-      @click="routeTo({name: 'Tag', params: {id: id}})">View</el-button>
-    <div class="mask" :style="bg">
+    <img :src="background" alt="">
+    <div class="mask">
+      <slot></slot>
+      <h3 class="card-title">{{ title }}</h3>
+      <div class="description">
+        <slot name="description"></slot>
+      </div>
+      <p class="card-postCount">{{ count }} Posts</p>
+      <el-button
+        class="card-btn"
+        @click="routeTo({name: routeName, params: {id: id}})">View</el-button>
     </div>
   </div>
 </template>
@@ -22,6 +23,10 @@ export default {
   props: {
     id: {
       type: Number,
+      required: true,
+    },
+    routeName: {
+      type: String,
       required: true,
     },
     title: {
@@ -61,20 +66,28 @@ export default {
 <style lang="scss">
 @import '~styles/mixins';
 .card {
-  $offset: 20px;
+  $offset: 30px;
   position: relative;
   display: inline-block;
-  width: calc(100% / 3 - 20px);
+  overflow: hidden;
+  width: calc(100% / 3 - 40px);
+  // height: 200px;
+  box-sizing: border-box;
   margin-left: $offset;
-  margin-bottom: $offset;
-  padding: 40px 0;
+  margin-bottom: $offset - 10px;
   text-align: center;
   background-size: cover;
   color: #fff;
   cursor: pointer;
-  // @include mask();
+  img {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0; top:0;
+    overflow: hidden;
+  }
   .card-title {
-    // margin-bottom: 10px;
+    // text-align: left;
     color: #fff;
     @include line-clamp(2);
   }
@@ -85,24 +98,19 @@ export default {
     margin: 10px auto 20px;
   }
   .card-btn {
-    // z-index: 101;
     position: absolute;
-    bottom: -10px;
     left: 50%;
-    display: none;
-    transform: translate(-50%, 100%);
+    bottom: 20px;
+    transform: translate(-50%);
     transition: transform .5s ease-in-out;
     cursor: pointer;
   }
-
-  &:hover .card-btn {
-    bottom: 10px;
-    display: inline-block;
-    transition: all .5s ease-in-out;
-    transform: translate3d(-50%, 0, 0);
-  }
   .mask {
-    @include blur-mask();
+    position: relative;
+    padding: 40px 20px 60px;
+    height: 100px;
+    z-index: 20;
+    background: rgba(0,0,0,.4);
   }
 }
 </style>

@@ -1,5 +1,6 @@
 /* global DEV */
 import Vue from 'vue';
+import Meta from 'vue-meta';
 import { Loading } from 'element-ui';
 import axios from 'axios';
 import App from './App';
@@ -7,6 +8,7 @@ import router from './router';
 import store from './store';
 import filters from './filters';
 
+Vue.use(Meta);
 Vue.use(Loading);
 // Vue.prototype.$loading = Loading.service;
 Vue.filter('timestamp', filters);

@@ -27,9 +27,9 @@ export default {
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
-  padding-top: 10px;
-  padding-bottom: 15px;
-  height: 100px;
+  padding-top: 40px;
+  padding-bottom: 25px;
+  height: 120px;
   // background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
   text-align: center;
 }

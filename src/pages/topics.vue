@@ -3,6 +3,7 @@
     <x-card
       v-for="topic in topicList"
       :id="topic.id"
+      route-name="Topic"
       :title="topic.title"
       :count="topic.post_count"
       :background="topic.banner"
@@ -39,7 +40,7 @@
 </script>
 
 <style lang="scss" scoped>
-#tags {
-  margin-left: -20px;
+#topics {
+  // margin-top: 120px;
 }
 </style>

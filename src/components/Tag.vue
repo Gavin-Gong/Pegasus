@@ -32,7 +32,7 @@ export default {
   margin-left: 3px;
   border-radius: 5px;
   cursor: pointer;
-  background: #eee;
+  background: #ccc;
   color: #666;
   font-size: 12px;
 }

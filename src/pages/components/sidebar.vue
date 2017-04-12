@@ -1,12 +1,12 @@
 <template>
   <div class="sidebar">
-    <h3>Recent</h3>
+    <!--<h3>Recent</h3>
     <ul class="recent-post">
       <li v-for="item in recentArticleList">
         <a>{{item.title}}</a>
         <p>{{item.created_at | timestamp}}</p>
       </li>
-    </ul>
+    </ul>-->
 
     <h3 class="hot-title">Hot</h3>
     <ul class="hot-post">

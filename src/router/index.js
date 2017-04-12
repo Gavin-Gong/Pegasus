@@ -6,6 +6,7 @@ import Topic from 'pages/topic';
 import Topics from 'pages/topics';
 import Tags from 'pages/tags';
 import Tag from 'pages/tag';
+import About from 'pages/about';
 
 Vue.use(Router);
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/tags/:id',
       name: 'Tag',
       component: Tag,
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About,
     },
   ],
 });

@@ -3,7 +3,11 @@ import * as types from '../types';
 
 const state = {
   list: [],
-  detail: [],
+  detail: {
+    title: '',
+    post_count: '',
+    banner: '',
+  },
 };
 
 const mutations = {

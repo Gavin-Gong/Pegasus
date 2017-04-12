@@ -1,38 +1,56 @@
 <template>
-  <div id="home">
-    <article-card
-      v-loading=""
-      v-for="article in articleList"
-      :article="article"
-      :line-clamp="true">
-      <div>{{article}}</div>
-    </article-card>
 
-    <div class="pagination">
-      <div v-show="!barLoading">
-        <el-button>Prev</el-button>
-        <el-button>Next</el-button>
+  <el-row :gutter="20" class="main-body">
+    <el-col v-if="lg$" :xs="0" :sm="0" :md="8 " :lg="5">
+      <profile></profile>
+    </el-col>
+    <el-col :xs="8" :sm="12" :md="8" :lg="{span: 15, offset: 0}">
+      <div id="home">
+        <article-card
+          v-loading=""
+          v-for="article in articleList"
+          :article="article"
+          :line-clamp="true">
+        </article-card>
+
+        <div class="pagination">
+          <div v-show="!barLoading">
+            <el-button>Prev</el-button>
+            <el-button>Next</el-button>
+          </div>
+        </div>
+          <!--加载时出现-->
+        <div class="loading-bar" v-loading="barLoading"></div>
       </div>
-    </div>
-      <!--加载时出现-->
-    <div class="loading-bar" v-loading="barLoading"></div>
-  </div>
+    </el-col>
+    <el-col v-if="screenWidth > 992" :xs="0" :sm="12" :md="8" :lg="4">
+      <side-bar></side-bar>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
-import { Button, Loading } from 'element-ui';
+import { Button, Loading, Row, Col } from 'element-ui';
 // import throttle from 'utils/throttle';
 import ArticleCard from 'components/article';
 import articleEn from 'api/data/en-article';
 import articleCh from 'api/data/ch-article';
+import screenMixin from 'mixins/screen';
+import Profile from '../pages/components/profile';
+import SideBar from '../pages/components/sidebar';
 
 Vue.use(Button);
 Vue.use(Loading);
+Vue.use(Row);
+Vue.use(Col);
 
 export default {
   components: {
     ArticleCard,
+    SideBar,
+    Profile,
   },
+  mixins: [screenMixin],
   created() {
     // this.fetchArticles().then((res) => {
     //   console.log(res);

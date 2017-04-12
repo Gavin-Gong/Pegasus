@@ -4,8 +4,9 @@
       v-for="tag in tagList"
       :id="tag.id"
       :title="tag.title"
-      :count="tag.posts_count"
+      :count="tag.post_count"
       :background="tag.banner"
+      route-name="Tag"
     ></x-card>
   </div>
 </template>
@@ -40,6 +41,6 @@
 
 <style lang="scss" scoped>
 #tags {
-  margin-left: -20px;
+  // margin-left: -20px;
 }
 </style>

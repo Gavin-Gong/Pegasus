@@ -5,6 +5,7 @@ import * as getters from './getters';
 import article from './modules/article';
 import tag from './modules/tag';
 import topic from './modules/topic';
+import about from './modules/about';
 
 Vue.use(Vuex);
 
@@ -17,6 +18,7 @@ export default new Vuex.Store({
     article,
     tag,
     topic,
+    about,
   },
   strict: debug,
 });

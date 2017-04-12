@@ -1,26 +1,31 @@
 <template>
   <div id="tag">
-    <div class="tag-info">
-       <div class="tag-banner" :style="background"></div>
-       <h1>{{ tag.title }}</h1>
-       <p> {{ tag.posts_count }} Posts</p>
-    </div>
+    <x-banner :background="tag.banner" :count="tag.post_count" :title="tag.title">
+    </x-banner>
     <ul class="article-list">
       <li class="" v-for="article in tag.posts">
         <article-card
           :article="article"
-          ></article-card>
+          line-clamp>
+        </article-card>
       </li>
+      <placeholder >
+        <h3> There is no posts!</h3>
+      </placeholder>
     </ul>
   </div>
 </template>
 
 <script>
   import ArticleCard from 'components/article';
+  import XBanner from './components/banner';
+  import Placeholder from './components/placeholder';
 
   export default {
     components: {
       ArticleCard,
+      XBanner,
+      Placeholder,
     },
     data() {
       return {

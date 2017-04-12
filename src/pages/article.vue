@@ -2,16 +2,9 @@
   <div id="article-detail">
     <article-card :article="article">
       <div class="article-banner" slot="banner">
-        <img src="~assets/images/article-banner.jpg" :alt="article.title">
-        <h1 class="dp-ib">{{ article.title }}</h1>
+        <img :src="article.banner" :alt="article.title">
+        <div class="mask"><h1 class="dp-ib">{{ article.title }}</h1></div>
       </div>
-      <!--<div class="article-infobar" slot="info">
-        <ul>
-          <li><x-icon type="clock-o"></x-icon> {{article.created_at}}</li>
-          <li><x-icon type="tag"></x-icon> {{article.tags}}</li>
-          <li><x-icon type="folder"></x-icon> {{article.topics}}</li>
-        </ul>
-      </div>-->
     </article-card>
   </div>
 </template>
@@ -27,6 +20,14 @@ export default {
   components: {
     ArticleCard,
     XIcon,
+  },
+  metaInfo: {
+    title: 'name',
+    titleTemplate: '%s - Baz',
+    changed(a, b, c) {
+      console.log('change', a, b, c);
+      console.log(this);
+    },
   },
   created() {
     this.$store.dispatch('fetchArticleById', this.$route.params.id);
@@ -71,22 +72,27 @@ export default {
   img {
     position: absolute;
     z-index: -1;
+    width: 100%;
     top: 0;
     left: 0;
-    max-width: calc(100% + 20px);
-    margin-left: -10px;
-    margin-top: -10%;
-    filter: blur(7px);
+    // max-width: calc(100% + 20px);
+    // margin-left: -10px;
+    // margin-top: -10%;
+    // filter: blur(7px);
   }
-  h1 {
-    z-index: 100;
-    text-align: left;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    @include line-clamp(2);
-    color: #fff;
+  .mask {
+    padding: 30px 10px;
+    background: rgba(0,0,0,.4);
+    h1 {
+      z-index: 100;
+      text-align: left;
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      @include line-clamp(2);
+      color: #fff;
+    }
   }
 }
 .article-infobar {

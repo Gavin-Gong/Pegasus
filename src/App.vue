@@ -2,7 +2,7 @@
   <div id="app">
     <div class="main-content">
       <top-nav></top-nav>
-      <el-row :gutter="20" class="main-body">
+      <!--<el-row :gutter="20" class="main-body">
         <el-col v-if="lg$" :xs="0" :sm="0" :md="8 " :lg="5">
           <profile></profile>
         </el-col>
@@ -12,9 +12,11 @@
         <el-col v-if="screenWidth > 992" :xs="0" :sm="12" :md="8" :lg="4">
           <side-bar></side-bar>
         </el-col>
-      </el-row>
+      </el-row>-->
+      <div class="body-wrapper">
+        <router-view></router-view>
+      </div>
     </div>
-
     <x-footer></x-footer>
     <back-top></back-top>
   </div>
@@ -61,10 +63,15 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 100px;
+  margin-bottom: 120px;
 }
 #app {
+  // text-align: center;
   .main-content {
+    margin: 0 auto;
+    max-width: 1366px;
+    // display: inline-block;
+    text-align: left;
     .search-bar {
       width: 200px!important;
       height: 60px;
@@ -76,10 +83,13 @@ body {
       }
     }
     .main-body {
-      margin-top: 80px;
       margin-right: 0!important;
       padding-left: 20px;
       padding-right: 20px;
+    }
+    .body-wrapper {
+      margin: 100px auto;
+      max-width: 920px;
     }
   }
 }

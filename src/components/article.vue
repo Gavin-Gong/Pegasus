@@ -6,7 +6,8 @@
       :to="{name: 'Article', params:{id: article.id}}"
       >{{ article.title }}</router-link>
     <slot name="banner"></slot>
-    <ul class="info-bar">
+
+    <ul :class="['info-bar', 'clearfix', {'style-bar': !!$slots.banner}]">
       <li><x-icon type="clock-o"></x-icon> {{article.created_at | timestamp}} </li>
       <li><x-icon type="tag"></x-icon>
         <ul class="tag-list">
@@ -102,21 +103,34 @@ export default {
     padding: 30px 30px;
     margin-bottom: 30px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .12), 0px 0px 6px 0px rgba(0, 0, 0, .04);
+    background-clip: content-box;
     .info-bar {
       font-size: 14px;
-      margin-left: -15px;
+      margin-left: -25px;
+      // padding-left: 15px;
       margin-bottom: 20px;
       color: #888;
       @include reset-list();
       > li {
-        margin-left: 15px;
+        margin-left: 25px;
+        float: left;
       }
+      // > li:first-child {
+      //   margin-left: 0;
+      // }
       >li:last-child {
         @include line-clamp(1);
       }
       .tag-list {
         display: inline-block;
         @include reset-list();
+      }
+      &.style-bar {
+        background: #eee;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        // background-clip: content-box;
       }
     }
     .title {
@@ -139,10 +153,6 @@ export default {
     width: 100%;
     min-height: 100vh;
     background: #fff;
-    // @include res-to(lg) {
-    //   padding-left: 20%;
-    //   padding-right: 20%;
-    // }
     .article-box {
       // display: inline-block;
       margin: 0 auto;

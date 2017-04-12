@@ -8,3 +8,5 @@ export const FETCH_TAG = 'FETCH_TAG';
 
 export const FETCH_TOPIC_LIST = 'FETCH_TOPIC_LIST';
 export const FETCH_TOPIC = 'FETCH_TOPIC';
+
+export const FETCH_ABOUT = 'FETCH_ABOUT';
