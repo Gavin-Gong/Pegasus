@@ -9,7 +9,7 @@
           line-clamp>
         </article-card>
       </li>
-      <placeholder >
+      <placeholder v-if="tag.posts && !tag.posts.length">
         <h3> There is no posts!</h3>
       </placeholder>
     </ul>

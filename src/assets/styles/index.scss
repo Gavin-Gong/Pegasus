@@ -9,11 +9,11 @@
 // @import '~styles/normalize.css';
 
 // reset fail load styles
-@include res-to(xs) {
-  html {
-    font-size: 62.5%;
-  }
-}
+// @include res-to(xs) {
+//   html {
+//     font-size: 62.5%;
+//   }
+// }
 img {
   position: relative;
   &:after {
@@ -30,4 +30,9 @@ img {
 
 [v-cloak] {
    display: none
+}
+iframe {
+  #player {
+    display: none;
+  }
 }

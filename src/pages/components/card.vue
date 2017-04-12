@@ -71,6 +71,10 @@ export default {
   display: inline-block;
   overflow: hidden;
   width: calc(100% / 3 - 40px);
+  @include res-to(xs) {
+    width: 100%;
+    margin-left: 0;
+  }
   // height: 200px;
   box-sizing: border-box;
   margin-left: $offset;

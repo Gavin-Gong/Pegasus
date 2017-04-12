@@ -6,22 +6,23 @@
       :to="{name: 'Article', params:{id: article.id}}"
       >{{ article.title }}</router-link>
     <slot name="banner"></slot>
-
-    <ul :class="['info-bar', 'clearfix', {'style-bar': !!$slots.banner}]">
-      <li><x-icon type="clock-o"></x-icon> {{article.created_at | timestamp}} </li>
-      <li><x-icon type="tag"></x-icon>
-        <ul class="tag-list">
-            <x-tag
-              v-for="tag in article.tags"
-              :route="{name: 'Tag', params: {id: tag.id}}"
-              :text="tag.title">
-            </x-tag>
-        </ul>
-      </li>
-      <li v-if="!isEmptyObj(article.topic)"><x-icon type="folder"></x-icon>
-        <router-link :to="{name: 'Topic', params: {id: article.topic.id}}"> {{article.topic.title}} </router-link>
-      </li>
-    </ul>
+    <div class="infobar-wrapper">
+      <ul :class="['info-bar', 'clearfix', {'style-bar': !!$slots.banner}]">
+        <li><x-icon type="clock-o"></x-icon> {{article.created_at | timestamp}} </li>
+        <li><x-icon type="tag"></x-icon>
+          <ul class="tag-list">
+              <x-tag
+                v-for="tag in article.tags"
+                :route="{name: 'Tag', params: {id: tag.id}}"
+                :text="tag.title">
+              </x-tag>
+          </ul>
+        </li>
+        <li v-if="!isEmptyObj(article.topic)"><x-icon type="folder"></x-icon>
+          <router-link :to="{name: 'Topic', params: {id: article.topic.id}}"> {{article.topic.title}} </router-link>
+        </li>
+      </ul>
+    </div>
     <slot name="info"></slot>
     <div :class="lineClamp ? 'line-clamp' : ''">
       <div v-html="htmlBody"></div>
@@ -100,43 +101,50 @@ export default {
   @import '~styles/article';
   @import '~styles/utils';
   .article-card {
-    padding: 30px 30px;
+    padding: 30px 30px 40px;
+    @include res-to(xs) {
+      padding: 0 10px 30px;
+      // padding: 20px 20px;
+    }
     margin-bottom: 30px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .12), 0px 0px 6px 0px rgba(0, 0, 0, .04);
     background-clip: content-box;
-    .info-bar {
-      font-size: 14px;
-      margin-left: -25px;
-      // padding-left: 15px;
-      margin-bottom: 20px;
-      color: #888;
-      @include reset-list();
-      > li {
-        margin-left: 25px;
-        float: left;
-      }
-      // > li:first-child {
-      //   margin-left: 0;
-      // }
-      >li:last-child {
-        @include line-clamp(1);
-      }
-      .tag-list {
-        display: inline-block;
+    .infobar-wrapper {
+      overflow: hidden;
+      .info-bar {
+        font-size: 14px;
+        margin-left: -25px;
+        margin-bottom: 20px;
+        color: #888;
         @include reset-list();
-      }
-      &.style-bar {
-        background: #eee;
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-        // background-clip: content-box;
+        > li {
+          margin-left: 25px;
+          float: left;
+        }
+        // > li:first-child {
+        //   margin-left: 0;
+        // }
+        >li:last-child {
+          @include line-clamp(1);
+        }
+        .tag-list {
+          display: inline-block;
+          @include reset-list();
+        }
+        &.style-bar {
+          background: #eee;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 15px;
+          // background-clip: content-box;
+        }
       }
     }
     .title {
       font-size: 34px;
       display: inline-block;
       cursor: pointer;
+      margin-bottom: 10px;
     }
     .line-clamp {
       @include line-clamp(10);

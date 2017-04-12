@@ -58,6 +58,9 @@ export default {
 <style lang="scss" scoped>
 @import '~styles/mixins';
 #about {
+  @include res-to(xs) {
+    padding: 0 10px;
+  }
   .avatar {
     margin: 0 auto 30px;
     width: 80px;

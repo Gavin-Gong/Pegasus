@@ -10,3 +10,5 @@ export const FETCH_TOPIC_LIST = 'FETCH_TOPIC_LIST';
 export const FETCH_TOPIC = 'FETCH_TOPIC';
 
 export const FETCH_ABOUT = 'FETCH_ABOUT';
+
+export const FETCH_PROFILE = 'FETCH_PROFILE';

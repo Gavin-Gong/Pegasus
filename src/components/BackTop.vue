@@ -52,7 +52,7 @@ export default {
   position: fixed;
   right: 80px;
   bottom: 80px;
-  @include res-to(sm) {
+  @include res-to(xs) {
     right: 10px;
     bottom: 20px;
   };

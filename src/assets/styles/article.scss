@@ -2,16 +2,16 @@
 @import '~styles/mixins';
 
 .article-typo {
-  line-height: 1.7;
+  line-height: 1.6;
   // letter-spacing: .7px;
-  word-spacing: 1px;
+  // word-spacing: 1px;
   a {
-    line-height: 1.4;
+    line-height: 1.2;
   }
   pre {
     overflow: auto;
     background: #eee;
-    padding: 14px;
+    // padding: 14px;
     margin-top: 10px;
     margin-bottom: 16px;
     border-radius: 3px;

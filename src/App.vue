@@ -13,7 +13,9 @@
           <side-bar></side-bar>
         </el-col>
       </el-row>-->
-      <div class="body-wrapper">
+      <!--:style="{maxWidth: screenWidth > 1300 ? '1366px': '920px'}"-->
+      <div class="body-wrapper"
+        :style="{maxWidth: screenWidth > 1300 && $route.name === 'Home' ? '1366px': '920px'}">
         <router-view></router-view>
       </div>
     </div>
@@ -44,6 +46,11 @@ export default {
     BackTop,
   },
   mixins: [screenMixin],
+  metaInfo() {
+    return {
+      title: '',
+    };
+  },
   data() {
     return {
       search: '',
@@ -69,6 +76,7 @@ body {
   // text-align: center;
   .main-content {
     margin: 0 auto;
+    // padding: 0 20px;
     max-width: 1366px;
     // display: inline-block;
     text-align: left;
@@ -89,6 +97,9 @@ body {
     }
     .body-wrapper {
       margin: 100px auto;
+      @include res-to(xs) {
+        margin: 80px auto;
+      }
       max-width: 920px;
     }
   }

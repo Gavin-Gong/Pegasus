@@ -21,13 +21,14 @@ export default {
     ArticleCard,
     XIcon,
   },
-  metaInfo: {
-    title: 'name',
-    titleTemplate: '%s - Baz',
-    changed(a, b, c) {
-      console.log('change', a, b, c);
-      console.log(this);
-    },
+  metaInfo() {
+    return {
+      title: this.article.title,
+      titleTemplate: 'Pegasus - %s',
+      changed(a, b, c) {
+        console.log(a, b, c);
+      },
+    };
   },
   created() {
     this.$store.dispatch('fetchArticleById', this.$route.params.id);

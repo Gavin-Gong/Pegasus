@@ -15,7 +15,7 @@ Vue.filter('timestamp', filters);
 // Vue.mixin([]);
 
 if (DEV) {
-  axios.defaults.baseURL = 'http://127.0.0.1:3000';
+  axios.defaults.baseURL = 'http://192.168.1.176:3000';
 } else {
   axios.defaults.baseURL = 'https://pegasus-app.herokuapp.com';
 }

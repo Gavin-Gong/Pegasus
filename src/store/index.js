@@ -6,6 +6,7 @@ import article from './modules/article';
 import tag from './modules/tag';
 import topic from './modules/topic';
 import about from './modules/about';
+import profile from './modules/profile';
 
 Vue.use(Vuex);
 
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     tag,
     topic,
     about,
+    profile,
   },
   strict: debug,
 });
