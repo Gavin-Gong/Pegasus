@@ -5,10 +5,15 @@
 @import '../font-awesome/scss/font-awesome';
 @import './override';
 @import './scrollbar';
+@import './mixins';
 // @import '~styles/normalize.css';
 
 // reset fail load styles
-
+@include res-to(xs) {
+  html {
+    font-size: 62.5%;
+  }
+}
 img {
   position: relative;
   &:after {
