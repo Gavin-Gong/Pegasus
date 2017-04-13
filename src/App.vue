@@ -14,8 +14,8 @@
         </el-col>
       </el-row>-->
       <!--:style="{maxWidth: screenWidth > 1300 ? '1366px': '920px'}"-->
+        <!--:style="{maxWidth: screenWidth > 1300 && $route.name === 'Home' ? '1366px': '920px'}"-->
       <div class="body-wrapper"
-        :style="{maxWidth: screenWidth > 1300 && $route.name === 'Home' ? '1366px': '920px'}"
         >
         <transition name="slide-fade">
           <keep-alive exclude="topic,article,tag">
@@ -115,7 +115,7 @@ body {
       @include res-to(xs) {
         margin: 80px auto;
       }
-      max-width: 920px;
+      // max-width: 920px;
     }
   }
 }

@@ -41,3 +41,13 @@ iframe {
     display: none;
   }
 }
+
+
+// limit page max-width
+#home {
+  max-width: 1366px;
+}
+#topic, #topics, #tag, #tags, #article, #article-detail, #about {
+  max-width: 920px;
+  margin: auto;
+}
