@@ -14,10 +14,10 @@ Vue.use(Loading);
 Vue.filter('timestamp', filters);
 // Vue.mixin([]);
 
-if (DEV) {
-  axios.defaults.baseURL = 'http://192.168.1.176:3000';
-} else {
+if (typeof DEV === 'undefined' || DEV === false) {
   axios.defaults.baseURL = 'https://pegasus-app.herokuapp.com';
+} else {
+  axios.defaults.baseURL = 'http://192.168.1.176:3000';
 }
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
