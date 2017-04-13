@@ -17,6 +17,7 @@ import { Button } from 'element-ui';
 Vue.use(Button);
 
 export default {
+  name: 'article',
   components: {
     ArticleCard,
     XIcon,

@@ -30,15 +30,14 @@ export default {
   },
   methods: {
     handleBackTop() {
-      // let toTop = document.body.scrollTop;
-      let baseV = 180;
-      const timerId = setInterval(() => {
-        document.body.scrollTop -= baseV;
-        baseV += 180;
-        if (document.body.scrollTop <= 0) {
-          clearInterval(timerId);
-        }
-      }, 100);
+      let timeOut;
+      function scrollToTop() {
+        if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) {
+          window.scrollBy(0, -50);
+          timeOut = setTimeout(scrollToTop(), 10);
+        } else clearTimeout(timeOut);
+      }
+      scrollToTop();
     },
   },
 };

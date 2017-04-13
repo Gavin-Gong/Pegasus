@@ -1,5 +1,5 @@
 <template>
-  <div id="topics" class="matrix-layout">
+  <div id="topics" class="matrix-layout" v-loading.fullscreen="isLoading">
     <x-card
       v-for="topic in topicList"
       :id="topic.id"
@@ -20,11 +20,14 @@
     },
     data() {
       return {
-
+        isLoading: false,
       };
     },
     created() {
-      this.$store.dispatch('fetchTopicList');
+      this.isLoading = true;
+      this.$store.dispatch('fetchTopicList').then(() => {
+        this.isLoading = false;
+      });
     },
     methods: {
       fetchTags() {

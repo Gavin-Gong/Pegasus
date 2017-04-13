@@ -10,12 +10,15 @@ import About from 'pages/about';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
       name: 'Home',
       component: Home,
+      meta: {
+        positionY: 0,
+      },
     },
     {
       path: '/posts/:id',
@@ -26,6 +29,9 @@ export default new Router({
       path: '/topics',
       name: 'Topics',
       component: Topics,
+      meta: {
+        positionY: 0,
+      },
     },
     {
       path: '/topics/:id',
@@ -36,6 +42,9 @@ export default new Router({
       path: '/tags',
       name: 'Tags',
       component: Tags,
+      meta: {
+        positionY: 0,
+      },
     },
     {
       path: '/tags/:id',
@@ -46,6 +55,32 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: About,
+      meta: {
+        positionY: 0,
+      },
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  /* eslint no-prototype-builtins: "off" */
+  if (from.meta.hasOwnProperty('positionY')) {
+    // save position
+    from.meta.positionY = document.body.scrollTop;
+    console.log('saved position', document.body.scrollTop);
+  }
+  console.log(to);
+  if (to.meta && to.meta.hasOwnProperty('positionY')) {
+    window.scrollTo(0, to.meta.positionY);
+    console.log('scroll to position', to.meta.positionY);
+  } else {
+    window.scrollTo(0, 0);
+  }
+  next();
+});
+
+// router.afterEach((route) => {
+//   /* eslint no-prototype-builtins: "off" */
+// });
+
+export default router;

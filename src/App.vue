@@ -15,8 +15,13 @@
       </el-row>-->
       <!--:style="{maxWidth: screenWidth > 1300 ? '1366px': '920px'}"-->
       <div class="body-wrapper"
-        :style="{maxWidth: screenWidth > 1300 && $route.name === 'Home' ? '1366px': '920px'}">
-        <router-view></router-view>
+        :style="{maxWidth: screenWidth > 1300 && $route.name === 'Home' ? '1366px': '920px'}"
+        >
+        <transition name="slide-fade">
+          <keep-alive exclude="topic,article,tag">
+            <router-view></router-view>
+          <keep-alive>
+        </transition>
       </div>
     </div>
     <x-footer></x-footer>
@@ -65,6 +70,16 @@ export default {
 
 <style lang='scss'>
 @import '~styles/index';
+.slide-fade-enter-active {
+  transition: opacity .3s ease;
+}
+.slide-fade-leave-active {
+  transition: opacity .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  // transform: translateX(10px);
+  opacity: 0;
+}
 html {
   position: relative;
   min-height: 100%;

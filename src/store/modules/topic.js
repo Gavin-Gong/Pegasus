@@ -5,8 +5,8 @@ const state = {
   list: [],
   detail: {
     title: '',
-    count: 0,
-    background: '',
+    post_count: 0,
+    banner: '',
   },
 };
 

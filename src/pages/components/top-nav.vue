@@ -6,6 +6,7 @@
       default-active="1"
       :router="true"
       :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
+      <!--:class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">-->
       <el-menu-item index="1" :route="{name: 'Home'}">Home</el-menu-item>
       <el-menu-item index="2" :route="{name: 'Topics'}">Topics</el-menu-item>
       <!--<el-menu-item index="3" :route="{name: 'Archive'}">Line</el-menu-item>-->
@@ -23,6 +24,7 @@
 
 <script>
 import { Menu, MenuItem, Input } from 'element-ui';
+import { throttle } from 'lodash';
 
 Vue.use(Menu);
 Vue.use(MenuItem);
@@ -33,22 +35,24 @@ export default {
     let cache = null;
     window.addEventListener('scroll', () => {
       // console.log('nav scroll');
-      if (!cache) {
-        cache = document.body.scrollTop;
-      } else {
-        if (document.body.scrollTop > cache) {
-          this.isShow = false;
+      this.throttle(() => {
+        if (!cache) {
+          cache = document.body.scrollTop;
         } else {
-          this.isShow = true;
+          if (document.body.scrollTop > cache) {
+            this.isShow = false;
+          } else {
+            this.isShow = true;
+          }
+          cache = document.body.scrollTop;
         }
-        cache = document.body.scrollTop;
-      }
-      if (document.body.scrollTop > 30) {
-        this.darkMode = false;
-        // this.isFixed = true;
-      } else {
-        this.darkMode = true;
-      }
+        if (document.body.scrollTop > 30) {
+          this.darkMode = false;
+          // this.isFixed = true;
+        } else {
+          this.darkMode = true;
+        }
+      }, 500);
     });
   },
   data() {
@@ -61,6 +65,7 @@ export default {
       darkMode: true,
       isFixed: true,
       isShow: true,
+      throttle,
     };
   },
 };

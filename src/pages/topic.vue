@@ -18,6 +18,7 @@
   import XBanner from './components/banner';
 
   export default {
+    name: 'topic',
     components: {
       ArticleCard,
       XBanner,
@@ -29,17 +30,15 @@
     created() {
       this.$store.dispatch('fetchTopic', this.$route.params.id);
     },
+    mounted() {
+      window.scrollTo(0, 0);
+    },
     methods: {
       fetchtopics() {
 
       },
     },
     computed: {
-      background() {
-        return {
-          background: `url(${this.topic.banner}) 0 / cover fixed`,
-        };
-      },
       topic() {
         console.log(this.$store.state.topic.detail);
         return this.$store.state.topic.detail;

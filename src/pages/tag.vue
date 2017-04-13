@@ -22,6 +22,7 @@
   import Placeholder from './components/placeholder';
 
   export default {
+    name: 'tag',
     components: {
       ArticleCard,
       XBanner,
@@ -33,6 +34,9 @@
     },
     created() {
       this.$store.dispatch('fetchTag', this.$route.params.id);
+    },
+    mounted() {
+      window.scrollTo(0, 0);
     },
     methods: {
       fetchTags() {
@@ -47,11 +51,6 @@
       },
       tag() {
         return this.$store.state.tag.detail;
-      },
-    },
-    watch: {
-      $route() {
-        this.$store.dispatch('fetchTag', this.$route.params.id);
       },
     },
   };

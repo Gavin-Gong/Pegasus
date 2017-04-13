@@ -59,11 +59,12 @@ export default {
   },
   mounted() {
     // ref
-    const profileEle = document.querySelector('#profile');
-    window.onscroll = () => {
-      console.log(profileEle.getBoundingClientRect());
-    };
-    this.affixStyle.width = getComputedStyle(profileEle).width;
+    // const profileEle = document.querySelector('#profile');
+    // TODO: affix
+    // window.onscroll = () => {
+    //   console.log(profileEle.getBoundingClientRect());
+    // };
+    // this.affixStyle.width = getComputedStyle(profileEle).width;
   },
   methods: {
     handleFollow() {
