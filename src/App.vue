@@ -115,7 +115,6 @@ body {
       @include res-to(xs) {
         margin: 80px auto;
       }
-      // max-width: 920px;
     }
   }
 }

@@ -2,7 +2,9 @@
   <div id="profile" ref="wrapper">
     <div class="affix-wrapper" :style="isAffix ? affixStyle : {}">
       <el-card class="profile-data">
-        <img :src="profile.avatar" alt="" class="avatar">
+        <div class="avatar-wrapper">
+          <img :src="profile.avatar" alt="" class="avatar">
+        </div>
         <h2 class="name">{{profile.name}}</h2>
         <p class="bio">{{profile.bio}}</p>
         <p class="address"><x-icon type="map-marker" color="#333"></x-icon> {{profile.address}}</p>
@@ -91,9 +93,16 @@ export default {
     .profile-data {
       text-align: center;
       box-shadow: none;
-      .avatar {
-        max-width: 100px;
+      .avatar-wrapper {
+        margin: auto;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
+        background: #eee;
+        .avatar {
+          max-width: 100px;
+          border-radius: 50%;
+        }
       }
       .name {
         font-size: 22px;

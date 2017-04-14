@@ -4,7 +4,7 @@ import * as types from '../types';
 const state = {
   data: {
     created_at: '',
-    avatar: 'http://lorempixel.com/500/200/nightlife?id=0',
+    avatar: '',
     name: '',
     bio: '',
     socials: [],
