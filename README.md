@@ -21,7 +21,7 @@ TODO:
 - [ ] 集成 [disqus](https://pegasus-app.disqus.com/admin/install/platforms/universalcode/)
 - [ ] vue-router history mode
 - [ ] admin
-
+- [ ] top bar loading
 
 Problem
 - [ ] calc & scss variblle
