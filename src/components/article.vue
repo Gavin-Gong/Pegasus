@@ -87,9 +87,6 @@ export default {
   created() {
     // console.log(this.article);
   },
-  mounted() {
-    window.scrollTo(0, 0);
-  },
   computed: {
     htmlBody() {
       if (this.type !== 'html') return this.article.body;

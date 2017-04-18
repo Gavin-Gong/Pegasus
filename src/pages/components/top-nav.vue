@@ -32,28 +32,28 @@ Vue.use(Input);
 export default {
   created() {
     // REVIEW:  throttle the event using requestAnimationFrame, setTimeout or customEvent
-    let cache = null;
-    window.addEventListener('scroll', () => {
-      // console.log('nav scroll');
-      this.throttle(() => {
-        if (!cache) {
-          cache = document.body.scrollTop;
-        } else {
-          if (document.body.scrollTop > cache) {
-            this.isShow = false;
-          } else {
-            this.isShow = true;
-          }
-          cache = document.body.scrollTop;
-        }
-        if (document.body.scrollTop > 30) {
-          this.darkMode = false;
-          // this.isFixed = true;
-        } else {
-          this.darkMode = true;
-        }
-      }, 500);
-    });
+    // let cache = null;
+    // window.addEventListener('scroll', () => {
+    //   // console.log('nav scroll');
+    //   this.throttle(() => {
+    //     if (!cache) {
+    //       cache = document.body.scrollTop;
+    //     } else {
+    //       if (document.body.scrollTop > cache) {
+    //         this.isShow = false;
+    //       } else {
+    //         this.isShow = true;
+    //       }
+    //       cache = document.body.scrollTop;
+    //     }
+    //     if (document.body.scrollTop > 30) {
+    //       this.darkMode = false;
+    //       // this.isFixed = true;
+    //     } else {
+    //       this.darkMode = true;
+    //     }
+    //   }, 500);
+    // });
   },
   data() {
     return {

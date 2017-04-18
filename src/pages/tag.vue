@@ -35,9 +35,9 @@
     created() {
       this.$store.dispatch('fetchTag', this.$route.params.id);
     },
-    mounted() {
-      window.scrollTo(0, 0);
-    },
+    // mounted() {
+    //   window.scrollTo(0, 0);
+    // },
     methods: {
       fetchTags() {
 

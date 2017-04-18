@@ -69,18 +69,21 @@ router.beforeEach((to, from, next) => {
     from.meta.positionY = document.body.scrollTop;
     console.log('saved position', document.body.scrollTop);
   }
-  console.log(to);
-  if (to.meta && to.meta.hasOwnProperty('positionY')) {
-    window.scrollTo(0, to.meta.positionY);
-    console.log('scroll to position', to.meta.positionY);
-  } else {
-    window.scrollTo(0, 0);
-  }
+  // console.log(to);
+  // if (to.meta && to.meta.hasOwnProperty('positionY')) {
+  //   setTimeout(() => {
+  //     window.scrollTo(0, to.meta.positionY);
+  //   }, 0);
+  //   console.log('scroll to position', to.meta.positionY);
+  // } else {
+  //   window.scrollTo(0, 0);
+  // }
   next();
 });
+/*eslint-disable*/
+router.afterEach((route) => {
+  /* eslint no-prototype-builtins: "off" */
 
-// router.afterEach((route) => {
-//   /* eslint no-prototype-builtins: "off" */
-// });
+});
 
 export default router;
