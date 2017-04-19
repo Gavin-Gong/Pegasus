@@ -11,6 +11,20 @@ import About from 'pages/about';
 Vue.use(Router);
 
 const router = new Router({
+  mode: 'history',
+  /*eslint-disable*/
+  scrollBehavior(to, from, savedPos) {
+    if (from.meta.hasOwnProperty('positionY')) {
+      // save position
+      from.meta.positionY = document.body.scrollTop;
+      console.log('saved position', document.body.scrollTop);
+    }
+    // if (savedPos) {
+    //   return savedPos;
+    // }
+    console.log(`scroll to ${to.meta.positionY}`);
+    return { x: 0, y: to.meta.positionY };
+  },
   routes: [
     {
       path: '/',
@@ -63,12 +77,13 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+  console.log(to.matched);
   /* eslint no-prototype-builtins: "off" */
-  if (from.meta.hasOwnProperty('positionY')) {
-    // save position
-    from.meta.positionY = document.body.scrollTop;
-    console.log('saved position', document.body.scrollTop);
-  }
+  // if (from.meta.hasOwnProperty('positionY')) {
+  //   // save position
+  //   from.meta.positionY = document.body.scrollTop;
+  //   console.log('saved position', document.body.scrollTop);
+  // }
   // console.log(to);
   // if (to.meta && to.meta.hasOwnProperty('positionY')) {
   //   setTimeout(() => {
