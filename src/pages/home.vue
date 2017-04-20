@@ -48,6 +48,13 @@ export default {
   created() {
     this.fetchData();
   },
+  mounted() {
+    // window.scrollTo(0, this.$route.meta.positionY);
+  },
+  activated() {
+    // console.log(this.$route.meta.positionY);
+    // window.scrollTo(0, this.$route.meta.positionY);
+  },
   data() {
     return {
       articleEn: articleEn.body,
