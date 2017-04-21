@@ -7,6 +7,7 @@ import Topics from 'pages/topics';
 import Tags from 'pages/tags';
 import Tag from 'pages/tag';
 import About from 'pages/about';
+import Write from 'pages/write';
 
 Vue.use(Router);
 
@@ -68,10 +69,15 @@ const router = new Router({
     {
       path: '/about',
       name: 'About',
-      component: About,
+       component: About,
       meta: {
         positionY: 0,
       },
+    },
+    {
+      path: '/write',
+      name: 'Write',
+      component: Write,
     },
   ],
 });

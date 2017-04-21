@@ -1275,6 +1275,16 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
+codemirror-spell-checker@*:
+  version "1.1.2"
+  resolved "http://registry.npm.taobao.org/codemirror-spell-checker/download/codemirror-spell-checker-1.1.2.tgz#1c660f9089483ccb5113b9ba9ca19c3f4993371e"
+  dependencies:
+    typo-js "*"
+
+codemirror@*:
+  version "5.25.2"
+  resolved "http://registry.npm.taobao.org/codemirror/download/codemirror-5.25.2.tgz#8c77677ca9c9248d757d3a07ed1e89a8404850b7"
+
 color-convert@^1.3.0:
   version "1.9.0"
   resolved "https://registry.npmjs.org/color-convert/-/color-convert-1.9.0.tgz#1accf97dd739b983bf994d56fec8f95853641b7a"
@@ -3888,7 +3898,7 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-marked@^0.3.6:
+marked@*, marked@^0.3.6:
   version "0.3.6"
   resolved "http://registry.npm.taobao.org/marked/download/marked-0.3.6.tgz#b2c6c618fccece4ef86c4fc6cb8a7cbf5aeda8d7"
 
@@ -5495,6 +5505,14 @@ simple-is@~0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/simple-is/-/simple-is-0.2.0.tgz#2abb75aade39deb5cc815ce10e6191164850baf0"
 
+simplemde@^1.11.2:
+  version "1.11.2"
+  resolved "http://registry.npm.taobao.org/simplemde/download/simplemde-1.11.2.tgz#a23a35d978d2c40ef07dec008c92f070d8e080e3"
+  dependencies:
+    codemirror "*"
+    codemirror-spell-checker "*"
+    marked "*"
+
 sinon-chai@^2.8.0:
   version "2.8.0"
   resolved "https://registry.npmjs.org/sinon-chai/-/sinon-chai-2.8.0.tgz#432a9bbfd51a6fc00798f4d2526a829c060687ac"
@@ -5966,6 +5984,10 @@ type-is@~1.6.14:
 typedarray@^0.0.6, typedarray@~0.0.5:
   version "0.0.6"
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typo-js@*:
+  version "1.0.3"
+  resolved "http://registry.npm.taobao.org/typo-js/download/typo-js-1.0.3.tgz#54d8ebc7949f1a7810908b6002c6841526c99d5a"
 
 uglify-js@2.7.x, uglify-js@^2.6, uglify-js@^2.7.5:
   version "2.7.5"
