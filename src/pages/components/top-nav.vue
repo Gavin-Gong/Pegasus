@@ -64,9 +64,13 @@ export default {
       ],
       darkMode: true,
       isFixed: true,
-      isShow: true,
       throttle,
     };
+  },
+  computed: {
+    isShow() {
+      return this.$store.state.global.showNav;
+    },
   },
 };
 </script>

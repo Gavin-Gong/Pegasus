@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer" v-if="isShow">
     <p>© 2017 Gavin-Gong</p>
     <p>Powered By Vuejs</p>
   </div>
@@ -15,6 +15,11 @@ export default {
   methods: {
     handleFollow() {
       MessageBox.alert('welcome follow me', window.innerWidth);
+    },
+  },
+  computed: {
+    isShow() {
+      return this.$store.state.global.showFooter;
     },
   },
 };

@@ -7,6 +7,8 @@ import tag from './modules/tag';
 import topic from './modules/topic';
 import about from './modules/about';
 import profile from './modules/profile';
+// import nav from './modules/nav';
+import global from './modules/global';
 
 Vue.use(Vuex);
 
@@ -21,6 +23,7 @@ export default new Vuex.Store({
     topic,
     about,
     profile,
+    global,
   },
   strict: debug,
 });
