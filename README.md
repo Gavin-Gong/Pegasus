@@ -25,3 +25,7 @@ TODO:
 
 Problem
 - [ ] calc & scss variblle
+
+Bugs
+- [ ] side preview, no italic styles
+- [ ] editor empty img

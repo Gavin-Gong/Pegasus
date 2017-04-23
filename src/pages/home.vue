@@ -9,14 +9,14 @@
         :line-clamp="true">
       </article-card>
 
-      <div class="pagination">
-        <div v-show="!barLoading">
-          <el-button @click="fetchData">Prev</el-button>
-          <el-button @click="loadMore">Next</el-button>
-        </div>
-      </div>
+      <el-card class="pagination" v-loading="barLoading">
+        <!--<el-button @click="fetchPrevPage" :disabled="currentPage === 1">Prev</el-button>-->
+        <el-button
+          v-if="currentPage !== 0"
+          @click="fetchNextPage">Load More Posts</el-button>
+        <p v-else>There is no more!</p>
+      </el-card>
         <!--加载时出现-->
-      <div class="loading-bar" v-loading="barLoading"></div>
     </div>
     <side-bar
       class="sidebar"
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { Button, Loading, Row, Col } from 'element-ui';
+import { Button, Loading, Row, Col, Card } from 'element-ui';
 import ArticleCard from 'components/article';
 import articleEn from 'api/data/en-article';
 import articleCh from 'api/data/ch-article';
@@ -37,6 +37,7 @@ Vue.use(Button);
 Vue.use(Loading);
 Vue.use(Row);
 Vue.use(Col);
+Vue.use(Card);
 
 export default {
   components: {
@@ -61,6 +62,7 @@ export default {
       articleCh: articleCh.body,
       barLoading: false,
       scrollLoadedData: [],
+      currentPage: 1,
     };
   },
   methods: {
@@ -79,8 +81,16 @@ export default {
     //     }
     //   });
     // },
-    loadMore() {
-      this.fetchData({ _page: 2, _limit: 5 });
+    fetchNextPage() {
+      this.barLoading = true;
+      this.currentPage = this.currentPage + 1;
+      this.$store.dispatch('addToArticleList', { _page: this.currentPage, _limit: 5 })
+        .then((data) => {
+          this.barLoading = false;
+          if (Array.isArray(data) && !data.length) {
+            this.currentPage = 0;
+          }
+        });
     },
     fetchData(query = { _page: 1, _limit: 5 }) {
       const fsLoad = Loading.service({
