@@ -8,6 +8,7 @@ import Tags from 'pages/tags';
 import Tag from 'pages/tag';
 import About from 'pages/about';
 import Write from 'pages/write';
+import Dashboard from '../dashboard';
 
 Vue.use(Router);
 
@@ -78,6 +79,11 @@ const router = new Router({
       path: '/write',
       name: 'Write',
       component: Write,
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard,
     },
   ],
 });

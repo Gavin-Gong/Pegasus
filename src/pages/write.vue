@@ -1,12 +1,12 @@
 <template>
   <div id="write">
     <div class="op-bar">
-      <el-input class="dp-ib" placeholder="type your title" style="width: 300px; margin-right: 40px; font-weight: bold"></el-input>
+      <!--<el-input class="dp-ib" placeholder="type your title" style="width: 300px; margin-right: 40px; font-weight: bold"></el-input>-->
       <el-button @click="goBack">
         <x-icon type="arrow-left"></x-icon> Back
         <!--<i class="el-icon-arrow-left"></i>-->
       </el-button>
-      <el-button type="primary" @click="postArticle"> Save </el-button>
+      <el-button type="primary" @click="showDialog = true"> Save </el-button>
       <!--save & post-->
       <!--discard-->
       <!--save to draft-->
@@ -16,23 +16,42 @@
       </textarea>
     </div>
     <el-dialog v-model="showDialog" :show-close="false" title="Addtional Infomation">
-      <el-form>
-        <el-form-item>
-          <el-input placeholder="type your title"></el-input>
+      <el-form label-position="right" label-width="80px">
+        <el-form-item label="title">
+          <el-input placeholder="type your title" v-model="postFields.title"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-input placeholder="type your topic"></el-input>
+        <el-form-item label="tag">
+          <el-select
+            class="long-select"
+            v-model="postFields.tags"
+            filterable
+            multiple
+            placeholder="please choose tag">
+            <el-option
+              v-for="item in tagList"
+              :label="item.title"
+              :value="item">
+            </el-option>
+          </el-select>
         </el-form-item>
-        <el-form-item>
-          <el-input placeholder="type your tag"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-input placeholder="uploader your tag"></el-input>
+        <el-form-item label="topic">
+          <el-select
+            class="long-select"
+            v-model="postFields.topics"
+            filterable
+            clearable
+            placeholder="please choose topic">
+            <el-option
+              v-for="item in topicList"
+              :label="item.title"
+              :value="item">
+            </el-option>
+          </el-select>
         </el-form-item>
       </el-form>
       <template slot="footer">
         <el-button @click="showDialog = false"> Cancel </el-button>
-        <el-button type="primary"> Make sure and post </el-button>
+        <el-button type="primary" @click="postArticle"> Make sure and post </el-button>
       </template>
     </el-dialog>
   </div>
@@ -43,7 +62,7 @@
   import MDE from 'simplemde';
   import marked from 'marked';
   import XIcon from 'components/Icon';
-  import { Button, Input, Dialog, Form, FormItem } from 'element-ui';
+  import { Button, Input, Dialog, Form, FormItem, Option, Select } from 'element-ui';
   import 'simplemde/dist/simplemde.min.css';
 
   let simplemde;
@@ -53,11 +72,16 @@
   Vue.use(Dialog);
   Vue.use(Form);
   Vue.use(FormItem);
+  Vue.use(Option);
+  Vue.use(Select);
   export default {
     components: {
       XIcon
     },
     created() {
+      this.$store.dispatch('fetchTopicList');
+      this.$store.dispatch('fetchTagList');
+
       this.$store.commit('HIDDEN_NAV');
       this.$store.commit('HIDDEN_FOOTER');
     },
@@ -138,18 +162,38 @@
     },
     data() {
       return {
-        showDialog: true,
+        showDialog: false,
+        postFields: {
+          title: '',
+          topics: [],
+          tags: [],
+          body: '',
+        },
       };
     },
     methods: {
       postArticle() {
-        this.$store.dispatch('postArticle', {
-          body: simplemde.value(),
+        this.postFields.body = simplemde.value();
+        this.$store.dispatch('postArticle', this.postFields).then(({ data }) => {
+          this.$msg.success({
+            message: 'created sucesse',
+            duration: 1000,
+          });
+          this.showDialog = false;
+          this.$router.push({name: 'Article', params: {id: data.id}});
         });
-        this.showDialog = true;
+        this.showDialog = false;
       },
       goBack() {
         history.back();
+      },
+    },
+    computed: {
+      topicList() {
+        return this.$store.state.topic.list;
+      },
+      tagList() {
+        return this.$store.state.tag.list;
       },
     },
   };
@@ -180,5 +224,13 @@
     z-index: 10000000;
     background: #000;
   }
+
+  // override Element select component styles
+  .long-select {
+    width: 100%;
+  }
+}
+.el-message {
+  border-radius: 20px!important;
 }
 </style>

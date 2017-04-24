@@ -59,7 +59,6 @@ const actions = {
     return dispatch('fetchArticleList', { query, type: types.ADD_TO_ARHTICLE_LIST });
   },
   postArticle(ctx, content) {
-    console.log(ctx);
     return postArticle(content);
     // return postArticle
   },
