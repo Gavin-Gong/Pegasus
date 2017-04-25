@@ -13,6 +13,7 @@ const state = {
   },
   recent: [],
   hot: [],
+  result: [],
 };
 
 const mutations = {
@@ -32,6 +33,9 @@ const mutations = {
   [types.ADD_TO_ARHTICLE_LIST](stat, playload) {
     console.log(...playload);
     stat.list.push(...playload);
+  },
+  [types.SEARCH_ARTICLE](stat, playload) {
+    stat.result = playload;
   },
 };
 
@@ -57,6 +61,9 @@ const actions = {
   },
   addToArticleList({ dispatch, commit }, query = { _limit: 5 }) {
     return dispatch('fetchArticleList', { query, type: types.ADD_TO_ARHTICLE_LIST });
+  },
+  searchArticle({ dispatch, commit }, query) {
+    return dispatch('fetchArticleList', { query: Object.assign({ q: '', _limit: 5 }, query), type: types.SEARCH_ARTICLE });
   },
   postArticle(ctx, content) {
     return postArticle(content);

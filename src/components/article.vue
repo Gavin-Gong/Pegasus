@@ -13,6 +13,7 @@
           <ul class="tag-list">
               <x-tag
                 v-for="tag in article.tags"
+                :key="tag.id"
                 :route="{name: 'Tag', params: {id: tag.id}}"
                 :text="tag.title">
               </x-tag>

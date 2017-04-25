@@ -1,5 +1,5 @@
 <template>
-  <i :class="classList" :style="colorStyle" aria-hidden="true" ><i/>
+  <i :class="classList" :style="colorStyle" aria-hidden="true" ></i>
 </template>
 
 <script>
