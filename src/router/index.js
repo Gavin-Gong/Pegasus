@@ -84,6 +84,13 @@ const router = new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
+      // children: [
+      //   {
+      //     path: '',
+      //     component: '',
+      //     name: '',
+      //   },
+      // ],
     },
   ],
 });
