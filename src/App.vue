@@ -18,9 +18,9 @@
       <div class="body-wrapper"
         >
         <transition name="slide-fade">
-          <!--<keep-alive exclude="topic,article,tag">-->
+          <keep-alive exclude="topic,article,tag">
             <router-view></router-view>
-          <!--</keep-alive>-->
+          </keep-alive>
         </transition>
       </div>
     </div>

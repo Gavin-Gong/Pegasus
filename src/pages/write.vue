@@ -89,6 +89,10 @@
       this.$store.commit('SHOW_NAV');
       this.$store.commit('SHOW_FOOTER');
     },
+    deactivated() {
+      this.$store.commit('SHOW_NAV');
+      this.$store.commit('SHOW_FOOTER');
+    },
     mounted() {
        /* eslint-disable */
       simplemde = new MDE({

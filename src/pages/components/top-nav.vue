@@ -13,21 +13,36 @@
           <!--<el-menu-item index="3" :route="{name: 'Archive'}">Line</el-menu-item>-->
           <el-menu-item index="4" :route="{name: 'Tags'}">Tags</el-menu-item>
           <el-menu-item index="5" :route="{name: 'About'}">About</el-menu-item>
-          <el-input
+          <!--<el-input
             @focus="showResult = true"
 
             class="search-bar"
             placeholder=""
             icon="search"
             v-model="search">
-          </el-input>
+          </el-input>-->
+          <ul class="op-bar dp-ib">
+            <li @click="showResult = true">
+              <x-icon
+                type="search"
+                color="#eee"
+                size="lg"></x-icon>
+            </li>
+            <li @click="$router.push({name: 'Write'})">
+              <x-icon
+                type="pencil"
+                color="#eee"
+                ize="lg"></x-icon>
+            </li>
+            <li @click="$router.push({name: 'Dashboard'})">
+              <x-icon
+                type="tachometer"
+                color="#eee"
+                ize="lg"></x-icon>
+            </li>
+          </ul>
         </el-menu>
       </transition>
-      <!--<div class="search-result">
-        <div class="result-inner">
-          search
-        </div>
-      </div>-->
       <el-dialog v-model="showResult" title="Type and search">
         <el-input
           @change="searchArticle"
@@ -37,7 +52,6 @@
             <li v-for="item in resultList">
               <router-link :to="{name: 'Article', params: {id: item.id}}">{{ item.title }}</router-link>
             </li>
-
           </ul>
       </el-dialog>
   </div>
@@ -46,12 +60,16 @@
 <script>
 import { Menu, MenuItem, Input, Dialog } from 'element-ui';
 import { throttle } from 'lodash';
+import XIcon from 'components/Icon';
 
 Vue.use(Menu);
 Vue.use(MenuItem);
 Vue.use(Input);
 Vue.use(Dialog);
 export default {
+  components: {
+    XIcon,
+  },
   created() {
     // REVIEW:  throttle the event using requestAnimationFrame, setTimeout or customEvent
     // let cache = null;
@@ -118,21 +136,41 @@ export default {
 
 <style lang="scss" scoped>
 @import '~styles/transitions';
+@import '~styles/mixins';
 
 .search-result {
   top: 60px;
   position: fixed;
   height: 100vh;
   width: 100%;
-  // z-index: 1000000;
   background: #ccc;
 }
 .result-list {
   margin-top: 30px;
+  li {
+    margin-bottom: 20px;
+    @include line-clamp(1);
+  }
 }
 .top-nav {
   border-bottom: 1px solid #ccc;
-  z-index: 10001;
+  z-index: 30;
+  @include res-to(1366) {
+
+  }
+  .op-bar {
+    @include res-to(xs) {
+      display: none;
+    }
+    float: right;
+    margin-right: 40px;
+    margin-top: 15px;
+    @include reset-list;
+    i {
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
   &.dark-mode {
     background: #333;
     li {

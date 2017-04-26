@@ -11,6 +11,12 @@
     created() {
       this.$store.commit('HIDDEN_NAV');
     },
+    destroyed() {
+      this.$store.commit('SHOW_NAV');
+    },
+    deactivated() {
+      this.$store.commit('SHOW_NAV');
+    },
   };
 </script>
 
