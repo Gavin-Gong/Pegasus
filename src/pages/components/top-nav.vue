@@ -34,7 +34,7 @@
                 color="#eee"
                 ize="lg"></x-icon>
             </li>
-            <li @click="$router.push({name: 'Dashboard'})">
+            <li @click="$router.push({path: '/dashboard/post'})">
               <x-icon
                 type="tachometer"
                 color="#eee"

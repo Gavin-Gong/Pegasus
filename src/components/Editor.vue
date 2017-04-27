@@ -1,5 +1,5 @@
 <template>
-  <div id="editor">
+  <div class="md-editor">
     <textarea id="md-editor">
     </textarea>
   </div>
@@ -14,6 +14,12 @@
   let simplemde;
 
   export default {
+    props: {
+      value: {
+        type: String,
+        default: '',
+      },
+    },
     mounted() {
        /* eslint-disable */
       simplemde = new MDE({
@@ -26,10 +32,6 @@
         },
         previewRender(plainText) {
           return marked(plainText);
-        },
-        renderingConfig: {
-          singleLineBreaks: false,
-          codeSyntaxHighlighting: true,
         },
         // toolbar: [
         //   {
@@ -84,17 +86,26 @@
         // hideIcons: ['fullscreen'],
         autoDownloadFontAwesome: false,
       });
+      simplemde.value(this.value);
+    },
+    watch: {
+      value() {
+        simplemde.value(this.value);
+      },
     },
   };
 </script>
 
 <style lang="scss">
-#write {
+.md-editor{
   z-index: 10000;
-  margin-top: -100px;
+   height: 100vh;
+   overflow: auto;
   .CodeMirror, .CodeMirror-scroll {
-    min-height: calc(100% - 100px);
-    min-height: 500px;
+    // height: calc(100% - 100px);
+    // overflow: scroll;
+    // min-height: 500px;
+
   }
   .tag-btn {
     margin-left: 100px;

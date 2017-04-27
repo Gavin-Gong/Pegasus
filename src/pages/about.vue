@@ -30,7 +30,6 @@ export default {
   components: {
     XIcon,
   },
-
   data() {
     return {
     };

@@ -2,19 +2,6 @@
   <div id="app">
     <div class="main-content">
       <top-nav></top-nav>
-      <!--<el-row :gutter="20" class="main-body">
-        <el-col v-if="lg$" :xs="0" :sm="0" :md="8 " :lg="5">
-          <profile></profile>
-        </el-col>
-        <el-col :xs="8" :sm="12" :md="8" :lg="{span: 15, offset: 0}">
-          <router-view></router-view>
-        </el-col>
-        <el-col v-if="screenWidth > 992" :xs="0" :sm="12" :md="8" :lg="4">
-          <side-bar></side-bar>
-        </el-col>
-      </el-row>-->
-      <!--:style="{maxWidth: screenWidth > 1300 ? '1366px': '920px'}"-->
-        <!--:style="{maxWidth: screenWidth > 1300 && $route.name === 'Home' ? '1366px': '920px'}"-->
       <div class="body-wrapper"
         >
         <transition name="slide-fade">

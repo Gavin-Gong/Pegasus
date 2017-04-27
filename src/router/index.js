@@ -8,7 +8,15 @@ import Tags from 'pages/tags';
 import Tag from 'pages/tag';
 import About from 'pages/about';
 import Write from 'pages/write';
+
+// Dashboard
 import Dashboard from '../dashboard';
+import DbHome from '../dashboard/home';
+import DbPost from '../dashboard/post';
+import DbTag from '../dashboard/tag';
+import DbTopic from '../dashboard/topic';
+import DbProfile from '../dashboard/profile';
+import DbSettings from '../dashboard/settings';
 
 Vue.use(Router);
 
@@ -84,13 +92,36 @@ const router = new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
-      // children: [
-      //   {
-      //     path: '',
-      //     component: '',
-      //     name: '',
-      //   },
-      // ],
+      children: [
+        {
+          path: '',
+          component: DbPost,
+        },
+        {
+          path: 'home',
+          component: DbHome,
+        },
+        {
+          path: 'post',
+          component: DbPost,
+        },
+        {
+          path: 'tag',
+          component: DbTag,
+        },
+        {
+          path: 'topic',
+          component: DbTopic,
+        },
+        {
+          path: 'profile',
+          component: DbProfile,
+        },
+        {
+          path: 'settings',
+          component: DbSettings,
+        },
+      ],
     },
   ],
 });
