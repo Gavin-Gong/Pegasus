@@ -7,10 +7,10 @@
       <div class="description">
         <slot name="description"></slot>
       </div>
-      <p class="card-postCount">{{ count }} Posts</p>
+      <p class="card-postCount">{{ count }} 篇文章</p>
       <el-button
         class="card-btn"
-        @click="routeTo({name: routeName, params: {id: id}})">View</el-button>
+        @click="routeTo({name: routeName, params: {id: id}})">查看</el-button>
     </div>
   </div>
 </template>
@@ -37,10 +37,10 @@ export default {
       type: [Number, String],
       required: true,
     },
-    background: {
-      type: String,
-      required: true,
-    },
+    // background: {
+    //   type: String,
+    //   required: true,
+    // },
   },
   data() {
     return {
@@ -48,10 +48,8 @@ export default {
     };
   },
   computed: {
-    bg() {
-      return {
-        background: `#222 url(${this.background}) center center no-repeat`,
-      };
+    background() {
+      return this.$randomImg(900, 200);
     },
   },
   methods: {
@@ -83,13 +81,6 @@ export default {
   background-size: cover;
   color: #fff;
   cursor: pointer;
-  img {
-    position: absolute;
-    min-height: 100%;
-    min-width: 100%;
-    left: 0; top:0;
-    overflow: hidden;
-  }
   .card-title {
     // text-align: left;
     color: #fff;
@@ -110,11 +101,21 @@ export default {
     cursor: pointer;
   }
   .mask {
-    position: relative;
-    padding: 40px 20px 60px;
-    height: 100px;
-    z-index: 20;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // position: relative;
+    // padding: 40px 20px 60px;
+    box-sizing: border-box;
+    padding: 20px;
+    height: 180px;
+    width: 100%;
     background: rgba(0,0,0,.4);
+  }
+  img {
+    height: 180px;
+    min-width: 100%;
+    overflow: hidden;
   }
 }
 </style>

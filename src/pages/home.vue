@@ -13,8 +13,8 @@
         <!--<el-button @click="fetchPrevPage" :disabled="currentPage === 1">Prev</el-button>-->
         <el-button
           v-if="currentPage !== 0"
-          @click="fetchNextPage">Load More Posts</el-button>
-        <p v-else>There is no more!</p>
+          @click="fetchNextPage"> 加载更多 </el-button>
+        <p v-else>没有更多了</p>
       </el-card>
         <!--加载时出现-->
     </div>

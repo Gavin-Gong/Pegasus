@@ -25,6 +25,14 @@ if (typeof DEV === 'undefined' || DEV === false) {
 }
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
+Vue.mixin({
+  methods: {
+    $randomImg(w, h) {
+      const randomStr = Math.random().toString(36).substring(7);
+      return `https://unsplash.it/${w}/${h}/?random=1&id=${randomStr}`;
+    },
+  },
+});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

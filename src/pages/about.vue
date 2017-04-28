@@ -57,6 +57,7 @@ export default {
 <style lang="scss" scoped>
 @import '~styles/mixins';
 #about {
+  padding: 20px;
   @include res-to(xs) {
     padding: 0 10px;
   }

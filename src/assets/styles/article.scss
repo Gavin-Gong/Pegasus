@@ -2,6 +2,8 @@
 @import '~styles/mixins';
 
 .article-typo {
+  background: #fff;
+  background-clip: padding-box;
   line-height: 1.6;
   // letter-spacing: .7px;
   // word-spacing: 1px;

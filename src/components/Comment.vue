@@ -1,0 +1,83 @@
+<template>
+  <div class="comment">
+    <el-card class="clear-fix">
+      <h3 class="title"><i class="iconfont icon-comment"></i> 评论</h3>
+      <el-input
+        type="textarea"
+        class="comment-box"
+        :autosize="{ minRows: 4, maxRows: 8}"
+        placeholder="请输入内容"
+        v-model="commentCtx">
+      </el-input>
+      <el-button type="primary" style="margin-bottom: 40px">
+          <i class="iconfont icon-send"></i>
+
+          发表</el-button>
+      <div class="comment-item">
+        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chadengle/128.jpg" alt="">
+        <p class="name">Diana</p><br>
+        <p class="info">3 天前</p>
+        <p class="content">还不错的文章</p>
+      </div>
+      <div class="comment-item">
+        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chadengle/128.jpg" alt="">
+        <p class="name">Diana</p><br>
+        <p class="info">3 天前</p>
+        <p class="content">伴随着《人民的名义》火爆全网，我也追了起来。 给我留下最深印象的却是祁同伟与高小琴之间的关系。 很显然，祁同伟作为高级干部，缺乏党性</p>
+      </div>
+    </el-card>
+  </div>
+</template>
+
+<script>
+  import { Card, Popover, Button } from 'element-ui';
+
+  Vue.use(Card);
+  Vue.use(Popover);
+  Vue.use(Button);
+
+  export default {
+    data() {
+      return {
+        commentCtx: '',
+      };
+    },
+  };
+</script>
+
+<style lang="scss" scoped>
+.comment {
+  .comment-box {
+    margin-bottom: 10px;
+    .el-textarea__inner {
+      border-radius: 5px!important;
+    }
+  }
+  img {
+    border-radius: 50%;
+    max-width: 60px;
+    float: left;
+  }
+  .title {
+    margin-bottom: 20px;
+    i {
+      font-size: 20px;
+    }
+  }
+  .name {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .content {
+    margin-top: 10px;
+  }
+  .info {
+    display: inline-block;
+    padding-left: 10px;
+    color: #999;
+  }
+  .comment-item {
+    margin-bottom: 20px;
+  }
+}
+</style>

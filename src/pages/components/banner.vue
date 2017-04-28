@@ -4,7 +4,25 @@
 
     </div>
     <div class="mask">
-      <h1 class="banner-title">{{ title }}</h1>
+        <el-popover
+          ref="popover"
+          v-model="showPop">
+          <ul class="popover-list">
+            <li><i class="iconfont icon-edit"> 编辑</i></li>
+            <li @click="deleteEle"><i class="iconfont icon-delete" style="color: rgba(255, 0, 0, .6)"> 删除</i></li>
+          </ul>
+        </el-popover>
+      <i class="iconfont icon-more more-btn" v-popover:popover></i>
+      <!--<el-button v-popover:popover> 删除 </el-button>-->
+
+      <h1 class="banner-title">
+        <i v-if="$route.name ==='Topic'"
+          class="iconfont icon-topic" style="font-size: 42px"></i>
+        <i v-else
+          class="iconfont icon-tag" style="font-size: 42px"></i>
+
+        {{ title }}</h1>
+
       <div class="description">
         <slot></slot>
       </div>
@@ -14,15 +32,12 @@
 </template>
 
 <script>
-import { Button } from 'element-ui';
+import { Button, Popover } from 'element-ui';
 
 Vue.use(Button);
+Vue.use(Popover);
 export default {
   props: {
-    // id: {
-    //   type: Number,
-    //   required: true,
-    // },
     title: {
       type: String,
       required: true,
@@ -31,9 +46,25 @@ export default {
       type: [Number, String],
       required: true,
     },
-    background: {
-      type: String,
-      required: true,
+    // background: {
+    //   type: String,
+    //   required: true,
+    // },
+  },
+  data() {
+    return {
+      showPop: false,
+    };
+  },
+  computed: {
+    background() {
+      return this.$randomImg(900, 200);
+    },
+  },
+  methods: {
+    deleteEle() {
+      this.$msg.error('删除出错');
+      this.showPop = false;
     },
   },
 };
@@ -41,6 +72,14 @@ export default {
 
 <style lang="scss">
 @import '~styles/mixins';
+.popover-list {
+  li {
+    padding: 10px;
+    i {
+      cursor: pointer;
+    }
+  }
+}
 .banner {
   position: relative;
   overflow: hidden;
@@ -48,7 +87,7 @@ export default {
   text-align: center;
   color: #fff;
   .banner-title {
-    font-size: 48px;
+    font-size: 40px;
     color: #fff;
   }
   .bg {
@@ -64,6 +103,14 @@ export default {
     height: 140px;
     z-index: 20;
     background: rgba(0,0,0,.4);
+    .more-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 38px!important;
+      line-height: 1;
+    }
   }
 }
 </style>

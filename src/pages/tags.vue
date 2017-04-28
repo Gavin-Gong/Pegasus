@@ -5,7 +5,6 @@
       :id="tag.id"
       :title="tag.title"
       :count="tag.post_count"
-      :background="tag.banner"
       route-name="Tag"
     ></x-card>
   </div>

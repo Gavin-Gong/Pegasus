@@ -5,24 +5,39 @@
         <div class="avatar-wrapper">
           <img :src="profile.avatar" alt="" class="avatar">
         </div>
-        <h2 class="name">{{profile.name}}</h2>
-        <p class="bio">{{profile.bio}}</p>
-        <p class="address"><x-icon type="map-marker" color="#333"></x-icon> {{profile.address}}</p>
-        <el-button @click="handleFollow" class="mt-s">Follow Me</el-button>
+        <h2 class="name">李 明</h2>
+        <p class="bio">UI 设计师</p>
+        <p class="address"><x-icon type="map-marker" color="#333"></x-icon> 中国,上海 </p>
+        <el-button @click="handleFollow" class="mt-s" type="primary"> 关注我 </el-button>
         <ul class="data">
           <li>
             <h3>{{ profile.post_count }}</h3>
-            <p>Posts</p>
+            <p>文章</p>
           </li>
           <li>
             <h3>{{ profile.streak_day_count }}</h3>
-            <p>Days</p>
+            <p>天</p>
           </li>
         </ul>
-        <ul class="social-list" v-if="profile.socials.length">
-          <li v-for="item in profile.socials">
-            <a :href="item.link" target="_blank">
-              <x-icon :type="item.type" size="2x" color="#222"></x-icon>
+        <ul class="social-list">
+          <li>
+            <a href="item.link" target="_blank">
+              <i class="iconfont icon-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="item.link" target="_blank">
+              <i class="iconfont icon-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a href="item.link" target="_blank">
+              <i class="iconfont icon-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="item.link" target="_blank">
+              <i class="iconfont icon-3"></i>
             </a>
           </li>
         </ul>
@@ -106,9 +121,11 @@ export default {
       }
       .name {
         font-size: 22px;
+        margin-top: 18px;
       }
       .bio {
         line-height: 1.4;
+        margin: 0px 0 10px;
       }
       .address {
         margin-bottom: 10px;
@@ -124,8 +141,14 @@ export default {
         border-top: 1px solid #eee;
         li {
           padding-left: 0;
-          margin-left: 20px;
+          margin-left: 10px;
           display: inline-block;
+          a {
+            text-decoration: none;
+            .iconfont {
+              font-size: 28px!important;
+            }
+          }
         }
       }
       .data {

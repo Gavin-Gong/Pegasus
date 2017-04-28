@@ -8,8 +8,8 @@
     <slot name="banner"></slot>
     <div class="infobar-wrapper">
       <ul :class="['info-bar', 'clearfix', {'style-bar': !!$slots.banner}]">
-        <li><x-icon type="clock-o"></x-icon> {{article.created_at | timestamp}} </li>
-        <li><x-icon type="tag"></x-icon>
+        <li><i class="iconfont icon-date"></i> {{article.created_at | timestamp}} </li>
+        <li><i class="iconfont icon-tag"></i>
           <ul class="tag-list">
               <x-tag
                 v-for="tag in article.tags"
@@ -19,7 +19,7 @@
               </x-tag>
           </ul>
         </li>
-        <li v-if="!isEmptyObj(article.topic)"><x-icon type="folder"></x-icon>
+        <li v-if="!isEmptyObj(article.topic)"><i class="iconfont icon-topic"></i>
           <router-link :to="{name: 'Topic', params: {id: article.topic.id}}"> {{article.topic.title}} </router-link>
         </li>
       </ul>
@@ -32,7 +32,15 @@
       v-if="lineClamp"
       @click="$router.push({name: 'Article', params: {id: article.id}})"
       class="more-btn"
-      >More</el-button>
+      > 查看详情 <i class="iconfont icon-arrowright"></i></el-button>
+    <div class="article-op-bar" v-if="!lineClamp">
+      <el-button type="primary">
+        <i class="iconfont icon-money"></i> 赞赏
+      </el-button>
+      <el-button @click="likeIt">
+        <i class="iconfont icon-like" :style="hasLike ? likeStyle : ''"></i> 喜欢
+      </el-button>
+    </div>
   </div>
 </template>
 
@@ -79,11 +87,17 @@ export default {
   },
   data() {
     return {
-      msg: '### Welcome to Your Vue.js App',
+      hasLike: false,
+      likeStyle: {
+        color: 'rgba(255, 0,0,0.8)',
+      },
     };
   },
   methods: {
     isEmptyObj,
+    likeIt() {
+      this.hasLike = !this.hasLike;
+    },
   },
   created() {
     // console.log(this.article);
@@ -169,5 +183,9 @@ export default {
       padding: 20px;
       box-shadow: 2px 2px 8px #ccc;
     }
+  }
+  .article-op-bar {
+    margin-top: 40px;
+    text-align: center;
   }
 </style>

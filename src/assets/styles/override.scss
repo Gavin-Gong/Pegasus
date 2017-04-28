@@ -1,9 +1,28 @@
 // override style
 
 
-// top nav 
+// top nav
 // #app {
 //   .el-menu--horizontal {
 //     background: #43e97b;
 //   }
 // }
+
+.el-textarea__inner {
+  border-radius: 5px!important;
+}
+
+html {
+  background: rgba(238,238,238, .3);
+}
+
+#app {
+  .article-list {
+    li {
+      background: #fff;
+    }
+  }
+  .article-card {
+    background: #fff;
+  }
+}

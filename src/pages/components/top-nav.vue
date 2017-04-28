@@ -8,37 +8,36 @@
           :router="true"
           :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
           <!--:class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">-->
-          <el-menu-item index="1" :route="{name: 'Home'}">Home</el-menu-item>
-          <el-menu-item index="2" :route="{name: 'Topics'}">Topics</el-menu-item>
+          <el-menu-item index="1" :route="{name: 'Home'}">
+            <i class="iconfont icon-home"></i>主页</el-menu-item>
+          <el-menu-item index="2" :route="{name: 'Topics'}">
+            <i class="iconfont icon-topic"></i>专题</el-menu-item>
           <!--<el-menu-item index="3" :route="{name: 'Archive'}">Line</el-menu-item>-->
-          <el-menu-item index="4" :route="{name: 'Tags'}">Tags</el-menu-item>
-          <el-menu-item index="5" :route="{name: 'About'}">About</el-menu-item>
-          <!--<el-input
-            @focus="showResult = true"
-
-            class="search-bar"
-            placeholder=""
-            icon="search"
-            v-model="search">
-          </el-input>-->
+          <el-menu-item index="4" :route="{name: 'Tags'}">
+            <i class="iconfont icon-tag"></i>标签</el-menu-item>
+          <el-menu-item index="5" :route="{name: 'About'}">
+            <i class="iconfont icon-profile"></i>关于我</el-menu-item>
           <ul class="op-bar dp-ib">
             <li @click="showResult = true">
-              <x-icon
+              <!--<x-icon
                 type="search"
                 color="#eee"
-                size="lg"></x-icon>
+                size="lg"></x-icon>-->
+                <i class="iconfont icon-search"></i>
             </li>
             <li @click="$router.push({name: 'Write'})">
-              <x-icon
+              <!--<x-icon
                 type="pencil"
                 color="#eee"
-                ize="lg"></x-icon>
+                ize="lg"></x-icon>-->
+              <i class="iconfont icon-edit"></i>
             </li>
             <li @click="$router.push({path: '/dashboard/post'})">
-              <x-icon
+              <!--<x-icon
                 type="tachometer"
                 color="#eee"
-                ize="lg"></x-icon>
+                ize="lg"></x-icon>-->
+                <i class="iconfont icon-dashboard"></i>
             </li>
           </ul>
         </el-menu>
@@ -157,6 +156,13 @@ export default {
   z-index: 30;
   @include res-to(1366) {
 
+  }
+  .iconfont {
+    font-size: 18px;
+    margin: 0 4px;
+  }
+  .icon-home {
+    font-size: 16px;
   }
   .op-bar {
     @include res-to(xs) {

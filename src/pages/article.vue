@@ -2,15 +2,19 @@
   <div id="article-detail">
     <article-card :article="article">
       <div class="article-banner" slot="banner">
-        <img :src="article.banner" :alt="article.title">
+        <img :src="$randomImg(1800, 400)" :alt="article.title">
         <div class="mask"><h1 class="dp-ib">{{ article.title }}</h1></div>
       </div>
     </article-card>
+    <comment></comment>
+    <recommend></recommend>
   </div>
 </template>
 
 <script>
 import ArticleCard from 'components/article';
+import Comment from 'components/Comment';
+import Recommend from 'components/Recommend';
 import XIcon from 'components/Icon';
 import { Button } from 'element-ui';
 
@@ -21,6 +25,8 @@ export default {
   components: {
     ArticleCard,
     XIcon,
+    Comment,
+    Recommend,
   },
   metaInfo() {
     return {
@@ -64,6 +70,7 @@ export default {
   text-align: center;
 }
 .article-banner {
+  line-height: 0;
   position: relative;
   overflow: hidden;
   color: #eee;
@@ -79,9 +86,9 @@ export default {
     background: rgba(0,0,0,.1);
   }
   img {
-    position: absolute;
-    z-index: -1;
+    // z-index: -1;
     width: 100%;
+    height: 200px;
     top: 0;
     left: 0;
     // max-width: calc(100% + 20px);
@@ -90,6 +97,12 @@ export default {
     // filter: blur(7px);
   }
   .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
     padding: 30px 10px;
     background: rgba(0,0,0,.4);
     h1 {

@@ -23,18 +23,18 @@ Vue.use(Router);
 const router = new Router({
   mode: 'history',
   /*eslint-disable*/
-  // scrollBehavior(to, from, savedPos) {
-  //   // if (from.meta.hasOwnProperty('positionY')) {
-  //   //   // save position
-  //   //   from.meta.positionY = document.body.scrollTop;
-  //   //   console.log('saved position', document.body.scrollTop);
-  //   // }
-  //   // if (savedPos) {
-  //   //   return savedPos;
-  //   // }
-  //   console.log(`scroll to ${to.meta.positionY}`);
-  //   return { x: 0, y: to.meta.positionY };
-  // },
+  scrollBehavior(to, from, savedPos) {
+    // if (from.meta.hasOwnProperty('positionY')) {
+    //   // save position
+    //   from.meta.positionY = document.body.scrollTop;
+    //   console.log('saved position', document.body.scrollTop);
+    // }
+    // if (savedPos) {
+    //   return savedPos;
+    // }
+    // console.log(`scroll to ${to.meta.positionY}`);
+    return { x: 0, y: 0 };
+  },
   routes: [
     {
       path: '/',
