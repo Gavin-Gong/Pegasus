@@ -17,6 +17,7 @@ import DbTag from '../dashboard/tag';
 import DbTopic from '../dashboard/topic';
 import DbProfile from '../dashboard/profile';
 import DbSettings from '../dashboard/settings';
+import Login from '../dashboard/login';
 
 Vue.use(Router);
 
@@ -87,6 +88,11 @@ const router = new Router({
       path: '/write',
       name: 'Write',
       component: Write,
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
     },
     {
       path: '/dashboard',

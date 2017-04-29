@@ -9,6 +9,7 @@ import about from './modules/about';
 import profile from './modules/profile';
 // import nav from './modules/nav';
 import global from './modules/global';
+import auth from './modules/auth';
 
 Vue.use(Vuex);
 
@@ -24,6 +25,7 @@ export default new Vuex.Store({
     about,
     profile,
     global,
+    auth,
   },
   strict: debug,
 });

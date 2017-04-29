@@ -33,6 +33,15 @@ Vue.mixin({
     },
   },
 });
+
+/*eslint-disable*/
+Vue.directive('hidden', (el, binding) => {
+  console.log(store.state.auth.isAuth, window.innerWidth);
+  if (store.state.auth.isAuth === false || window.innerWidth < 920) {
+    el.style.display = 'none';
+  }
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -41,3 +50,5 @@ new Vue({
   template: '<App/>',
   components: { App },
 });
+
+

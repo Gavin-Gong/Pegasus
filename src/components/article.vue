@@ -34,18 +34,22 @@
       class="more-btn"
       > 查看详情 <i class="iconfont icon-arrowright"></i></el-button>
     <div class="article-op-bar" v-if="!lineClamp">
-      <el-button type="primary">
+      <el-button type="primary" @click="showTip = true">
         <i class="iconfont icon-money"></i> 赞赏
       </el-button>
       <el-button @click="likeIt">
         <i class="iconfont icon-like" :style="hasLike ? likeStyle : ''"></i> 喜欢
       </el-button>
     </div>
+    <el-dialog v-model="showTip" class="tip-dialog">
+      <div name="header" class="info">微信扫码支付</div>
+      <img src="~assets/images/qrcode.png" alt="">
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { Card, Button } from 'element-ui';
+import { Card, Button, Dialog } from 'element-ui';
 import XIcon from 'components/Icon';
 import XTag from 'components/Tag';
 import marked from 'marked';
@@ -55,6 +59,7 @@ import { isEmptyObj } from 'src/utils';
 
 Vue.use(Card);
 Vue.use(Button);
+Vue.use(Dialog);
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -91,6 +96,7 @@ export default {
       likeStyle: {
         color: 'rgba(255, 0,0,0.8)',
       },
+      showTip: false,
     };
   },
   methods: {
@@ -187,5 +193,11 @@ export default {
   .article-op-bar {
     margin-top: 40px;
     text-align: center;
+  }
+  .tip-dialog {
+    text-align: center;
+    .info {
+      margin-bottom: 15px;
+    }
   }
 </style>

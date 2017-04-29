@@ -19,3 +19,6 @@ export const HIDDEN_NAV = 'HIDDEN_NAV';
 export const SHOW_NAV = 'SHOW_NAV';
 export const HIDDEN_FOOTER = 'HIDDEN_FOOTER';
 export const SHOW_FOOTER = 'SHOW_FOOTER';
+
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
