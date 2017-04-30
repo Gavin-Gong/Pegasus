@@ -32,7 +32,8 @@ Bugs
 
 -Plan
 - [ ] 数据录入
-- [ ] dashboard
+- [X] dashboard
 - [X] login
 - [X] auth
+
 - [ ] iscroll

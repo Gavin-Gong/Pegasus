@@ -8,6 +8,9 @@
           :router="true"
           :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
           <!--:class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">-->
+          <el-menu-item index="1" :route="{name: 'Home'}" class="logo-wrapper">
+            <img class="pegasus-logo" src="~assets/images/pegasus_logo.png" alt="pegasus" style="height: 40px">
+          </el-menu-item>
           <el-menu-item index="1" :route="{name: 'Home'}">
             <i class="iconfont icon-home"></i>主页</el-menu-item>
           <el-menu-item index="2" :route="{name: 'Topics'}">
@@ -163,6 +166,15 @@ export default {
   }
   .icon-home {
     font-size: 16px;
+  }
+  .logo-wrapper {
+    .pegasus-logo {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    &:hover {
+      border-bottom: none!important;
+    }
   }
   .op-bar {
     @include res-to(xs) {

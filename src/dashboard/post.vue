@@ -6,7 +6,11 @@
         <!--<div class="post-editor">
           {{ activedPost.body ? activedPost.body: '' }}
         </div>-->
-        <el-input class="title-bar" placeholder="change title" v-model="activedPost.title"></el-input>
+        <div class="title-bar">
+          <el-input placeholder="请输入标题" v-model="activedPost.title" label-width="80px"></el-input>
+          <el-button type="primary" style="margin-left: 80px">保存</el-button>
+          <el-button type="danger">删除</el-button>
+        </div>
         <md-editor :value="activedPost.body">
 
         </md-editor>
@@ -70,6 +74,9 @@
     margin: 20px 50%;
     width: 600px;
     transform: translateX(-50%);
+    .el-input {
+      width: 300px;
+    }
   }
 }
 </style>

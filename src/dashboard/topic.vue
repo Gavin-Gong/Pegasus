@@ -3,11 +3,11 @@
     <el-row>
       <list-view @active="handleActive" type="topic"></list-view>
       <el-col :span="19" class="content">
-        <el-form label-position="left" label-width="60px">
+        <el-form label-position="left" label-width="80px">
           <el-form-item label="专题名">
             <el-input v-model="activedTag.title"></el-input>
           </el-form-item>
-          <el-form-item label="专题名">
+          <el-form-item label="专题介绍">
             <el-input
               :autosize="{ minRows: 6, maxRows: 10}"
               v-model="activedTag.title"
@@ -17,6 +17,9 @@
 
         <div class="form-bottom-bar">
           <el-button type="primary"> 保存 </el-button>
+          <el-button  @click="$router.push({name: 'Topic', params: {id: 1}})">
+            <i class="iconfont icon-link"></i>
+            打开链接 </el-button>
           <el-button type="danger"> 删除 </el-button>
         </div>
         <!--<el-button type="danger"> 删除 </el-button>-->

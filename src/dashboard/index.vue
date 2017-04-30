@@ -4,11 +4,16 @@
       <el-col :span="3">
         <el-menu default-active="2" theme="dark" router>
           <!--<el-menu-item index="1" :route="{path: 'home'}"><i class="el-icon-menu"></i>Statistics</el-menu-item>-->
-          <el-menu-item index="2" :route="{path: '/dashboard/post'}"><i class="el-icon-menu"></i>文章</el-menu-item>
-          <el-menu-item index="3" :route="{path: '/dashboard/tag'}"><i class="el-icon-menu"></i>标签</el-menu-item>
-          <el-menu-item index="4" :route="{path: '/dashboard/topic'}"><i class="el-icon-menu"></i>专题</el-menu-item>
-          <!--<el-menu-item index="5" :route="{path: '/dashboard/profile'}"><i class="el-icon-setting"></i>资料</el-menu-item>-->
-          <!--<el-menu-item index="6" :route="{path: '/dashboard/settings'}"><i class="el-icon-setting"></i>设置</el-menu-item>-->
+          <el-menu-item index="2" :route="{path: '/dashboard/post'}">
+            <i class="iconfont icon-article"></i>文章</el-menu-item>
+          <el-menu-item index="3" :route="{path: '/dashboard/tag'}">
+            <i class="iconfont icon-tag"></i>标签</el-menu-item>
+          <el-menu-item index="4" :route="{path: '/dashboard/topic'}">
+            <i class="iconfont icon-topic"></i>专题</el-menu-item>
+          <el-menu-item index="5" :route="{path: '/dashboard/profile'}">
+            <i class="iconfont icon-user"></i>资料</el-menu-item>
+          <el-menu-item index="6" :route="{path: '/dashboard/settings'}">
+            <i class="iconfont icon-settings"></i>设置</el-menu-item>
           <el-button size="small" class="back-btn" @click="$router.push({name: 'Home'})">
             返回网站
             <i class="iconfont icon-arrowright"></i></el-button>
@@ -71,6 +76,13 @@
   margin-top: -100px;
   .el-menu {
     min-height: 100vh;
+    li {
+      .iconfont {
+        margin-right: 14px;
+        font-size: 24px;
+        vertical-align: middle;
+      }
+    }
   }
   .back-btn {
     margin-top: 80px;
