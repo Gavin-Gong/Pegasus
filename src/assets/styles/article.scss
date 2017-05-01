@@ -4,9 +4,14 @@
 .article-typo {
   background: #fff;
   background-clip: padding-box;
-  line-height: 1.6;
-  // letter-spacing: .7px;
+  line-height: 1.7;
+  letter-spacing: .4px;
+  // font-size: 20px;
   // word-spacing: 1px;
+  // font-size: 20px;
+  img {
+    width: 100%;
+  }
   a {
     line-height: 1.2;
   }
@@ -29,9 +34,28 @@
     margin-top: 0px;
     margin-bottom: 0px;
   }
+  // h1 {
+  //   font-size: 30px;
+  // }
+  // h2 {
+  //   font-size: 26px;
+  // }
+  // h3 {
+  //   font-size: 22px;
+  // }
+  // h4 {
+  //   font-size: 18px;
+  // }
+  // h5 {
+  //   font-size: 14px;
+  // }
+  // h6 {
+  //   font-size: 12px;
+  // }
   p {
     margin-top: 0px;
     margin-bottom: 15px;
+    // font-size: 20px;
   }
   blockquote {
     padding-left: 0;
@@ -43,16 +67,17 @@
       padding-left: 10px;
       background: #eee;
       word-break: no-wrap;
-      &:before {
-        position: absolute;
-        top: 0;
-        left: 0px;
-        display: inline-block;
-        content: "";
-        width: 4px;
-        height: 100%;
-        background: #f44336;
-      }
+      margin-bottom: 0;
+      // &:before {
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0px;
+      //   display: inline-block;
+      //   content: "";
+      //   width: 4px;
+      //   height: 100%;
+      //   background: #f44336;
+      // }
     }
   }
 }

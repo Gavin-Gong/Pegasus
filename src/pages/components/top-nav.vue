@@ -45,7 +45,7 @@
           </ul>
         </el-menu>
       </transition>
-      <el-dialog v-model="showResult" title="Type and search">
+      <el-dialog v-model="showResult" title="输入并搜索">
         <el-input
           @change="searchArticle"
           autofocus

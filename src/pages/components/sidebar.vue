@@ -67,6 +67,7 @@ export default {
 @mixin post-entry {
   margin-left: 10px;
   li {
+    display: block;
     margin-bottom: 12px;
     a {
       @include line-clamp(2);

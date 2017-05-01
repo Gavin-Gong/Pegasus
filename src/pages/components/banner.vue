@@ -26,7 +26,7 @@
       <div class="description">
         <slot></slot>
       </div>
-      <p class="banner-postCount">{{ count }} Posts</p>
+      <p class="banner-postCount">{{ count }} 文章</p>
     </div>
   </div>
 </template>

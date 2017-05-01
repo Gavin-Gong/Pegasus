@@ -64,7 +64,7 @@ marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
   tables: true,
-  breaks: false,
+  breaks: true,
   pedantic: false,
   sanitize: false,
   smartLists: true,
@@ -110,7 +110,7 @@ export default {
   },
   computed: {
     htmlBody() {
-      if (this.type !== 'html') return this.article.body;
+      // if (this.type !== 'html') return this.article.body;
       return marked(this.article.body);
     },
   },
@@ -127,6 +127,8 @@ export default {
       padding: 0 10px 30px;
       // padding: 20px 20px;
     }
+    margin: 0 auto;
+    max-width: 700px;
     margin-bottom: 30px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .12), 0px 0px 6px 0px rgba(0, 0, 0, .04);
     background-clip: content-box;
