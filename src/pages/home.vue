@@ -3,8 +3,9 @@
     <profile v-show="lg$" class="profile"></profile>
     <div class="content">
       <article-card
+        v-for="(article, index) in articleList"
         v-loading=""
-        v-for="article in articleList"
+        :key="index"
         :article="article"
         :line-clamp="true">
       </article-card>

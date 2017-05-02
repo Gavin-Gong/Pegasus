@@ -1,5 +1,22 @@
+@import '~styles/mixins';
 body {
   .el-message-box {
     width: 70%;
+  }
+}
+
+@include res-to(xs) {
+  // top-nav
+  .top-nav .el-menu-item {
+    padding: 0 4px;
+    height: 30px;
+    line-height: 30px;
+    height: 30px;
+    border-bottom-width: 2px;
+  }
+
+  // recommend
+  .recommend {
+
   }
 }

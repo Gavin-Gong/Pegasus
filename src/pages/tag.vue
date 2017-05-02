@@ -3,7 +3,7 @@
     <x-banner :background="tag.banner" :count="tag.post_count" :title="tag.title">
     </x-banner>
     <ul class="article-list">
-      <li class="" v-for="article in tag.posts">
+      <li class="" v-for="(article, index) in tag.posts" :key="index">
         <article-card
           :article="article"
           line-clamp>
@@ -32,8 +32,12 @@
       return {
       };
     },
-    created() {
+    activated() {
       this.$store.dispatch('fetchTag', this.$route.params.id);
+    },
+    beforeRouteUpdate(to, from, next) {
+      this.$store.dispatch('fetchTag', this.$route.params.id);
+      next();
     },
     // mounted() {
     //   window.scrollTo(0, 0);

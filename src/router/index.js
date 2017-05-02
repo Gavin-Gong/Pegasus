@@ -96,7 +96,7 @@ const router = new Router({
     },
     {
       path: '/dashboard',
-      name: 'Dashboard',
+      // name: 'Dashboard',
       component: Dashboard,
       children: [
         {

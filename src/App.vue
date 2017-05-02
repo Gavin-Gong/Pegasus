@@ -5,7 +5,7 @@
       <div class="body-wrapper"
         >
         <transition name="slide-fade">
-          <keep-alive exclude="topic,article,tag">
+          <keep-alive>
             <router-view></router-view>
           </keep-alive>
         </transition>
@@ -58,14 +58,14 @@ export default {
 <style lang='scss'>
 @import '~styles/index';
 .slide-fade-enter-active {
-  transition: opacity .3s ease;
+  // transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-leave-active {
-  transition: opacity .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  // transition: all .2s ease-out;
 }
 .slide-fade-enter, .slide-fade-leave-active {
-  // transform: translateX(10px);
-  opacity: 0;
+  // transform: translateX(100px);
+  // opacity: 0;
 }
 html {
   position: relative;

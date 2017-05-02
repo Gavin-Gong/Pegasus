@@ -1,7 +1,8 @@
 <template>
   <div id="tags" class="matrix-layout">
     <x-card
-      v-for="tag in tagList"
+      v-for="(tag, index) in tagList"
+      :key="index"
       :id="tag.id"
       :title="tag.title"
       :count="tag.post_count"

@@ -1,7 +1,8 @@
 <template>
   <div id="topics" class="matrix-layout" v-loading.fullscreen="isLoading">
     <x-card
-      v-for="topic in topicList"
+      v-for="(topic, index) in topicList"
+      :key="index"
       :id="topic.id"
       route-name="Topic"
       :title="topic.title"

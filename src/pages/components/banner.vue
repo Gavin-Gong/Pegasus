@@ -8,8 +8,9 @@
           ref="popover"
           v-model="showPop">
           <ul class="popover-list">
-            <li><i class="iconfont icon-edit"> 编辑</i></li>
-            <li @click="deleteEle"><i class="iconfont icon-delete" style="color: rgba(255, 0, 0, .6)"> 删除</i></li>
+            <li><i class="iconfont icon-create"> 创建文章</i></li>
+            <li><i class="iconfont icon-edit"> 编辑专题</i></li>
+            <li @click="deleteEle"><i class="iconfont icon-delete" style="color: rgba(255, 0, 0, .6)"> 删除专题</i></li>
           </ul>
         </el-popover>
       <i class="iconfont icon-more more-btn" v-popover:popover></i>
@@ -74,9 +75,11 @@ export default {
 @import '~styles/mixins';
 .popover-list {
   li {
+    cursor: pointer;
     padding: 10px;
-    i {
-      cursor: pointer;
+    border-bottom: 1px solid #eee;
+    &:last-child {
+      border-bottom: none;
     }
   }
 }
@@ -101,6 +104,9 @@ export default {
     position: relative;
     padding: 40px 20px 60px;
     height: 140px;
+    @include res-to(xs) {
+      height: 80px;
+    }
     z-index: 20;
     background: rgba(0,0,0,.4);
     .more-btn {

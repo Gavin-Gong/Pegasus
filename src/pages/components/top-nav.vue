@@ -68,11 +68,13 @@ Vue.use(Menu);
 Vue.use(MenuItem);
 Vue.use(Input);
 Vue.use(Dialog);
+
 export default {
   components: {
     XIcon,
   },
   created() {
+
     // REVIEW:  throttle the event using requestAnimationFrame, setTimeout or customEvent
     // let cache = null;
     // window.addEventListener('scroll', () => {
@@ -96,6 +98,8 @@ export default {
     //     }
     //   }, 500);
     // });
+
+
   },
   data() {
     return {
@@ -158,7 +162,17 @@ export default {
   border-bottom: 1px solid #ccc;
   z-index: 30;
   @include res-to(1366) {
-
+  }
+  .el-menu-item.is-active {
+    border-bottom-color: #41B883;
+  }
+  .el-menu-item {
+    // &:hover {
+    //   border-bottom: none!important;
+    // }
+    // &:active {
+    //   border-bottom: none!important;
+    // }
   }
   .iconfont {
     font-size: 18px;
@@ -175,6 +189,7 @@ export default {
     &:hover {
       border-bottom: none!important;
     }
+    border: none!important;
   }
   .op-bar {
     @include res-to(xs) {

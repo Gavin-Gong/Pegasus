@@ -28,7 +28,8 @@
             multiple
             placeholder="please choose tag">
             <el-option
-              v-for="item in tagList"
+              v-for="(item, key) in tagList"
+              :key="key"
               :label="item.title"
               :value="item">
             </el-option>
@@ -42,7 +43,8 @@
             clearable
             placeholder="please choose topic">
             <el-option
-              v-for="item in topicList"
+              v-for="(item, index) in topicList"
+              :key="index"
               :label="item.title"
               :value="item">
             </el-option>

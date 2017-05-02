@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img :src="background" alt="">
+    <img  v-lazy="background">
     <div class="mask">
       <slot></slot>
       <h3 class="card-title">{{ title }}</h3>

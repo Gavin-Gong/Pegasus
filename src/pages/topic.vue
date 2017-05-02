@@ -3,7 +3,7 @@
     <x-banner :background="topic.banner" :count="topic.post_count" :title="topic.title">
     </x-banner>
     <ul class="article-list">
-      <li class="" v-for="article in topic.posts">
+      <li class="" v-for="(article, index) in topic.posts" :key="index">
         <article-card
           :article="article"
           :line-clamp="true">
@@ -30,6 +30,10 @@
     created() {
       this.$store.dispatch('fetchTopic', this.$route.params.id);
     },
+    beforeRouteUpdate(to, from, next) {
+      this.$store.dispatch('fetchTopic', this.$route.params.id);
+      next();
+    },
     // mounted() {
     //   window.scrollTo(0, 0);
     // },
@@ -40,13 +44,7 @@
     },
     computed: {
       topic() {
-        console.log(this.$store.state.topic.detail);
         return this.$store.state.topic.detail;
-      },
-    },
-    watch: {
-      $route() {
-        this.$store.dispatch('fetchTopic', this.$route.params.id);
       },
     },
   };

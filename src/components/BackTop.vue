@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import MoveTo from 'moveto';
+
 export default {
   props: {
     // toTop
@@ -18,10 +20,10 @@ export default {
     //
   },
   created() {
-    window.onscroll = () => {
-      // console.log('scroll');
-      this.toTop = document.body.scrollTop;
-    };
+    // window.onscroll = () => {
+    //   // console.log('scroll');
+    //   this.toTop = document.body.scrollTop;
+    // };
   },
   data() {
     return {
@@ -30,14 +32,9 @@ export default {
   },
   methods: {
     handleBackTop() {
-      let timeOut;
-      function scrollToTop() {
-        if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) {
-          window.scrollBy(0, -50);
-          timeOut = setTimeout(scrollToTop(), 10);
-        } else clearTimeout(timeOut);
-      }
-      scrollToTop();
+      const moveTo = new MoveTo();
+      const target = document.body;
+      moveTo.move(target);
     },
   },
 };

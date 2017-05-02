@@ -2,7 +2,7 @@
   <div id="login">
     <div class="login-box">
      <el-card>
-       <img src="~assets/images/logo.png" alt="" class="logo">
+       <img src="~assets/images/pegasus_logo_dark.png" alt="" class="logo">
         <el-form label-position="left" label-width="50px">
           <el-form-item label="账号">
             <el-input></el-input>
@@ -72,12 +72,13 @@
     text-align: center;
     width: 300px;
     margin: 100px auto;
+    im
     .el-card {
       padding-top: 20px;
       padding-bottom: 40px;
     }
     .logo {
-      width: 80px;
+      height: 100px;
       margin-bottom: 20px;
     }
   }

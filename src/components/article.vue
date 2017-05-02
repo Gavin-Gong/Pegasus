@@ -84,7 +84,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    // TODO: 用article代替body, type属性
     article: {
       type: Object,
       required: true,
@@ -124,8 +123,9 @@ export default {
   .article-card {
     padding: 30px 30px 40px;
     @include res-to(xs) {
-      padding: 0 10px 30px;
+      padding: 15px 10px 20px;
       // padding: 20px 20px;
+
     }
     margin: 0 auto;
     max-width: 700px;
@@ -168,6 +168,13 @@ export default {
       display: inline-block;
       cursor: pointer;
       margin-bottom: 10px;
+      @include res-to(xs) {
+        text-align: center;
+        padding: 15px 10px 20px;
+        // padding: 20px 20px;
+        font-size: 24px;
+
+      }
     }
     .line-clamp {
       @include line-clamp(10);

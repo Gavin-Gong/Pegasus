@@ -53,6 +53,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '~styles/mixins';
 .recommend {
   // box-shadow: none!important;
   // background: none!important;
@@ -61,19 +62,23 @@ export default {
   ul {
     // margin-left: -20px;
     li {
+      @include res-to(xs) {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        box-shadow: 0px 1px 4px #bbb;
+      }
       text-align: left;
       box-sizing: border-box;
       padding: 20px;
       width: calc(100% / 3);
       border-right: 1px solid #ddd;
-      // margin-left: 20px;
       display: inline-block;
       &:last-child {
         border-right: none;
       }
       .img-wrapper {
         height: 100px;
-        // background: #ccc url(http://i1.piimg.com/567571/ff0f3ecfbba27c41.jpg) 0 / cover;
       }
       a {
         cursor: pointer;
