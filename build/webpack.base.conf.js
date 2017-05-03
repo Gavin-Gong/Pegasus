@@ -51,9 +51,24 @@ module.exports = {
         amd: 'vue-router',
         root: 'VueRouter',
     },
-    'highlight': 'highlightjs',
-    "marked": "marked",
-    "MDE": "simplemde",
+    'highlightjs': {
+        commonjs: 'highlightjs',
+        commonjs2: 'highlightjs',
+        amd: 'highlightjs',
+        root: 'hljs',
+    },
+    'marked': {
+        commonjs: 'marked',
+        commonjs2: 'marked',
+        amd: 'marked',
+        root: 'marked',
+    },
+    'simplemde': {
+        commonjs: 'simplemde',
+        commonjs2: 'simplemde',
+        amd: 'simplemde',
+        root: 'simpleMDE',
+    },
   },
   module: {
     rules: [

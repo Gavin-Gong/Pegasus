@@ -56,8 +56,7 @@
 
 <script>
   /* eslint-disable */
-  import MDE from 'simplemde';
-  import marked from 'marked';
+  /* global marked*/
   import XIcon from 'components/Icon';
   import { Button, Input, Dialog, Form, FormItem, Option, Select } from 'element-ui';
   import 'simplemde/dist/simplemde.min.css';
@@ -96,7 +95,7 @@
     },
     mounted() {
        /* eslint-disable */
-      simplemde = new MDE({
+      simplemde = new window.simpleMDE({
         element: document.getElementById("md-editor"),
         spellChecker: false,
         placeholder: '开始你的写作.....',

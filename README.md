@@ -33,3 +33,7 @@ Bugs
 TODO feature
 - [ ] markdown 下载
 - [ ] dark mode
+
+TODO  cdn
+- [ ] axios
+- [ ] perfect-scrollbar

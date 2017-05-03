@@ -52,14 +52,14 @@
 import { Card, Button, Dialog } from 'element-ui';
 import XIcon from 'components/Icon';
 import XTag from 'components/Tag';
-import marked from 'marked';
-import highlight from 'highlightjs';
-// import 'highlightjs/styles/github.css';
+// import marked from 'marked';
+import 'highlightjs/styles/github.css';
 import { isEmptyObj } from 'src/utils';
 
 Vue.use(Card);
 Vue.use(Button);
 Vue.use(Dialog);
+/* global marked*/
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -70,7 +70,8 @@ marked.setOptions({
   smartLists: true,
   smartypants: false,
   highlight(code) {
-    return highlight.highlightAuto(code).value;
+    /* global hljs*/
+    return hljs.highlightAuto(code).value;
   },
 });
 

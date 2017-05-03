@@ -8,10 +8,10 @@
 
 <script>
 import XIcon from 'components/Icon';
-import marked from 'marked';
-import highlight from 'highlightjs';
+// import marked from 'marked';
+// import highlight from 'highlightjs';
 import 'highlightjs/styles/github.css';
-
+/* global marked*/
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -22,7 +22,8 @@ marked.setOptions({
   smartLists: true,
   smartypants: false,
   highlight(code) {
-    return highlight.highlightAuto(code).value;
+    /* global hljs*/
+    return hljs.highlightAuto(code).value;
   },
 });
 
