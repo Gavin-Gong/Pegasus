@@ -1,12 +1,12 @@
 <template>
   <div class="list-view">
     <el-col :span="5">
-      <el-input class="search-bar" :placeholder="`Search ${this.type}`"></el-input>
+      <el-input class="search-bar" :placeholder="`搜索 ${this.type}`"></el-input>
       <div ref="container" class="list-container">
         <ul ref="list">
           <li
             v-for="(item, index) in listData"
-            @click="choosePost(item, $event)">
+            @click="chooseItem(item, $event)">
             <a>{{ item.title }}</a>
           </li>
         </ul>
@@ -27,10 +27,9 @@
   Vue.use(Col);
   export default {
     created() {
-      this.$store.dispatch(this.dispatchType, { query: { _limit: 20 } }).then(() => {
-        // this.$emit('active', data[0]);
+      this.$store.dispatch(this.dispatchType, { query: { _limit: 20 } }).then(({ data }) => {
         this.$refs.list.children[0].click();
-        console.log('clicked');
+        this.$emit('active', data[0]);
       });
     },
     props: {
@@ -44,12 +43,14 @@
       Ps.initialize(this.$refs.container);
     },
     methods: {
-      choosePost(data, event) {
-        [].forEach.call(this.$refs.list.children, (item) => {
-          item.classList.remove('is-active');
-        });
-        event.currentTarget.classList.add('is-active');
+      /*eslint-disable*/
+      chooseItem(data, event) {
+        // [].forEach.call(this.$refs.list.children, (item) => {
+        //   item.classList.remove('is-active');
+        // });
+        // event.currentTarget.classList.add('is-active');
         this.$emit('active', data);
+        this.$router.push({name: 'DbTag', params: {id: data.id}});
       },
     },
     computed: {

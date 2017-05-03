@@ -20,6 +20,7 @@ Vue.use(VueLazyload, {
 
 Vue.prototype.$msg = Message;
 
+axios.defaults.headers.common['Content-Type'] = 'application/json';
 if (typeof DEV === 'undefined' || DEV === false) {
   // aliyun
   // http://120.24.177.234:3000
@@ -29,7 +30,6 @@ if (typeof DEV === 'undefined' || DEV === false) {
   axios.defaults.baseURL = 'http://127.0.0.1:3000';
   axios.defaults.baseURL = 'http://192.168.1.2:3000';
 }
-axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 Vue.mixin({
   methods: {

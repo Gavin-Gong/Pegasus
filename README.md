@@ -3,7 +3,6 @@
 > A blog system build with vue.js.
 
 TODO:
-- [ ] vanilla-lazyload, 图片懒加载
 - [ ] placeholder component, 例如底部显示加载中，没有更多了
 - [ ] transition app
 - [ ] 集成 [disqus](https://pegasus-app.disqus.com/admin/install/platforms/universalcode/)
@@ -19,7 +18,8 @@ Bugs
 
 -Plan
 - [ ] 图片尺寸 filter
-- [ ] 滚动加载
+- [ ] loading
+- [X] 滚动加载
 - [ ] dashboard - 文章
 - [ ] dashboard - settings
 - [ ] 404
@@ -27,7 +27,9 @@ Bugs
 - [ ] 卡片banner操作
 - [ ] 权限管理
 - [ ] name
-- [X] lazyload
 - [ ] mobile
-- [ ] loading
+- [X] lazyload
 
+TODO feature
+- [ ] markdown 下载
+- [ ] dark mode

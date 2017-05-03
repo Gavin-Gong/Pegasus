@@ -6,4 +6,7 @@ const baseUrl = 'profile';
 export function fetchProfile() {
   return $http.get(baseUrl);
 }
+export function putProfile(id, fd) {
+  return $http.put(`${baseUrl}/${id}`, fd);
+}
 

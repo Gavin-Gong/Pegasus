@@ -40,6 +40,9 @@ export default {
   created() {
     this.$store.dispatch('fetchArticleById', this.$route.params.id);
   },
+  activated() {
+    this.$store.dispatch('fetchArticleById', this.$route.params.id);
+  },
   beforeRouteUpdate(to, from, next) {
     this.$store.dispatch('fetchArticleById', this.$route.params.id);
     next();

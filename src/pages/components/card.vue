@@ -53,7 +53,6 @@ export default {
     },
   },
   methods: {
-    // TODO: 抽象到全局
     routeTo(router) {
       this.$router.push(router);
     },

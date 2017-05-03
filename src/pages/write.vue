@@ -1,15 +1,10 @@
 <template>
   <div id="write">
     <div class="op-bar">
-      <!--<el-input class="dp-ib" placeholder="type your title" style="width: 300px; margin-right: 40px; font-weight: bold"></el-input>-->
       <el-button @click="goBack">
-        <x-icon type="arrow-left"></x-icon> Back
-        <!--<i class="el-icon-arrow-left"></i>-->
+        <x-icon type="arrow-left"></x-icon> 返回
       </el-button>
-      <el-button type="primary" @click="showDialog = true"> Save </el-button>
-      <!--save & post-->
-      <!--discard-->
-      <!--save to draft-->
+      <el-button type="primary" @click="showDialog = true"> 保存 </el-button>
     </div>
     <div id="editor-wrapper">
       <textarea id="md-editor">
@@ -18,7 +13,7 @@
     <el-dialog v-model="showDialog" :show-close="false" title="Addtional Infomation">
       <el-form label-position="right" label-width="80px">
         <el-form-item label="title">
-          <el-input placeholder="type your title" v-model="postFields.title"></el-input>
+          <el-input placeholder="请输入标题" v-model="postFields.title"></el-input>
         </el-form-item>
         <el-form-item label="tag">
           <el-select
@@ -26,7 +21,7 @@
             v-model="postFields.tags"
             filterable
             multiple
-            placeholder="please choose tag">
+            placeholder="请选择标签">
             <el-option
               v-for="(item, key) in tagList"
               :key="key"
@@ -41,7 +36,7 @@
             v-model="postFields.topics"
             filterable
             clearable
-            placeholder="please choose topic">
+            placeholder="请选择专题">
             <el-option
               v-for="(item, index) in topicList"
               :key="index"
@@ -52,8 +47,8 @@
         </el-form-item>
       </el-form>
       <template slot="footer">
-        <el-button @click="showDialog = false"> Cancel </el-button>
-        <el-button type="primary" @click="postArticle"> Make sure and post </el-button>
+        <el-button @click="showDialog = false"> 取消 </el-button>
+        <el-button type="primary" @click="postArticle"> 发布 </el-button>
       </template>
     </el-dialog>
   </div>
@@ -80,7 +75,7 @@
     components: {
       XIcon
     },
-    created() {
+    beforeCreate() {
       this.$store.dispatch('fetchTopicList');
       this.$store.dispatch('fetchTagList');
 
@@ -104,17 +99,13 @@
       simplemde = new MDE({
         element: document.getElementById("md-editor"),
         spellChecker: false,
-        placeholder: 'Type here...',
+        placeholder: '开始你的写作.....',
         renderingConfig: {
           singleLineBreaks: false,
           codeSyntaxHighlighting: true,
         },
         previewRender(plainText) {
           return marked(plainText);
-        },
-        renderingConfig: {
-          singleLineBreaks: false,
-          codeSyntaxHighlighting: true,
         },
         // toolbar: [
         //   {
@@ -186,7 +177,7 @@
         this.postFields.body = simplemde.value();
         this.$store.dispatch('postArticle', this.postFields).then(({ data }) => {
           this.$msg.success({
-            message: 'created sucesse',
+            message: '发布成功',
             duration: 1000,
           });
           this.showDialog = false;

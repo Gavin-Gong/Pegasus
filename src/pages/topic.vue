@@ -30,10 +30,13 @@
     created() {
       this.$store.dispatch('fetchTopic', this.$route.params.id);
     },
-    beforeRouteUpdate(to, from, next) {
+    activated() {
       this.$store.dispatch('fetchTopic', this.$route.params.id);
-      next();
     },
+    // beforeRouteUpdate(to, from, next) {
+    //   this.$store.dispatch('fetchTopic', this.$route.params.id);
+    //   next();
+    // },
     // mounted() {
     //   window.scrollTo(0, 0);
     // },

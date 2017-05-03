@@ -35,6 +35,26 @@ module.exports = {
       'mixins': resolve('src/mixins'),
     }
   },
+  externals: {
+    // "vue": "vue",
+    // "Router": "vue-router",
+    // "Vuex": "vuex",
+    vuex: {
+        commonjs: 'vuex',
+        commonjs2: 'vuex',
+        amd: 'vuex',
+        root: 'Vuex',
+    },
+    'vue-router': {
+        commonjs: 'vue-router',
+        commonjs2: 'vue-router',
+        amd: 'vue-router',
+        root: 'VueRouter',
+    },
+    'highlight': 'highlightjs',
+    "marked": "marked",
+    "MDE": "simplemde",
+  },
   module: {
     rules: [
       {

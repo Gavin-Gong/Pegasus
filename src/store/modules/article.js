@@ -6,6 +6,7 @@ const state = {
   detail: {
     id: '',
     title: '',
+    body: '',
     banner: '',
     created_at: '',
     tags: [],

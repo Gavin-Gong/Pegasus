@@ -54,7 +54,7 @@ import XIcon from 'components/Icon';
 import XTag from 'components/Tag';
 import marked from 'marked';
 import highlight from 'highlightjs';
-import 'highlightjs/styles/github.css';
+// import 'highlightjs/styles/github.css';
 import { isEmptyObj } from 'src/utils';
 
 Vue.use(Card);
