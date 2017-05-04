@@ -26,6 +26,9 @@
     created() {
       this.$store.dispatch('fetchTagList');
     },
+    // activated() {
+    //   this.$store.dispatch('fetchTagList');
+    // },
     methods: {
       fetchTags() {
 

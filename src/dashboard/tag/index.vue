@@ -1,7 +1,15 @@
 <template>
   <div id="dashboard-tag">
     <el-row>
-      <list-view @active="handleActive" type="tag"></list-view>
+      <list-view
+        route-name="DbTag"
+        @active="handleActive"
+        :data="listData">
+        <el-input
+          slot="search"
+          plceholder="">
+        </el-input>
+        </list-view>
       <router-view :data="activedTag"></router-view>
     </el-row>
   </div>
@@ -22,14 +30,14 @@
     components: {
       ListView,
     },
-    // beforeRouteEnter: (to, from, next) => {
-    //   next((vm) => {
-    //     vm.$store.dispatch('fetchArticleList', { query: { _limit: 20 } })
-    //       .then(({ data }) => {
-    //         vm.activedTag = data[0];
-    //       });
-    //   });
-    // },
+    beforeRouteEnter: (to, from, next) => {
+      next((vm) => {
+        /*eslint-disable*/
+        vm.$store.dispatch('fetchTagList', { query: { _limit: 20 } })
+          .then(({ data }) => {
+          });
+      });
+    },
     created() {
     },
     data() {
@@ -46,7 +54,21 @@
     },
     computed: {
       listData() {
-        return this.$store.state.article.list;
+        /*避免v-model直接操作state*/
+        return JSON.parse(JSON.stringify(this.$store.state.tag.list));
+      },
+
+    },
+    watch: {
+      $route() {
+        /* detail页面的初始数据 */
+        if (this.$route.name === 'DbTag') {
+          /*eslint-disable*/
+          const resultArr = this.listData.filter(item => item.id == this.$route.params.id);
+          if (resultArr.length === 1) {
+            this.activedTag = resultArr[0];
+          }
+        }
       },
     },
   };

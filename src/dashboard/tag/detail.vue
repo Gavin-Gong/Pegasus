@@ -1,19 +1,19 @@
 <template>
-      <el-col :span="19" class="content">
-        <el-form label-position="left" label-width="60px">
-          <el-form-item label="标签名">
-            <el-input v-model="data.title"></el-input>
-          </el-form-item>
-        </el-form>
+    <el-col :span="19" class="content">
+      <el-form label-position="left" label-width="60px">
+        <el-form-item label="标签名">
+          <el-input v-model="data.title"></el-input>
+        </el-form-item>
+      </el-form>
 
-        <div class="form-bottom-bar">
-          <el-button type="primary" @click="saveTag"> 保存 </el-button>
-          <el-button  @click="$router.push({name: 'Tag', params: {id: data.id}})">
-            <i class="iconfont icon-link"></i>
-            打开链接 </el-button>
-          <el-button type="danger" @click="deleteTag"> 删除 </el-button>
-        </div>
-      </el-col>
+      <div class="form-bottom-bar">
+        <el-button type="primary" @click="saveTag"> 保存 </el-button>
+        <el-button  @click="$router.push({name: 'Tag', params: {id: data.id}})">
+          <i class="iconfont icon-link"></i>
+          打开链接 </el-button>
+        <el-button type="danger" @click="deleteTag"> 删除 </el-button>
+      </div>
+    </el-col>
 </template>
 
 <script>
@@ -29,25 +29,23 @@
 
   export default {
     created() {
-      this.$store.dispatch('fetchArticleList', { query: { _limit: 20 } });
+      this.$store.dispatch('fetchTag', this.$route.params.id);
+    },
+    activated() {
+      this.$store.dispatch('fetchTag', this.$route.params.id);
+    },
+    beforeRouteUpdate(to, from, next) {
+      this.$store.dispatch('fetchTag', to.params.id);
+      next();
     },
     props: {
       data: {
         type: Object,
         required: true,
-        default() {
-          return {
-            id: '',
-            body: '',
-          };
-        },
       },
     },
     data() {
       return {
-        activedTag: {
-          body: '',
-        },
       };
     },
     methods: {
@@ -70,10 +68,14 @@
           this.$msg.error('保存失败');
         });
       },
+      fetchTag() {
+        return this.$store.dispatch('fetchTag', this.$route.params.id);;
+      },
     },
     computed: {
-      listData() {
-        return this.$store.state.article.list;
+      tagData() {
+        return Object.assign({}, this.$store.state.tag.detail);
+        // return Object.assign({}, this.$store.state.tag.detail);
       },
     },
   };

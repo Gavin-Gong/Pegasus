@@ -4,16 +4,19 @@
 
     </div>
     <div class="mask">
+      <template v-if="$slots.more">
         <el-popover
           ref="popover"
           v-model="showPop">
           <ul class="popover-list">
-            <li><i class="iconfont icon-create"> 创建文章</i></li>
+            <slot name="more"></slot>
+            <!--<li><i class="iconfont icon-create"> 创建文章</i></li>
             <li><i class="iconfont icon-edit"> 编辑专题</i></li>
-            <li @click="deleteEle"><i class="iconfont icon-delete" style="color: rgba(255, 0, 0, .6)"> 删除专题</i></li>
+            <li @click="deleteEle"><i class="iconfont icon-delete" style="color: rgba(255, 0, 0, .6)"> 删除专题</i></li>-->
           </ul>
         </el-popover>
-      <i class="iconfont icon-more more-btn" v-popover:popover></i>
+        <i class="iconfont icon-more more-btn" v-popover:popover></i>
+      </template>
       <!--<el-button v-popover:popover> 删除 </el-button>-->
 
       <h1 class="banner-title">

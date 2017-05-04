@@ -7,11 +7,11 @@
 
 <script>
   /* eslint-disable */
-  import MDE from 'simplemde';
-  import marked from 'marked';
+  // import MDE from 'simplemde';
+  // import marked from 'marked';
   import 'simplemde/dist/simplemde.min.css';
 
-  let simplemde;
+  let MDE;
 
   export default {
     props: {
@@ -21,8 +21,8 @@
       },
     },
     mounted() {
-       /* eslint-disable */
-      simplemde = new MDE({
+       /* global simpleMDE */
+      MDE = new SimpleMDE({
         element: document.getElementById("md-editor"),
         spellChecker: false,
         placeholder: 'Type here...',
@@ -86,11 +86,11 @@
         // hideIcons: ['fullscreen'],
         autoDownloadFontAwesome: false,
       });
-      simplemde.value(this.value);
+      MDE.value(this.value);
     },
     watch: {
       value() {
-        simplemde.value(this.value);
+        MDE.value(this.value);
       },
     },
   };

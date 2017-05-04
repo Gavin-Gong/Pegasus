@@ -1,72 +1,57 @@
 <template>
   <div class="list-view">
     <el-col :span="5">
-      <el-input class="search-bar" :placeholder="`搜索 ${this.type}`"></el-input>
+      <!--<el-input class="search-bar" :placeholder="`搜索 ${this.type}`"></el-input>-->
+      <div class="search-bar">
+        <slot name="search"></slot>
+      </div>
       <div ref="container" class="list-container">
         <ul ref="list">
           <li
-            v-for="(item, index) in listData"
-            @click="chooseItem(item, $event)">
+            v-for="(item, index) in data"
+            :key="index"
+            :class="$route.params.id == item.id && $route.name === routeName ? 'is-active' : ''"
+            @click="handleRoute(item)">
             <a>{{ item.title }}</a>
           </li>
         </ul>
       </div>
     </el-col>
-    <!-- TODO -->
-    <!--loadMore-->
+    <slot name="more"></slot>
   </div>
 </template>
 
 <script>
-  import { Input, Row, Col } from 'element-ui';
+  import { Input, Col } from 'element-ui';
   import Ps from 'perfect-scrollbar';
   import 'perfect-scrollbar/dist/css/perfect-scrollbar.min.css';
 
   Vue.use(Input);
-  Vue.use(Row);
   Vue.use(Col);
   export default {
-    created() {
-      this.$store.dispatch(this.dispatchType, { query: { _limit: 20 } }).then(({ data }) => {
-        this.$refs.list.children[0].click();
-        this.$emit('active', data[0]);
-      });
-    },
     props: {
-      type: {
+      data: {
+        type: Array,
+        required: true,
+        default() {
+          return [];
+        },
+      },
+      routeName: {
         type: String,
         required: true,
-        default: 'post',
       },
     },
     mounted() {
       Ps.initialize(this.$refs.container);
+      /* eslint-disable*/
+      // const state = this.data.filter(item => item.id == this.$route.params.id);
+      // this.$emit('active', ...state);
     },
     methods: {
-      /*eslint-disable*/
-      chooseItem(data, event) {
-        // [].forEach.call(this.$refs.list.children, (item) => {
-        //   item.classList.remove('is-active');
-        // });
-        // event.currentTarget.classList.add('is-active');
+      handleRoute(data) {
+        this.$router.push({ name: this.routeName, params: { id: data.id } });
         this.$emit('active', data);
-        this.$router.push({name: 'DbTag', params: {id: data.id}});
-      },
-    },
-    computed: {
-      dispatchType() {
-        if (this.type === 'article') {
-          return 'fetchArticleList';
-        } else if (this.type === 'topic') {
-          return 'fetchTopicList';
-        } else if (this.type === 'tag') {
-          return 'fetchTagList';
-        }
-        console.error('error type');
-        return '';
-      },
-      listData() {
-        return this.$store.state[this.type].list;
       },
     },
   };

@@ -4,11 +4,11 @@
       <el-col :span="3">
         <el-menu default-active="2" theme="dark" router>
           <!--<el-menu-item index="1" :route="{path: 'home'}"><i class="el-icon-menu"></i>Statistics</el-menu-item>-->
-          <el-menu-item index="2" :route="{path: '/dashboard/post'}">
+          <el-menu-item index="2" :route="{path: '/dashboard/post/0'}">
             <i class="iconfont icon-article"></i>文章</el-menu-item>
-          <el-menu-item index="3" :route="{path: '/dashboard/tag'}">
+          <el-menu-item index="3" :route="{path: '/dashboard/tag/0'}">
             <i class="iconfont icon-tag"></i>标签</el-menu-item>
-          <el-menu-item index="4" :route="{path: '/dashboard/topic'}">
+          <el-menu-item index="4" :route="{path: '/dashboard/topic/0'}">
             <i class="iconfont icon-topic"></i>专题</el-menu-item>
           <el-menu-item index="5" :route="{path: '/dashboard/profile'}">
             <i class="iconfont icon-user"></i>资料</el-menu-item>
@@ -22,7 +22,7 @@
       <!--<el-col :span="6">
         list-bar
       </el-col>-->
-      <el-col :span="21">
+      <el-col :span="21" class="right-view">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
@@ -74,6 +74,9 @@
 @import '~styles/mixins';
 #dashboard {
   margin-top: -100px;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
   .el-menu {
     min-height: 100vh;
     li {
@@ -87,6 +90,10 @@
   .back-btn {
     margin-top: 80px;
     margin-left: 20px;
+  }
+  .right-view {
+    height: 100vh;
+    overflow: hidden;
   }
 }
 </style>

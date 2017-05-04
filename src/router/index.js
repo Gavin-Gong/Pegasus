@@ -15,9 +15,11 @@ import Write from 'pages/write';
 import Dashboard from '../dashboard';
 import DbHome from '../dashboard/home';
 import DbPost from '../dashboard/post/index';
+import DbPostDetail from '../dashboard/post/detail';
 import DbTag from '../dashboard/tag/index';
 import DbTagDetail from '../dashboard/tag/detail';
 import DbTopic from '../dashboard/topic/index';
+import DbTopicDetail from '../dashboard/topic/detail';
 import DbProfile from '../dashboard/profile';
 import DbSettings from '../dashboard/settings';
 import Login from '../dashboard/login';
@@ -104,6 +106,13 @@ const router = new VueRouter({
         {
           path: 'post',
           component: DbPost,
+          children: [
+            {
+              path: ':id',
+              component: DbPostDetail,
+              name: 'DbPost',
+            },
+          ],
         },
         {
           path: 'tag',
@@ -120,6 +129,13 @@ const router = new VueRouter({
         {
           path: 'topic',
           component: DbTopic,
+          children: [
+            {
+              path: ':id',
+              component: DbTopicDetail,
+              name: 'DbTopic',
+            },
+          ],
         },
         {
           path: 'profile',

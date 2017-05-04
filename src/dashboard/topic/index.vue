@@ -1,34 +1,17 @@
 <template>
   <div id="dashboard-topic">
     <el-row>
-      <list-view @active="handleActive" type="topic"></list-view>
-      <el-col :span="19" class="content">
-        <el-form label-position="left" label-width="80px">
-          <el-form-item label="专题名">
-            <el-input v-model="activedTag.title"></el-input>
-          </el-form-item>
-          <el-form-item label="专题介绍">
-            <el-input
-              :autosize="{ minRows: 6, maxRows: 10}"
-              v-model="activedTag.title"
-              type="textarea"></el-input>
-          </el-form-item>
-        </el-form>
-
-        <div class="form-bottom-bar">
-          <el-button type="primary"> 保存 </el-button>
-          <el-button  @click="$router.push({name: 'Topic', params: {id: 1}})">
-            <i class="iconfont icon-link"></i>
-            打开链接 </el-button>
-          <el-button type="danger"> 删除 </el-button>
-        </div>
-        <!--<el-button type="danger"> 删除 </el-button>-->
-        <!--<el-button type="danger"> 删除该专题和该主题文章 </el-button>-->
-        <!--<el-button type="danger">Delete Tag And Posts</el-button>-->
-      </el-col>
+      <list-view
+        route-name="DbTopic"
+        @active="handleActive"
+        :data="listData">
+        <el-input
+          slot="search"
+          plceholder="">
+        </el-input>
+        </list-view>
+      <router-view :data="activedTopic"></router-view>
     </el-row>
-    <!-- TODO -->
-    <!--loadMore-->
   </div>
 </template>
 
@@ -47,24 +30,45 @@
     components: {
       ListView,
     },
+    beforeRouteEnter: (to, from, next) => {
+      next((vm) => {
+        /*eslint-disable*/
+        vm.$store.dispatch('fetchTopicList', { query: { _limit: 20 } })
+          .then(({ data }) => {
+          });
+      });
+    },
     created() {
-      this.$store.dispatch('fetchArticleList', { query: { _limit: 20 } });
     },
     data() {
       return {
-        activedTag: {
+        activedTopic: {
           body: '',
         },
       };
     },
     methods: {
       handleActive(data) {
-        this.activedTag = data;
+        this.activedTopic = data;
       },
     },
     computed: {
       listData() {
-        return this.$store.state.article.list;
+        /*避免v-model直接操作state*/
+        return JSON.parse(JSON.stringify(this.$store.state.topic.list));
+      },
+
+    },
+    watch: {
+      $route() {
+        /* detail页面的初始数据 */
+        if (this.$route.name === 'DbTopic') {
+          /*eslint-disable*/
+          const resultArr = this.listData.filter(item => item.id == this.$route.params.id);
+          if (resultArr.length === 1) {
+            this.activedTopic = resultArr[0];
+          }
+        }
       },
     },
   };

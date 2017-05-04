@@ -67,7 +67,7 @@ module.exports = {
         commonjs: 'simplemde',
         commonjs2: 'simplemde',
         amd: 'simplemde',
-        root: 'simpleMDE',
+        root: 'SimpleMDE',
     },
   },
   module: {
