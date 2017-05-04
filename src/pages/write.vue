@@ -6,7 +6,7 @@
       </el-button>
       <el-button type="primary" @click="showDialog = true"> 保存 </el-button>
     </div>
-    <div id="editor-wrapper">
+    <div id="editor-wrapper" class="typo">
       <textarea id="md-editor">
       </textarea>
     </div>
@@ -95,7 +95,7 @@
     },
     mounted() {
        /* eslint-disable */
-      simplemde = new window.simpleMDE({
+      simplemde = new SimpleMDE({
         element: document.getElementById("md-editor"),
         spellChecker: false,
         placeholder: '开始你的写作.....',
@@ -203,6 +203,11 @@
 #write {
   z-index: 10000;
   margin-top: -100px;
+  #editor-wrapper {
+    h1,h2,h3,h4,h5,h6 {
+      margin-top: 0;
+    }
+  }
   .CodeMirror, .CodeMirror-scroll {
     min-height: calc(100% - 100px);
     min-height: 500px;

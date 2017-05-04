@@ -10,6 +10,7 @@ import Tags from 'pages/tags';
 import Tag from 'pages/tag';
 import About from 'pages/about';
 import Write from 'pages/write';
+import NotFound from 'pages/404';
 
 // Dashboard
 import Dashboard from '../dashboard';
@@ -27,7 +28,7 @@ import Login from '../dashboard/login';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  // mode: 'history',
+  mode: 'history',
   /*eslint-disable*/
   scrollBehavior(to, from, savedPos) {
     return { x: 0, y: 0 };
@@ -146,6 +147,15 @@ const router = new VueRouter({
           component: DbSettings,
         },
       ],
+    },
+    {
+      path: '/404',
+      component: NotFound,
+    },
+    {
+      path: '*',
+      redirect: '/404',
+      component: NotFound,
     },
   ],
 });

@@ -17,15 +17,18 @@ Bugs
 - [ ] editor empty img
 
 -Plan
-- [ ] 图片尺寸 filter
-- [ ] loading
-- [X] 滚动加载
+- [ ] 404
 - [ ] dashboard - 文章
 - [ ] dashboard - settings
-- [ ] 404
-- [ ] 卡顿问题
+- [ ] dashboard - profile
 - [ ] 卡片banner操作
 - [ ] 权限管理
+- [ ] timestamp 汉化
+
+- [ ] 图片尺寸 filter
+- [ ] loading
+- [ ] 滚动加载
+- [ ] 卡顿问题
 - [ ] name
 - [ ] mobile
 - [X] lazyload
