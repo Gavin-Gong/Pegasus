@@ -22,3 +22,5 @@ export const SHOW_FOOTER = 'SHOW_FOOTER';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+
+export const FETCH_STATISTICS = 'FETCH_STATISTICS';

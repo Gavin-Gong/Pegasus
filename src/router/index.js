@@ -14,7 +14,7 @@ import NotFound from 'pages/404';
 
 // Dashboard
 import Dashboard from '../dashboard';
-import DbHome from '../dashboard/home';
+import DbOverview from '../dashboard/overview';
 import DbPost from '../dashboard/post/index';
 import DbPostDetail from '../dashboard/post/detail';
 import DbTag from '../dashboard/tag/index';
@@ -101,8 +101,9 @@ const router = new VueRouter({
           component: DbPost,
         },
         {
-          path: 'home',
-          component: DbHome,
+          path: 'overview',
+          component: DbOverview,
+          name: 'DbOverview',
         },
         {
           path: 'post',

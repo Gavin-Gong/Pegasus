@@ -17,11 +17,11 @@ Bugs
 - [ ] editor empty img
 
 -Plan
-- [ ] 404
+- [X] 404
+- [ ] dashboard - overview
 - [ ] dashboard - 文章
 - [ ] dashboard - settings
 - [ ] dashboard - profile
-- [ ] dashboard - overview
 - [ ] 卡片banner操作
 - [ ] 权限管理
 - [ ] timestamp 汉化

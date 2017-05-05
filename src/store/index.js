@@ -8,9 +8,9 @@ import tag from './modules/tag';
 import topic from './modules/topic';
 import about from './modules/about';
 import profile from './modules/profile';
-// import nav from './modules/nav';
 import global from './modules/global';
 import auth from './modules/auth';
+import statistics from './modules/statistics';
 
 Vue.use(Vuex);
 
@@ -27,6 +27,7 @@ export default new Vuex.Store({
     profile,
     global,
     auth,
+    statistics,
   },
   strict: debug,
 });

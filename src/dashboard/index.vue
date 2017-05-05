@@ -3,7 +3,8 @@
     <el-row>
       <el-col :span="3">
         <el-menu default-active="2" theme="dark" router>
-          <!--<el-menu-item index="1" :route="{path: 'home'}"><i class="el-icon-menu"></i>Statistics</el-menu-item>-->
+          <el-menu-item index="1" :route="{name: 'DbOverview'}">
+            <i class="el-icon-menu" ></i>统计</el-menu-item>
           <el-menu-item index="2" :route="{path: '/dashboard/post/0'}">
             <i class="iconfont icon-article"></i>文章</el-menu-item>
           <el-menu-item index="3" :route="{path: '/dashboard/tag/0'}">
@@ -74,9 +75,9 @@
 @import '~styles/mixins';
 #dashboard {
   margin-top: -100px;
-  height: 100vh;
+  // height: 100vh;
   box-sizing: border-box;
-  overflow: hidden;
+  // overflow: hidden;
   .el-menu {
     min-height: 100vh;
     li {
@@ -84,6 +85,11 @@
         margin-right: 14px;
         font-size: 24px;
         vertical-align: middle;
+      }
+      .el-icon-menu {
+        font-size: 18px;
+        margin-right: 18px;
+        margin-left: 2px;
       }
     }
   }

@@ -1,5 +1,68 @@
 <template>
-  <div id="dashboard-home">
+  <div id="dashboard-settings">
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
+    <el-card>
+      Hello World
+    </el-card>
     <el-card>
       Hello World
     </el-card>
@@ -16,4 +79,9 @@
 
 <style lang="scss" >
 @import '~styles/mixins';
+#dashboard-settings {
+  height: 1000vh;
+  overflow: auto;
+  z-index: 1000000;
+}
 </style>

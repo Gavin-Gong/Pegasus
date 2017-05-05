@@ -35,7 +35,7 @@
                 ize="lg"></x-icon>-->
               <i class="iconfont icon-edit"></i>
             </li>
-            <li @click="$router.push({path: '/dashboard/post'})">
+            <li @click="$router.push({name: 'DbOverview'})">
               <!--<x-icon
                 type="tachometer"
                 color="#eee"
