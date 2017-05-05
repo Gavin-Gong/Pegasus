@@ -21,6 +21,7 @@ Bugs
 - [ ] dashboard - 文章
 - [ ] dashboard - settings
 - [ ] dashboard - profile
+- [ ] dashboard - overview
 - [ ] 卡片banner操作
 - [ ] 权限管理
 - [ ] timestamp 汉化
@@ -40,3 +41,7 @@ TODO feature
 TODO  cdn
 - [ ] axios
 - [ ] perfect-scrollbar
+
+TODO refactor
+- top-nav footer 显示控制 -> router
+- footer
