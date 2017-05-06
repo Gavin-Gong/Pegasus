@@ -1,7 +1,9 @@
 <template>
-  <div :id="id" style="width: 900px; height: 600px">
+<div>
+  <div :id="id" :style="{width, height}">
 
   </div>
+</div>
 </template>
 
 <script>
@@ -12,16 +14,23 @@
   Vue.use(Row);
   Vue.use(Col);
 
-  let myChart = null;
+  // let myChart = null;
 
   export default {
-    updated() {
-      if (myChart) {
-        console.log('here');
-        myChart.setOption(this.option);
-      }
-    },
+    // updated() {
+    //   if (this.myChart) {
+    //     console.log('here');
+    //     this.myChart.setOption(this.option);
+    //   }
+    // },
     props: {
+      id: {},
+      width: {
+        default: '900px',
+      },
+      height: {
+        default: '600px',
+      },
       title: {
         default: 'gg',
       },
@@ -45,15 +54,16 @@
     },
     data() {
       return {
-        id: Math.random().toString(36).substring(7),
-
+        // id: Math.random().toString(36).substring(7),
+        myChart: null
       };
     },
     mounted() {
       /* eslint-disable*/
-      myChart = echarts.init(document.getElementById(this.id));
+      this.myChart = echarts.init(document.getElementById(this.id));
       setTimeout(() => {
-        myChart.setOption(this.options);
+        this.myChart.setOption(this.options);
+        console.log(this.options);
       }, 1000);
     },
     methods: {
@@ -74,6 +84,15 @@
         return {
           title: {
             text: this.title,
+          },
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              type: 'cross',
+              label: {
+                  backgroundColor: '#6a7985',
+              },
+            },
           },
           legend: {
             data: this.legend,
