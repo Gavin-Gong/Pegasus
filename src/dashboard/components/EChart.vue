@@ -17,12 +17,9 @@
   // let myChart = null;
 
   export default {
-    // updated() {
-    //   if (this.myChart) {
-    //     console.log('here');
-    //     this.myChart.setOption(this.option);
-    //   }
-    // },
+    updated() {
+      this.myChart.setOption(this.option);
+    },
     props: {
       id: {},
       width: {
@@ -64,7 +61,7 @@
       setTimeout(() => {
         this.myChart.setOption(this.options);
         console.log(this.options);
-      }, 1000);
+      }, 0);
     },
     methods: {
 

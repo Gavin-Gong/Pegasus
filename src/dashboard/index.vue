@@ -13,8 +13,8 @@
             <i class="iconfont icon-topic"></i>专题</el-menu-item>
           <el-menu-item index="5" :route="{path: '/dashboard/profile'}">
             <i class="iconfont icon-user"></i>资料</el-menu-item>
-          <el-menu-item index="6" :route="{path: '/dashboard/settings'}">
-            <i class="iconfont icon-settings"></i>设置</el-menu-item>
+          <!--<el-menu-item index="6" :route="{path: '/dashboard/settings'}">
+            <i class="iconfont icon-settings"></i>设置</el-menu-item>-->
           <el-button size="small" class="back-btn" @click="$router.push({name: 'Home'})">
             返回网站
             <i class="iconfont icon-arrowright"></i></el-button>

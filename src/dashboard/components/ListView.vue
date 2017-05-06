@@ -42,12 +42,21 @@
         required: true,
       },
     },
+    updated() {
+      /*eslint-disable*/
+      console.log(this.data);
+      const state = this.data.filter(item => item.id == this.$route.params.id);
+      console.log(state);
+      this.$emit('active', ...state);
+    },
     mounted() {
       Ps.initialize(this.$refs.container);
       /* eslint-disable*/
-      // const state = this.data.filter(item => item.id == this.$route.params.id);
-      // this.$emit('active', ...state);
     },
+    // activated() {
+    //   const state = this.data.filter(item => item.id == this.$route.params.id);
+    //   this.$emit('active', ...state);
+    // },
     methods: {
       handleRoute(data) {
         this.$router.push({ name: this.routeName, params: { id: data.id } });

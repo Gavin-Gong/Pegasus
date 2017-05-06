@@ -70,7 +70,7 @@
 
         <e-chart
           id="yesterday"
-          title="昨日数据统计"
+          title="昨日24小时数据统计"
           :legend="['点击数', '访问ip数']"
           :x-data="[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]"
           :y-data="[{name: '点击数', data: visitData}, {name: '访问ip数', data: ipData}]"

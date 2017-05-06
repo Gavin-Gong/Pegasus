@@ -18,10 +18,11 @@ Bugs
 
 -Plan
 - [X] 404
-- [ ] dashboard - overview
+- [X] dashboard - overview
 - [ ] dashboard - 文章
 - [ ] dashboard - settings
 - [ ] dashboard - profile
+
 - [ ] 卡片banner操作
 - [ ] 权限管理
 - [ ] timestamp 汉化
