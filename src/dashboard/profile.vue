@@ -34,6 +34,7 @@
 
 <script>
   import { Card, FormItem, Form, Input, Col, Row, Button } from 'element-ui';
+  // import Vue from 'vue';
 
   Vue.use(Card);
   Vue.use(FormItem);
