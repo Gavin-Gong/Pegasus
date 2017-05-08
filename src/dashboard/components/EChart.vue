@@ -73,6 +73,8 @@
           return {
             name: item.name,
             type: 'line',
+            smooth: true,
+            symbol: 'none',
             stack: '总量',
             areaStyle: { normal: {} },
             data: item.data,

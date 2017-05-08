@@ -8,3 +8,4 @@ selenium-debug.log
 .idea/
 .npmrc
 yarn.lock
+app.log
