@@ -17,51 +17,55 @@
   // let myChart = null;
 
   export default {
+    beforeCreate() {
+      this.$nextTick(() => {
+        const myChart = echarts.init(document.getElementById(this.id));
+        setTimeout(() => {
+          myChart.setOption(this.options);
+          console.log(this.options);
+        }, 0);
+      });
+    },
     updated() {
+      console.log('updete');
       this.myChart.setOption(this.option);
     },
     props: {
       id: {},
       width: {
+        type: String,
         default: '900px',
       },
       height: {
+        type: String,
         default: '600px',
       },
       title: {
-        default: 'gg',
+        type: String,
       },
       legend: {
-        default() {
-          return ['邮件营销', '联盟广告'];
-        },
+        type: Array,
       },
       xData: {
-        /* eslint-disable */
-        default() {
-          return ['周一','周二','周三','周四','周五','周六','周日'];
-        },
+        type: Array,
       },
       yData: {
-        /* eslint-disable */
-        default() {
-          return [1, 132, 101, 134, 90, 230, 210];
-        },
+        type: Array,
       },
     },
     data() {
       return {
         // id: Math.random().toString(36).substring(7),
-        myChart: null
+        myChart: null,
       };
     },
     mounted() {
       /* eslint-disable*/
-      this.myChart = echarts.init(document.getElementById(this.id));
-      setTimeout(() => {
-        this.myChart.setOption(this.options);
-        console.log(this.options);
-      }, 0);
+      // this.myChart = echarts.init(document.getElementById(this.id));
+      // setTimeout(() => {
+      //   this.myChart.setOption(this.options);
+      //   console.log(this.options);
+      // }, 0);
     },
     methods: {
 
