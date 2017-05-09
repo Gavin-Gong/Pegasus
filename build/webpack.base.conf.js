@@ -33,6 +33,7 @@ module.exports = {
       'theme': resolve('src/theme'),
       'mixins': resolve('src/mixins'),
       'pages': resolve('src/pages'),
+      'muse-components': 'muse-ui/src'
     },
 
   },
@@ -81,6 +82,10 @@ module.exports = {
         options: {
           formatter: require('eslint-friendly-formatter')
         }
+      },
+      {
+        test: /muse-ui.src.*?js$/,
+        loader: 'babel-loader'
       },
       {
         test: /\.vue$/,

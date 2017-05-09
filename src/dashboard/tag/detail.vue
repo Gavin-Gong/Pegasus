@@ -28,12 +28,12 @@
   // Vue.use(MessageBox);
 
   export default {
-    created() {
-      this.$store.dispatch('fetchTag', this.$route.params.id);
-    },
-    activated() {
-      this.$store.dispatch('fetchTag', this.$route.params.id);
-    },
+    // created() {
+    //   this.$store.dispatch('fetchTag', this.$route.params.id);
+    // },
+    // activated() {
+    //   this.$store.dispatch('fetchTag', this.$route.params.id);
+    // },
     beforeRouteUpdate(to, from, next) {
       this.$store.dispatch('fetchTag', to.params.id);
       next();

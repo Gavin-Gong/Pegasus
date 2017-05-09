@@ -2,13 +2,31 @@
 import Vue from 'vue';
 import Meta from 'vue-meta';
 import { Loading, Message } from 'element-ui';
+/*eslint-disable*/
+// import 'muse-components/styles/base.less';
+import appBar from 'muse-components/appBar';
+import icon from 'muse-components/icon';
+import drawer from 'muse-components/drawer';
+import iconButton from 'muse-components/iconButton';
+import list from 'muse-components/list/list';
+import listItem from 'muse-components/list/listItem';
+import textField from 'muse-components/textField';
+import divider from 'muse-components/divider';
 import axios from 'axios';
 import VueLazyload from 'vue-lazyload';
 import App from './App';
 import router from './router';
 import store from './store';
 import filters from './filters';
-
+// ..
+Vue.component(appBar.name, appBar);
+Vue.component(icon.name, icon);
+Vue.component(drawer.name, drawer);
+Vue.component(iconButton.name, iconButton);
+Vue.component(list.name, list);
+Vue.component(listItem.name, listItem);
+Vue.component(textField.name, textField);
+Vue.component(divider.name, divider);
 
 Vue.use(Meta);
 Vue.use(Loading);

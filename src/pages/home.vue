@@ -2,6 +2,9 @@
   <div id="home" class="clearfix">
     <profile v-show="lg$" class="profile"></profile>
     <div class="content">
+      <placeholder v-if="showPlaceholder">
+
+      </placeholder>
       <article-card
         v-for="(article, index) in articleList"
         v-loading=""
@@ -9,10 +12,10 @@
         :article="article"
         :line-clamp="true">
       </article-card>
-
       <el-card class="pagination" v-loading="barLoading">
         <!--<el-button @click="fetchPrevPage" :disabled="currentPage === 1">Prev</el-button>-->
         <el-button
+          type="primary"
           v-if="currentPage !== 0"
           @click="fetchNextPage"> 加载更多 </el-button>
         <p v-else>没有更多了</p>
@@ -33,6 +36,7 @@ import articleCh from 'api/data/ch-article';
 import screenMixin from 'mixins/screen';
 import Profile from '../pages/components/profile';
 import SideBar from '../pages/components/sidebar';
+import Placeholder from './components/placeholder';
 
 Vue.use(Button);
 Vue.use(Loading);
@@ -45,9 +49,18 @@ export default {
     ArticleCard,
     SideBar,
     Profile,
+    Placeholder,
   },
   mixins: [screenMixin],
+
   created() {
+    /* eslint-disable*/
+    // const fsLoad = Loading.service({
+    //     fullscreen: true,
+    //     lock: true,
+    //     text: 'Loading',
+    // });
+    // fsLoad.open();
     this.fetchData();
   },
   mounted() {
@@ -64,6 +77,7 @@ export default {
       barLoading: false,
       scrollLoadedData: [],
       currentPage: 1,
+      showPlaceholder: true,
     };
   },
   methods: {
@@ -97,14 +111,14 @@ export default {
       const fsLoad = Loading.service({
         fullscreen: true,
         lock: true,
-        text: 'Loading',
+        text: '加载中.....',
       });
+      // fsLoad.open();
       this.$store.dispatch('fetchArticleList', {
         query,
-      }).then(() => {
-        // this.$loading.close();
+      }).then((data) => {
+        this.showPlaceholder = false;
         fsLoad.close();
-        console.log(this.$store.state.article.list);
       });
     },
   },
@@ -119,6 +133,7 @@ export default {
 <style lang="scss" scoped>
 @import '~styles/mixins';
 #home {
+  min-width: 320px;
   > * {
     box-sizing: border-box;
     float: left;

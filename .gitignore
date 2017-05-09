@@ -9,3 +9,4 @@ selenium-debug.log
 .npmrc
 yarn.lock
 app.log
+dist/

@@ -41,6 +41,15 @@ $lg: 1200px;
   }
 }
 
+@mixin reset-btn-link {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  color: #333;
+}
+
 // pesudo element background
 
 @mixin blur-mask($color: rgba(0,0,0,.4)) {

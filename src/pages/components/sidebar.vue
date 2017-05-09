@@ -7,13 +7,15 @@
         <p>{{item.created_at | timestamp}}</p>
       </li>
     </ul>-->
-
     <h3 class="hot-title">
       <i class="iconfont icon-hot"></i>
       最热文章</h3>
+    <div class="divider">
+
+    </div>
     <ul class="hot-post">
       <li v-for="item in hotArticleList">
-        <a>{{item.title}}</a>
+        <a><h4>{{item.title}}</h4></a>
         <p>
           <i class="iconfont icon-hot"></i> 77</p>
       </li>
@@ -22,9 +24,12 @@
     <h3 class="hot-title">
       <i class="iconfont icon-time"></i>
       最新文章</h3>
+    <div class="divider">
+
+    </div>
     <ul class="hot-post">
       <li v-for="item in hotArticleList">
-        <a>{{item.title}}</a>
+        <a><h4>{{item.title}}</h4></a>
           <p><i class="iconfont icon-date"></i> {{item.created_at | timestamp}}</p>
       </li>
     </ul>
@@ -64,8 +69,9 @@ export default {
 
 <style lang="scss">
 @import '~styles/mixins';
+@import '~styles/variables';
 @mixin post-entry {
-  margin-left: 10px;
+  // margin-left: 10px;
   li {
     display: block;
     margin-bottom: 12px;
@@ -84,8 +90,23 @@ export default {
 };
 
 .sidebar {
+  .divider {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+    margin: 10px auto 15px;
+    &::after{
+      position: absolute;
+      content: '';
+      width: 45%;
+      height: 2px;
+      background: $brandColor;
+    }
+
+  }
   h3 {
-    color: #666;
+    color: #333;
     // font-size: 14px;
   }
   .recent-post {

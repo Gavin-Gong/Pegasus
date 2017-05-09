@@ -12,8 +12,6 @@
 
         </md-editor>
       </el-col>
-    <!-- TODO -->
-    <!--loadMore-->
   </div>
 </template>
 
@@ -29,9 +27,6 @@
     components: {
       MdEditor,
     },
-    created() {
-      this.$store.dispatch('fetchArticleList', { query: { _limit: 20 } });
-    },
     props: {
       data: {
         type: Object,
@@ -44,17 +39,9 @@
       };
     },
     methods: {
-      handleActive(data) {
-        this.activedPost = data;
-      },
       saveArticle() {
         editArticle();
         deleteArticle();
-      },
-    },
-    computed: {
-      listData() {
-        return this.$store.state.article.list;
       },
     },
   };

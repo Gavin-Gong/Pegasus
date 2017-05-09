@@ -44,10 +44,10 @@
     },
     updated() {
       /*eslint-disable*/
-      console.log(this.data);
       const state = this.data.filter(item => item.id == this.$route.params.id);
       console.log(state);
-      this.$emit('active', ...state);
+
+      // this.$emit('active', state[0] ? state[0] : { title: '', body: '' });
     },
     mounted() {
       Ps.initialize(this.$refs.container);

@@ -209,5 +209,8 @@ export default {
     .info {
       margin-bottom: 15px;
     }
+    .el-dialog {
+      max-width: 300px;
+    }
   }
 </style>

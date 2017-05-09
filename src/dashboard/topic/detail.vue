@@ -36,12 +36,12 @@
   Vue.use(Button);
 
   export default {
-    created() {
-      this.$store.dispatch('fetchTopic', this.$route.params.id);
-    },
-    activated() {
-      this.$store.dispatch('fetchTopic', this.$route.params.id);
-    },
+    // created() {
+    //   this.$store.dispatch('fetchTopic', this.$route.params.id);
+    // },
+    // activated() {
+    //   this.$store.dispatch('fetchTopic', this.$route.params.id);
+    // },
     beforeRouteUpdate(to, from, next) {
       this.$store.dispatch('fetchTopic', to.params.id);
       next();

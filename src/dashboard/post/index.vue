@@ -41,7 +41,9 @@
     },
     methods: {
       handleActive(data) {
-        this.activedPost = data;
+        if (data) {
+          this.activedPost = data;
+        }
       },
       saveArticle() {
         editArticle();

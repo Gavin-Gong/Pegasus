@@ -44,12 +44,15 @@
       return {
         activedTag: {
           body: '',
+          title: '',
         },
       };
     },
     methods: {
       handleActive(data) {
-        this.activedTag = data;
+        if (data) {
+          this.activedTag = data;
+        }
       },
     },
     computed: {
@@ -60,16 +63,17 @@
 
     },
     watch: {
-      $route() {
-        /* detail页面的初始数据 */
-        if (this.$route.name === 'DbTag') {
-          /*eslint-disable*/
-          const resultArr = this.listData.filter(item => item.id == this.$route.params.id);
-          if (resultArr.length === 1) {
-            this.activedTag = resultArr[0];
-          }
-        }
-      },
+      // $route() {
+      //   /* detail页面的初始数据 */
+      //   if (this.$route.name === 'DbTag') {
+      //     /*eslint-disable*/
+      //     console.log('change');
+      //     const resultArr = this.listData.filter(item => item.id == this.$route.params.id);
+      //     if (resultArr.length === 1) {
+      //       this.activedTag = resultArr[0];
+      //     }
+      //   }
+      // },
     },
   };
 </script>

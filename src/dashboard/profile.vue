@@ -20,7 +20,7 @@
               <el-input></el-input>
             </el-form-item>
             <el-form-item label="简介">
-              <el-input type="textarea" rows="5"></el-input>
+              <el-input type="textarea" :rows="5"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary">保存</el-button>
