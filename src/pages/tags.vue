@@ -7,6 +7,7 @@
       :id="tag.id"
       :title="tag.title"
       :count="tag.post_count"
+      :background="tag.banner"
       type="tag"
       route-name="Tag"
     ></x-card>

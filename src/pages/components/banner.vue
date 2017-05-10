@@ -21,9 +21,9 @@
 
       <h1 class="banner-title">
         <i v-if="$route.name ==='Topic'"
-          class="iconfont icon-topic" style="font-size: 42px"></i>
+          class="iconfont icon-topic"></i>
         <i v-else
-          class="iconfont icon-tag" style="font-size: 42px"></i>
+          class="iconfont icon-tag"></i>
 
         {{ title }}</h1>
 
@@ -97,6 +97,15 @@ export default {
   color: #fff;
   .banner-title {
     font-size: 40px;
+    .iconfont {
+      font-size: 40px;
+    }
+    @include res-to(xs) {
+      font-size: 28px;
+      .iconfont {
+        font-size: 40px;
+      }
+    }
     color: #fff;
   }
   .bg {

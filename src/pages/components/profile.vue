@@ -8,7 +8,8 @@
         <h2 class="name">李 明</h2>
         <p class="bio">UI 设计师</p>
         <p class="address"><x-icon type="map-marker" color="#333"></x-icon> 中国,上海 </p>
-        <el-button @click="handleFollow" class="mt-s" type="primary"> 关注我 </el-button>
+        <!--<el-button @click="handleFollow" class="mt-s" type="primary"> 关注我 </el-button>
+        <a href="mailto:kefengong@outlook.com" target="_blank">联系我</a>-->
         <ul class="data">
           <li>
             <h3>{{ profile.post_count }}</h3>

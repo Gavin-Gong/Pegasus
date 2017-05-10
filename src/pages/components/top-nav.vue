@@ -38,7 +38,7 @@
         :title="appBarTitle"
         key="2">
         <mu-icon-button @click="openDrawer" icon="menu" slot="left"/>
-        <mu-icon-button icon="search" slot="right"/>
+        <mu-icon-button icon="search" slot="right" @click="showResult = true" />
       </mu-appbar>
 
     <mu-drawer
@@ -67,7 +67,7 @@
       </mu-list>
     </mu-drawer>
 
-    <el-dialog v-model="showResult" title="输入并搜索">
+    <el-dialog v-model="showResult" title="输入并搜索" class="search-dialog">
       <el-input
         @change="searchArticle"
         autofocus
@@ -196,6 +196,18 @@ export default {
   height: 100vh;
   width: 100%;
   background: #ccc;
+}
+.search-dialog {
+  @include res-to(xs) {
+    .el-dialog {
+      top: 0!important;
+      width: 100%!important;
+    }
+  }
+}
+.el-dialog {
+  @include res-to(xs) {
+  }
 }
 .result-list {
   margin-top: 30px;

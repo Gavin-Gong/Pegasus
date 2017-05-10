@@ -49,9 +49,22 @@
       this.$store.commit('HIDDEN_NAV');
       this.$store.commit('HIDDEN_FOOTER');
     },
+    beforeRouteEnter(to, from, next) {
+      next((vm) => {
+        if (to.query.shouldAuth) {
+          vm.$msg('请先登录!');
+        }
+      });
+    },
     methods: {
       login() {
-
+        if (this.name === 'admin' && this.password === '123123123') {
+          this.$store.commit('LOGIN');
+          this.$msg.success('登陆成功！');
+          this.$router.push({ name: 'DbOverview' });
+        } else {
+          this.$msg.error('登陆失败, 请确认登陆信息是否正确！');
+        }
       },
     },
     data() {
@@ -76,9 +89,11 @@
   background: url(~assets/images/article-banner.jpg) 0 / cover;
   .login-box {
     text-align: center;
+    @include res-to(xs) {
+      width: 80%;
+    }
     width: 300px;
     margin: 100px auto;
-    im
     .el-card {
       padding-top: 20px;
       padding-bottom: 40px;

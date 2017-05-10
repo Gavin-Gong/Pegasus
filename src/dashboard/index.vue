@@ -2,7 +2,7 @@
   <div id="dashboard">
     <el-row>
       <el-col :span="3">
-        <el-menu default-active="2" theme="dark" router>
+        <el-menu default-active="1" theme="dark" router>
           <el-menu-item index="1" :route="{name: 'DbOverview'}">
             <i class="el-icon-menu" ></i>统计</el-menu-item>
           <el-menu-item index="2" :route="{path: '/dashboard/post/0'}">

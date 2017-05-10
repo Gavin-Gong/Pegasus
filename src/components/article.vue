@@ -185,10 +185,10 @@ export default {
       cursor: pointer;
       margin-bottom: 10px;
       @include res-to(xs) {
-        text-align: center;
+        font-size: 20px;
+        text-align: left;
         padding: 15px 10px 20px;
         // padding: 20px 20px;
-        font-size: 24px;
 
       }
     }

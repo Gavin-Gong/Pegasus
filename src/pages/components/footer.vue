@@ -7,7 +7,6 @@
       <i class="iconfont icon-admin" style="font-size: 18px;"></i>
       管理员登录</el-button>
     <el-button
-      v-hidden
       @click="logout" class="login-btn">
       <i class="iconfont icon-logout" style="font-size: 18px;"></i>
       退出登陆</el-button>
@@ -15,18 +14,17 @@
 </template>
 
 <script>
-import { Card, Button, MessageBox } from 'element-ui';
+import { Card, Button } from 'element-ui';
 
 Vue.use(Card);
 Vue.use(Button);
 
 export default {
   methods: {
-    handleFollow() {
-      MessageBox.alert('welcome follow me', window.innerWidth);
-    },
     logout() {
-
+      this.$store.commit('LOGOUT');
+      this.$router.push({ name: 'Home' });
+      this.$msg('退出成功');
     },
   },
   computed: {

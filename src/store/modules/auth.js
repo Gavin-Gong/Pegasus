@@ -2,27 +2,21 @@
 import * as types from '../types';
 
 const state = {
-  isAuth: !!localStorage.getItem('PEGASUS_AUTH'),
+  isAuth: !!localStorage.getItem('PEGASUS_TOKEN'),
 };
 
 const mutations = {
   [types.LOGIN](stat) {
-    localStorage.setItem('PEGASUS_AUTH', 'randomstr');
+    localStorage.setItem('PEGASUS_TOKEN', 'randomstr');
     stat.isAuth = true;
   },
   [types.LOGOUT](stat) {
-    localStorage.removeItem('PEGASUS_AUTH');
+    localStorage.removeItem('PEGASUS_TOKEN');
     stat.isAuth = false;
   },
 };
 
 const actions = {
-  // fetchAbout({ commit }, query) {
-  //   return fetchAbout(query).then(({ data }) => {
-  //     commit(types.FETCH_ABOUT, data);
-  //     return data;
-  //   });
-  // },
 };
 
 export default {

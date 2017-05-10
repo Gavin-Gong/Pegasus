@@ -17,7 +17,7 @@ import VueLazyload from 'vue-lazyload';
 import App from './App';
 import router from './router';
 import store from './store';
-import filters from './filters';
+import { imgView, timeStamp } from './filters';
 // ..
 Vue.component(appBar.name, appBar);
 Vue.component(icon.name, icon);
@@ -30,7 +30,8 @@ Vue.component(divider.name, divider);
 
 Vue.use(Meta);
 Vue.use(Loading);
-Vue.filter('timestamp', filters);
+Vue.filter('timestamp', timeStamp);
+Vue.filter('imgView', timeStamp);
 Vue.use(VueLazyload, {
   attempt: 1,
 });

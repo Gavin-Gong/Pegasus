@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img  v-lazy="background">
+    <img  v-lazy="bg">
     <div class="mask">
       <slot></slot>
       <h3 class="card-title">
@@ -19,6 +19,7 @@
 
 <script>
 import { Button } from 'element-ui';
+import { imgView } from 'src/filters';
 
 Vue.use(Button);
 export default {
@@ -43,10 +44,10 @@ export default {
       type: String,
       default: '',
     },
-    // background: {
-    //   type: String,
-    //   required: true,
-    // },
+    background: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -54,8 +55,8 @@ export default {
     };
   },
   computed: {
-    background() {
-      return this.$randomImg(900, 200);
+    bg() {
+      return imgView(this.background, 300, 300);
     },
   },
   methods: {

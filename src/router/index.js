@@ -1,6 +1,6 @@
 /* global VueRouter */
 
-import Vue from 'vue';
+// import Vue from 'vue';
 // import Router from 'vue-router';
 import Home from 'pages/home';
 import Article from 'pages/article';
@@ -24,6 +24,8 @@ import DbTopicDetail from '../dashboard/topic/detail';
 import DbProfile from '../dashboard/profile';
 import DbSettings from '../dashboard/settings';
 import Login from '../dashboard/login';
+
+import store from '../store';
 
 Vue.use(VueRouter);
 
@@ -76,7 +78,7 @@ const router = new VueRouter({
     {
       path: '/about',
       name: 'About',
-       component: About,
+      component: About,
       meta: {
         positionY: 0,
       },
@@ -95,6 +97,9 @@ const router = new VueRouter({
       path: '/dashboard',
       // name: 'Dashboard',
       component: Dashboard,
+      meta: {
+        shouldAuth: true,
+      },
       children: [
         {
           path: '',
@@ -160,5 +165,22 @@ const router = new VueRouter({
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.shouldAuth)) {
+    if (!store.state.auth.isAuth) {
+      next({
+        path: '/login',
+        query: {
+          shouldAuth: true,
+        },
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+})
 
 export default router;

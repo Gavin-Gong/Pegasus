@@ -1,4 +1,4 @@
-export default function timeStamp(date) {
+export function timeStamp(date) {
   if (date) {
     const jsDate = new Date(date);
     const nowDate = new Date();
@@ -21,4 +21,11 @@ export default function timeStamp(date) {
     return '刚刚';
   }
   return date;
+}
+
+export function imgView(url, w = 0, h = 0, mode = 2) {
+  if (url) {
+    return `${url}?imageView2/${mode}/w/${w}/h/${h}`;
+  }
+  return url;
 }
