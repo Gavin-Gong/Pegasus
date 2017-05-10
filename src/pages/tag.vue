@@ -1,6 +1,9 @@
 <template>
   <div id="tag">
-    <x-banner :background="tag.banner" :count="tag.post_count" :title="tag.title">
+    <x-banner
+      :width= "'100%'"
+      :count="tag.post_count"
+      :title="tag.title">
       <template slot="more">
         <!--<li><i class="iconfont icon-create">创建标签</i></li>-->
         <li @click="editTag"><i class="iconfont icon-edit"> 编辑标签</i></li>
@@ -83,7 +86,9 @@
 <style lang="scss" scoped>
 @import '~styles/mixins';
 #tag {
-  overflow: hidden;
+  // overflow: hidden;
+  // width: 100%;
+  max-width: 700px;
   .tag-info {
     overflow: hidden;
     text-align: center;
@@ -102,7 +107,8 @@
     }
   }
   .article-list {
-    margin-top: 40px;
+    margin: 40px auto;
+    max-width: 700px;
     li {
       margin: auto;
       width: 99%;

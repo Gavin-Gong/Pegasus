@@ -6,6 +6,11 @@
       :to="{name: 'Article', params:{id: article.id}}"
       >{{ article.title }}</router-link>
     <slot name="banner"></slot>
+    <div
+      v-if="lineClamp"
+      class="article-min-banner"
+      :style="background">
+    </div>
     <div class="infobar-wrapper">
       <ul :class="['info-bar', 'clearfix', {'style-bar': !!$slots.banner}]">
         <li><i class="iconfont icon-date"></i> {{article.created_at | timestamp}} </li>
@@ -28,11 +33,18 @@
     <div :class="lineClamp ? 'line-clamp' : ''">
       <div v-html="htmlBody"></div>
     </div>
-    <el-button
+    <div class="article-footer" v-show="lineClamp">
+      <ul>
+        <li><i class="iconfont icon-eye"></i> 346</li>
+        <li><i class="iconfont icon-like-line"></i> 56</li>
+        <li><i class="iconfont icon-comment"></i> 12</li>
+      </ul>
+    </div>
+    <!--<el-button
       v-if="lineClamp"
       @click="$router.push({name: 'Article', params: {id: article.id}})"
       class="more-btn"
-      > 查看详情 <i class="iconfont icon-arrowright"></i></el-button>
+      > 查看详情 <i class="iconfont icon-arrowright"></i></el-button>-->
     <div class="article-op-bar" v-if="!lineClamp">
       <el-button type="primary" @click="showTip = true">
         <i class="iconfont icon-money"></i> 赞赏
@@ -113,6 +125,9 @@ export default {
       // if (this.type !== 'html') return this.article.body;
       return marked(this.article.body);
     },
+    background() {
+      return `background: #999 url(${this.article.banner}) center center / cover`;
+    },
   },
 };
 </script>
@@ -122,11 +137,10 @@ export default {
   @import '~styles/article';
   @import '~styles/utils';
   .article-card {
-    padding: 30px 30px 40px;
+    padding: 30px 30px 15px;
     @include res-to(xs) {
-      padding: 15px 10px 20px;
+      padding: 15px 10px 10px;
       // padding: 20px 20px;
-
     }
     margin: 0 auto;
     max-width: 700px;
@@ -139,6 +153,7 @@ export default {
         font-size: 14px;
         margin-left: -25px;
         margin-bottom: 20px;
+        padding-top: 10px;
         color: #888;
         @include reset-list();
         > li {
@@ -165,7 +180,7 @@ export default {
       }
     }
     .title {
-      font-size: 34px;
+      font-size: 30px;
       display: inline-block;
       cursor: pointer;
       margin-bottom: 10px;
@@ -178,10 +193,28 @@ export default {
       }
     }
     .line-clamp {
-      @include line-clamp(10);
+      @include line-clamp(5);
     }
     .more-btn {
       @include center(20px);
+    }
+    .article-min-banner {
+      min-height: 220px;
+      @include res-to(xs) {
+        min-height: 160px;
+      }
+    }
+    .article-footer {
+      overflow: hidden;
+      ul {
+        margin-top: 24px;
+        @include reset-list;
+        float: right;
+        margin-left: -20px;
+        li {
+          margin-left: 20px;
+        }
+      }
     }
   }
   .full-screen {

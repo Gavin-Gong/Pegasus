@@ -2,7 +2,7 @@
   <div id="article-detail">
     <article-card :article="article">
       <div class="article-banner" slot="banner">
-        <img :src="$randomImg(1800, 400)" :alt="article.title">
+        <img :src="$randomImg(1800, 300)" :alt="article.title">
         <div class="mask"><h1 class="dp-ib">{{ article.title }}</h1></div>
       </div>
     </article-card>
@@ -94,6 +94,9 @@ export default {
     height: 200px;
     top: 0;
     left: 0;
+    @include res-to(xs) {
+      height: 160px;
+    }
     // max-width: calc(100% + 20px);
     // margin-left: -10px;
     // margin-top: -10%;
@@ -110,7 +113,10 @@ export default {
     background: rgba(0,0,0,.4);
     h1 {
       z-index: 100;
-      text-align: left;
+      text-align: center;
+      @include res-to(xs) {
+        text-align: left;
+      }
       padding-left: 30px;
       padding-right: 30px;
       margin-top: 40px;

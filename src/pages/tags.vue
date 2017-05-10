@@ -2,10 +2,12 @@
   <div id="tags" class="matrix-layout">
     <x-card
       v-for="(tag, index) in tagList"
+      width="1000px"
       :key="index"
       :id="tag.id"
       :title="tag.title"
       :count="tag.post_count"
+      type="tag"
       route-name="Tag"
     ></x-card>
   </div>

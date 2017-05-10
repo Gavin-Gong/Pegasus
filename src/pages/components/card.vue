@@ -3,7 +3,9 @@
     <img  v-lazy="background">
     <div class="mask">
       <slot></slot>
-      <h3 class="card-title">{{ title }}</h3>
+      <h3 class="card-title">
+        <i :class="['iconfont', `icon-${type}`]"></i>
+        {{ title }}</h3>
       <div class="description">
         <slot name="description"></slot>
       </div>
@@ -36,6 +38,10 @@ export default {
     count: {
       type: [Number, String],
       required: true,
+    },
+    type: {
+      type: String,
+      default: '',
     },
     // background: {
     //   type: String,
@@ -84,6 +90,9 @@ export default {
     // text-align: left;
     color: #fff;
     @include line-clamp(2);
+    .iconfont {
+      font-size: 20px;
+    }
   }
   .description {
   }
@@ -109,7 +118,7 @@ export default {
     padding: 20px;
     height: 180px;
     width: 100%;
-    background: rgba(0,0,0,.4);
+    background: rgba(0,0,0,.5);
   }
   img {
     height: 180px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="banner">
+  <div class="banner" :style="[width ? {width,}: '']">
     <div class="bg" :style="{ background: `url(${background}) 0 / cover fixed`}">
 
     </div>
@@ -49,6 +49,9 @@ export default {
     count: {
       type: [Number, String],
       required: true,
+    },
+    width: {
+      type: [Number, String],
     },
     // background: {
     //   type: String,
@@ -107,8 +110,11 @@ export default {
     position: relative;
     padding: 40px 20px 60px;
     height: 140px;
+    @include res-to(sm) {
+      height: 60px;
+    }
     @include res-to(xs) {
-      height: 80px;
+      height: 60px;
     }
     z-index: 20;
     background: rgba(0,0,0,.4);

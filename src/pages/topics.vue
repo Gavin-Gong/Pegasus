@@ -7,6 +7,7 @@
       route-name="Topic"
       :title="topic.title"
       :count="topic.post_count"
+      type="topic"
     ></x-card>
   </div>
 </template>
