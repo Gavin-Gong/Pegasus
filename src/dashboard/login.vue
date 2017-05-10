@@ -5,10 +5,10 @@
        <img src="~assets/images/pegasus_logo_dark.png" alt="" class="logo">
         <el-form label-position="left" label-width="50px">
           <el-form-item label="账号">
-            <el-input></el-input>
+            <el-input v-model="name"></el-input>
           </el-form-item>
           <el-form-item label="密码">
-            <el-input></el-input>
+            <el-input v-model="password"></el-input>
           </el-form-item>
         </el-form>
         <span class="dp-ib">
@@ -51,8 +51,14 @@
     },
     methods: {
       login() {
-        // TODO:
+
       },
+    },
+    data() {
+      return {
+        name: '',
+        password: '',
+      };
     },
   };
 </script>
