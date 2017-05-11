@@ -34,6 +34,7 @@ import ArticleCard from 'components/article';
 import articleEn from 'api/data/en-article';
 import articleCh from 'api/data/ch-article';
 import screenMixin from 'mixins/screen';
+import Nprogress from 'nprogress';
 import Profile from '../pages/components/profile';
 import SideBar from '../pages/components/sidebar';
 import Placeholder from './components/placeholder';
@@ -97,11 +98,13 @@ export default {
     //   });
     // },
     fetchNextPage() {
-      this.barLoading = true;
+      // this.barLoading = true;
+      Nprogress.start();
       this.currentPage = this.currentPage + 1;
       this.$store.dispatch('addToArticleList', { _page: this.currentPage, _limit: 5 })
         .then((data) => {
-          this.barLoading = false;
+          // this.barLoading = false;
+          Nprogress.done();
           if (Array.isArray(data) && !data.length) {
             this.currentPage = 0;
           }

@@ -1,7 +1,7 @@
 /* global DEV */
 import Vue from 'vue';
 import Meta from 'vue-meta';
-import { Loading, Message } from 'element-ui';
+import { Loading, Message, MessageBox } from 'element-ui';
 /*eslint-disable*/
 // import 'muse-components/styles/base.less';
 import appBar from 'muse-components/appBar';
@@ -38,6 +38,7 @@ Vue.use(VueLazyload, {
 
 
 Vue.prototype.$msg = Message;
+Vue.prototype.$msgbox = MessageBox;
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 if (typeof DEV === 'undefined' || DEV === false) {

@@ -61,16 +61,16 @@
 
     },
     watch: {
-      // $route() {
-      //   /* detail页面的初始数据 */
-      //   if (this.$route.name === 'DbTopic') {
-      //     /*eslint-disable*/
-      //     const resultArr = this.listData.filter(item => item.id == this.$route.params.id);
-      //     if (resultArr.length === 1) {
-      //       this.activedTopic = resultArr[0];
-      //     }
-      //   }
-      // },
+      $route() {
+        /* detail页面的初始数据 */
+        if (this.$route.name === 'DbTopic') {
+          /*eslint-disable*/
+          const resultArr = this.listData.filter(item => item.id == this.$route.params.id);
+          if (resultArr.length === 1) {
+            this.activedTopic = resultArr[0];
+          }
+        }
+      },
     },
   };
 </script>

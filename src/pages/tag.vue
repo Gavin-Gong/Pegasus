@@ -3,6 +3,7 @@
     <x-banner
       :width= "'100%'"
       :count="tag.post_count"
+      :background="tag.banner"
       :title="tag.title">
       <template slot="more">
         <!--<li><i class="iconfont icon-create">创建标签</i></li>-->

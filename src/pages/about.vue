@@ -2,6 +2,9 @@
   <div class="article-typo" id="about">
     <div class="avatar" :style="avatar">
     </div>
+    <div class="email-bar">
+      <i class="iconfont icon-email"> {{ email }}</i>
+    </div>
     <div v-html="htmlBody"></div>
   </div>
 </template>
@@ -35,15 +38,18 @@ export default {
     return {
     };
   },
-  created() {
-    this.$store.dispatch('fetchAbout');
+  beforeCreate() {
+    this.$store.dispatch('fetchProfile');
   },
   computed: {
     htmlBody() {
-      return marked(this.about.body);
+      return marked(this.about.intro);
     },
     about() {
-      return this.$store.state.about.data;
+      return this.$store.state.profile.data;
+    },
+    email() {
+      return this.$store.state.profile.data.email;
     },
     avatar() {
       return {
@@ -63,11 +69,15 @@ export default {
     padding: 0 10px;
   }
   .avatar {
-    margin: 0 auto 30px;
+    margin: 0 auto 10px;
     width: 80px;
     height: 80px;
     background: #ccc;
     border-radius: 50%;
+  }
+  .email-bar {
+    text-align: center;
+    margin-bottom: 30px;
   }
 }
 </style>

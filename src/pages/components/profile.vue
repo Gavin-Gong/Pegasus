@@ -5,9 +5,9 @@
         <div class="avatar-wrapper">
           <img :src="profile.avatar" alt="" class="avatar">
         </div>
-        <h2 class="name">李 明</h2>
-        <p class="bio">UI 设计师</p>
-        <p class="address"><x-icon type="map-marker" color="#333"></x-icon> 中国,上海 </p>
+        <h2 class="name">{{ profile.name }}</h2>
+        <p class="bio">{{ profile.job }}</p>
+        <p class="address"><x-icon type="map-marker" color="#333"></x-icon> {{ profile.address }} </p>
         <!--<el-button @click="handleFollow" class="mt-s" type="primary"> 关注我 </el-button>
         <a href="mailto:kefengong@outlook.com" target="_blank">联系我</a>-->
         <ul class="data">
@@ -21,24 +21,9 @@
           </li>
         </ul>
         <ul class="social-list">
-          <li>
-            <a href="item.link" target="_blank">
-              <i class="iconfont icon-weixin"></i>
-            </a>
-          </li>
-          <li>
-            <a href="item.link" target="_blank">
-              <i class="iconfont icon-weibo"></i>
-            </a>
-          </li>
-          <li>
-            <a href="item.link" target="_blank">
-              <i class="iconfont icon-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="item.link" target="_blank">
-              <i class="iconfont icon-3"></i>
+          <li v-for="item in profile.socials">
+            <a :href="item.url" target="_blank">
+              <i :class="['iconfont', `icon-${item.type}`]"></i>
             </a>
           </li>
         </ul>

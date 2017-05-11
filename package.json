@@ -19,6 +19,7 @@
     "marked": "^0.3.6",
     "moveto": "^1.6.1",
     "muse-ui": "^2.0.2",
+    "nprogress": "^0.2.0",
     "perfect-scrollbar": "^0.6.16",
     "simplemde": "^1.11.2",
     "vue": "^2.2.0",

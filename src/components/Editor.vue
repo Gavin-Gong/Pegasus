@@ -87,6 +87,10 @@
         autoDownloadFontAwesome: false,
       });
       MDE.value(this.value);
+      MDE.codemirror.on("change", () => {
+    	  console.log(MDE.value());
+        this.$emit('change', MDE.value());
+      });
     },
     watch: {
       value() {

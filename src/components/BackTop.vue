@@ -1,9 +1,11 @@
 <template>
   <transition name="fade">
-    <div class="back-top"
-      @click.prevent.stop="handleBackTop"
-      v-if="toTop > 100">
-      <i class="el-icon-arrow-up"></i>
+    <div class="backTop-wrapper">
+      <div class="back-top"
+        @click.prevent.stop="handleBackTop"
+        v-if="toTop > 100">
+        <i class="el-icon-arrow-up"></i>
+      </div>
     </div>
   </transition>
 </template>
@@ -20,10 +22,10 @@ export default {
     //
   },
   created() {
-    // window.onscroll = () => {
-    //   // console.log('scroll');
-    //   this.toTop = document.body.scrollTop;
-    // };
+    window.onscroll = () => {
+      // console.log('scroll');
+      this.toTop = document.body.scrollTop;
+    };
   },
   data() {
     return {

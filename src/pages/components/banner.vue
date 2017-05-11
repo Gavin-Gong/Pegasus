@@ -53,21 +53,21 @@ export default {
     width: {
       type: [Number, String],
     },
-    // background: {
-    //   type: String,
-    //   required: true,
-    // },
+    background: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
       showPop: false,
     };
   },
-  computed: {
-    background() {
-      return this.$randomImg(900, 200);
-    },
-  },
+  // computed: {
+  //   background() {
+  //     return this.$randomImg(900, 200);
+  //   },
+  // },
   methods: {
     deleteEle() {
       this.$msg.error('删除出错');

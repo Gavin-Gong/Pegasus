@@ -73,9 +73,16 @@
         autofocus
         v-model="searchField"></el-input>
         <ul class="result-list">
-          <li v-for="item in resultList">
-            <router-link :to="{name: 'Article', params: {id: item.id}}">{{ item.title }}</router-link>
+          <li v-show="!!resultList.length">
+            共计  {{resultList.length}}条结果
           </li>
+          <li v-for="item in resultList">
+            <router-link :to="{name: 'Article', params: {id: item.id}}">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.body }}</p>
+            </router-link>
+          </li>
+          <h3 v-show="!resultList.length">暂无结果</h3>
         </ul>
     </el-dialog>
   </div>
@@ -99,30 +106,28 @@ export default {
   mixins: [screenMixin],
   created() {
     this.$store.dispatch('fetchProfile');
-    // if (window.sc)
     // REVIEW:  throttle the event using requestAnimationFrame, setTimeout or customEvent
-    // let cache = null;
-    // window.addEventListener('scroll', () => {
-    //   // console.log('nav scroll');
-    //   this.throttle(() => {
-    //     if (!cache) {
-    //       cache = document.body.scrollTop;
-    //     } else {
-    //       if (document.body.scrollTop > cache) {
-    //         this.isShow = false;
-    //       } else {
-    //         this.isShow = true;
-    //       }
-    //       cache = document.body.scrollTop;
-    //     }
-    //     if (document.body.scrollTop > 30) {
-    //       this.darkMode = false;
-    //       // this.isFixed = true;
-    //     } else {
-    //       this.darkMode = true;
-    //     }
-    //   }, 500);
-    // });
+    let cache = null;
+    window.addEventListener('scroll',
+      this.throttle(() => {
+        console.log('ff');
+        if (!cache) {
+          cache = document.body.scrollTop;
+        } else {
+          if (document.body.scrollTop > cache) {
+            this.isShow = false;
+          } else {
+            this.isShow = true;
+          }
+          cache = document.body.scrollTop;
+        }
+        if (document.body.scrollTop > 30) {
+          this.darkMode = false;
+          // this.isFixed = true;
+        } else {
+          this.darkMode = true;
+        }
+      }, 500));
   },
   data() {
     return {
@@ -210,10 +215,23 @@ export default {
   }
 }
 .result-list {
-  margin-top: 30px;
+  margin-top: 10px;
   li {
-    margin-bottom: 20px;
     @include line-clamp(1);
+    // margin-bottom: 20px;
+    padding: 8px 0 14px;
+    border-bottom: 1px solid #ddd;
+    a {
+      // color: #41B883;
+      p {
+        @include line-clamp(1);
+      }
+    }
+  }
+  h3 {
+    // text-align: center;
+    @include line-clamp(1);
+    font-size: 18px;
   }
 }
 .top-nav {
@@ -225,12 +243,7 @@ export default {
     border-bottom-color: #41B883;
   }
   .el-menu-item {
-    // &:hover {
-    //   border-bottom: none!important;
-    // }
-    // &:active {
-    //   border-bottom: none!important;
-    // }
+    border-bottom-width: 2px;
   }
   .iconfont {
     font-size: 18px;

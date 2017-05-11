@@ -6,9 +6,11 @@
         <div class="title-bar">
           <el-input placeholder="请输入标题" v-model="data.title" label-width="80px" ></el-input>
           <el-button type="primary" style="margin-left: 80px" @click="saveArticle">保存</el-button>
-          <el-button type="danger">删除</el-button>
+          <el-button type="danger" @click="handleDelete">删除</el-button>
         </div>
-        <md-editor :value="data.body" class="dashboard-editor">
+        <md-editor
+          @change="handleChange"
+          :value="data.body" class="dashboard-editor">
 
         </md-editor>
       </el-col>
@@ -35,13 +37,36 @@
     },
     data() {
       return {
-
+        changedBody: '',
       };
     },
     methods: {
       saveArticle() {
-        editArticle();
-        deleteArticle();
+        let finalData = null;
+        if (this.changedBody) {
+          finalData = Object.assign({}, this.data, { body: this.changedBody });
+        } else {
+          finalData = this.data;
+        }
+        editArticle(this.$route.params.id, finalData).then((res) => {
+          console.log(res);
+          if (res.status < 300) {
+            this.$msg.success('保存成功！');
+          } else {
+            this.$msg.error('保存失败！');
+          }
+        });
+      },
+      handleDelete() {
+        this.$msgbox.confirm('确认删除?').then(() => {
+          deleteArticle(this.$route.params.id);
+        }).then(() => {
+          this.$msg.success('删除成功');
+          this.$store.dispatch('fetchArticleList', { _limit: 20 });
+        });
+      },
+      handleChange(body) {
+        this.changedBody = body;
       },
     },
   };

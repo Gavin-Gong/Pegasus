@@ -1,5 +1,5 @@
 <template>
-  <div id="tags" class="matrix-layout">
+  <div id="tags" class="matrix-layout" v-loading="isLoading">
     <x-card
       v-for="(tag, index) in tagList"
       width="1000px"
@@ -23,11 +23,14 @@
     },
     data() {
       return {
-
+        isLoading: true,
       };
     },
     created() {
-      this.$store.dispatch('fetchTagList');
+      this.isLoading = true;
+      this.$store.dispatch('fetchTagList').then(() => {
+        this.isLoading = false;
+      });
     },
     // activated() {
     //   this.$store.dispatch('fetchTagList');
