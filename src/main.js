@@ -2,6 +2,8 @@
 import Vue from 'vue';
 import Meta from 'vue-meta';
 import { Loading, Message, MessageBox } from 'element-ui';
+import Nprogress from 'nprogress';
+import VueTouch from 'vue-touch';
 /*eslint-disable*/
 // import 'muse-components/styles/base.less';
 import appBar from 'muse-components/appBar';
@@ -30,6 +32,7 @@ Vue.component(divider.name, divider);
 
 Vue.use(Meta);
 Vue.use(Loading);
+Vue.use(VueTouch);
 Vue.filter('timestamp', timeStamp);
 Vue.filter('imgView', timeStamp);
 Vue.use(VueLazyload, {
@@ -51,6 +54,23 @@ if (typeof DEV === 'undefined' || DEV === false) {
   axios.defaults.baseURL = 'http://192.168.1.2:3000';
   // axios.defaults.baseURL = 'http://120.24.177.234:3000';
 }
+axios.interceptors.request.use(function (config) {
+    console.log(Nprogress);
+    Nprogress.start();
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  });
+
+// Add a response interceptor
+axios.interceptors.response.use(function (response) {
+    Nprogress.done();
+    return response;
+  }, function (error) {
+    // Do something with response error
+    return Promise.reject(error);
+  });
 
 Vue.mixin({
   methods: {

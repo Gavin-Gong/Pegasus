@@ -34,7 +34,7 @@ audio, canvas, video {
 
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-  font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+  font: 400 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
 button::-moz-focus-inner,
@@ -61,7 +61,7 @@ blockquote {
   font-weight: 400;
   border-left: 4px solid #1abc9c;
   padding-left: 1em;
-  margin: 1em 3em 1em 2em;
+  margin: 1em 3em 1em 0em;
 }
 
 @media only screen and ( max-width: 640px ) {
@@ -86,7 +86,7 @@ del {
   text-decoration: line-through;
 }
 
-address, caption, cite, code, dfn, em, th, var {
+address, caption, cite, code, dfn, th, var {
   font-style: normal;
   font-weight: 400;
 }
@@ -243,7 +243,7 @@ strong, b {
 h1, h2, h3, h4, h5, h6 {
   /*font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;*/
   font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,Arial,sans-serif;
-  font-weight: 100;
+  /*font-weight: 100;*/
   /*color: #000;*/
   line-height: 1.35;
 }

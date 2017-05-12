@@ -2,7 +2,7 @@
   <div>
       <transition name="slidetop">
         <el-menu
-          v-show="isShow"
+          v-show="isShow && lg$"
           key="1"
           mode="horizontal"
           default-active="1"
@@ -37,8 +37,11 @@
         v-if="!lg$"
         :title="appBarTitle"
         key="2">
-        <mu-icon-button @click="openDrawer" icon="menu" slot="left"/>
-        <mu-icon-button icon="search" slot="right" @click="showResult = true" />
+        <mu-icon-button @click="openDrawer" v-touch:tap="openDrawer"  icon="menu" slot="left" touch />
+        <mu-icon-button
+          icon="search"
+          slot="right"
+          @click="showResult = true" touch />
       </mu-appbar>
 
     <mu-drawer
@@ -82,7 +85,7 @@
               <p>{{ item.body }}</p>
             </router-link>
           </li>
-          <h3 v-show="!resultList.length">暂无结果</h3>
+          <p v-show="!resultList.length">暂无结果</p>
         </ul>
     </el-dialog>
   </div>
@@ -216,8 +219,10 @@ export default {
 }
 .result-list {
   margin-top: 10px;
+  p {
+    text-align: center;
+  }
   li {
-    @include line-clamp(1);
     // margin-bottom: 20px;
     padding: 8px 0 14px;
     border-bottom: 1px solid #ddd;
@@ -243,7 +248,7 @@ export default {
     border-bottom-color: #41B883;
   }
   .el-menu-item {
-    border-bottom-width: 2px;
+    border-bottom-width: 2px!important;
   }
   .iconfont {
     font-size: 18px;

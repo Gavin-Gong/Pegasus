@@ -114,13 +114,15 @@ export default {
     h1 {
       z-index: 100;
       text-align: center;
-      @include res-to(xs) {
-        text-align: left;
-      }
       padding-left: 30px;
       padding-right: 30px;
       margin-top: 40px;
       margin-bottom: 40px;
+      @include res-to(xs) {
+        margin-top: 20px;
+        font-size: 24px;
+        text-align: left;
+      }
       @include line-clamp(2);
       color: #fff;
     }

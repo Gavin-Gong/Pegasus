@@ -54,7 +54,8 @@
       </el-button>
     </div>
     <el-dialog v-model="showTip" class="tip-dialog">
-      <div name="header" class="info">微信扫码支付</div>
+      <div name="header" class="info">微信扫码支付, 或者保存二维码
+      </div>
       <img src="~assets/images/qrcode.png" alt="">
     </el-dialog>
   </div>
@@ -238,6 +239,11 @@ export default {
     text-align: center;
   }
   .tip-dialog {
+    .el-dialog {
+      @include res-to(xs) {
+        width: 80%!important;
+      }
+    }
     text-align: center;
     .info {
       margin-bottom: 15px;
