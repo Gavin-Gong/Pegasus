@@ -1,12 +1,5 @@
 <template>
   <div class="sidebar">
-    <!--<h3>Recent</h3>
-    <ul class="recent-post">
-      <li v-for="item in recentArticleList">
-        <a>{{item.title}}</a>
-        <p>{{item.created_at | timestamp}}</p>
-      </li>
-    </ul>-->
     <h3 class="hot-title">
       <i class="iconfont icon-hot"></i>
       最热文章</h3>
@@ -15,22 +8,9 @@
     </div>
     <ul class="hot-post">
       <li v-for="item in hotArticleList">
-        <a><h4>{{item.title}}</h4></a>
+        <router-link :to="{name: 'Article', params: {id: item.id}}">{{ item.title }}</router-link>
         <p>
           <i class="iconfont icon-hot"></i> 77</p>
-      </li>
-    </ul>
-
-    <h3 class="hot-title">
-      <i class="iconfont icon-time"></i>
-      最新文章</h3>
-    <div class="divider">
-
-    </div>
-    <ul class="hot-post">
-      <li v-for="item in hotArticleList">
-        <a><h4>{{item.title}}</h4></a>
-          <p><i class="iconfont icon-date"></i> {{item.created_at | timestamp}}</p>
       </li>
     </ul>
   </div>

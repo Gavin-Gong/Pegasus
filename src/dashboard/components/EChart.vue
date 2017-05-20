@@ -17,7 +17,7 @@
   // let myChart = null;
 
   export default {
-    beforeCreate() {
+    created() {
       this.$nextTick(() => {
         const myChart = echarts.init(document.getElementById(this.id));
         setTimeout(() => {
@@ -30,6 +30,13 @@
       console.log('updete');
       this.myChart.setOption(this.option);
     },
+    mounted() {
+      console.log('updete');
+      this.myChart.setOption(this.option);
+    },
+    // activated() {
+    //   this.myChart.setOption(this.option);
+    // },
     props: {
       id: {},
       width: {
@@ -59,20 +66,13 @@
         myChart: null,
       };
     },
-    mounted() {
-      /* eslint-disable*/
-      // this.myChart = echarts.init(document.getElementById(this.id));
-      // setTimeout(() => {
-      //   this.myChart.setOption(this.options);
-      //   console.log(this.options);
-      // }, 0);
-    },
     methods: {
 
     },
 
     computed: {
       options() {
+        /* eslint-disable*/
         const series = this.yData.map((item) => {
           return {
             name: item.name,

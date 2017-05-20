@@ -2,14 +2,16 @@
   <div class="footer" v-if="isShow">
     <p>© 2017 Gavin-Gong</p>
     <p>Powered By Vuejs</p>
-    <el-button
-      @click="$router.push({name: 'Login'})" class="login-btn">
-      <i class="iconfont icon-admin" style="font-size: 18px;"></i>
-      管理员登录</el-button>
-    <el-button
-      @click="logout" class="login-btn">
-      <i class="iconfont icon-logout" style="font-size: 18px;"></i>
-      退出登陆</el-button>
+    <template v-show="">
+      <el-button
+        @click="$router.push({name: 'Login'})" class="login-btn">
+        <i class="iconfont icon-admin" style="font-size: 18px;"></i>
+        管理员登录</el-button>
+      <el-button
+        @click="logout" class="login-btn">
+        <i class="iconfont icon-logout" style="font-size: 18px;"></i>
+        退出登陆</el-button>
+    </template>
   </div>
 </template>
 

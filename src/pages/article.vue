@@ -19,7 +19,7 @@ import XIcon from 'components/Icon';
 import { Button } from 'element-ui';
 
 Vue.use(Button);
-
+/*eslint-disable*/
 export default {
   name: 'article',
   components: {
@@ -30,15 +30,22 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.article.title,
-      titleTemplate: 'Pegasus - %s',
+      title: `Pegasus - ${this.article.title}`,
       changed(a, b, c) {
         console.log(a, b, c);
       },
     };
   },
-  created() {
-    this.$store.dispatch('fetchArticleById', this.$route.params.id);
+  mounted() {
+    this.$store.dispatch('fetchArticleById', this.$route.params.id)
+    document.addEventListener("visibilitychange", () => {
+     console.log(document.visibilityState)
+     if (document.visibilityState === 'hidden') {
+        document.title = `●﹏● | ${this.article.title}`
+     } else if (document.visibilityState === 'visible') {
+        document.title = `Pegasus | ${this.article.title}`
+     }
+    })
   },
   activated() {
     this.$store.dispatch('fetchArticleById', this.$route.params.id);

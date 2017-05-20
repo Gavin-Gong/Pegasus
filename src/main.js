@@ -3,7 +3,8 @@ import Vue from 'vue';
 import Meta from 'vue-meta';
 import { Loading, Message, MessageBox } from 'element-ui';
 import Nprogress from 'nprogress';
-import VueTouch from 'vue-touch';
+// import VueTouch from 'vue-touch';
+// imp
 /*eslint-disable*/
 // import 'muse-components/styles/base.less';
 import appBar from 'muse-components/appBar';
@@ -32,7 +33,7 @@ Vue.component(divider.name, divider);
 
 Vue.use(Meta);
 Vue.use(Loading);
-Vue.use(VueTouch);
+// Vue.use(VueTouch);
 Vue.filter('timestamp', timeStamp);
 Vue.filter('imgView', timeStamp);
 Vue.use(VueLazyload, {
@@ -45,10 +46,7 @@ Vue.prototype.$msgbox = MessageBox;
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 if (typeof DEV === 'undefined' || DEV === false) {
-  // aliyun
-  // http://120.24.177.234:3000
   axios.defaults.baseURL = 'http://120.24.177.234:3000';
-  // axios.defaults.baseURL = 'https://pegasus-app.herokuapp.com';
 } else {
   axios.defaults.baseURL = 'http://127.0.0.1:3000';
   axios.defaults.baseURL = 'http://192.168.1.2:3000';

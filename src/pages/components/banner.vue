@@ -15,7 +15,7 @@
             <li @click="deleteEle"><i class="iconfont icon-delete" style="color: rgba(255, 0, 0, .6)"> 删除专题</i></li>-->
           </ul>
         </el-popover>
-        <i class="iconfont icon-more more-btn" v-popover:popover></i>
+        <!--<i class="iconfont icon-more more-btn" v-popover:popover></i>-->
       </template>
       <!--<el-button v-popover:popover> 删除 </el-button>-->
 

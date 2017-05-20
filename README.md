@@ -17,23 +17,11 @@ Bugs
 - [ ] editor empty img
 
 -Plan
-- [X] 404
-- [X] dashboard - overview
-- [ ] dashboard - 文章
-- [ ] dashboard - settings
-- [ ] dashboard - profile
 
 - [ ] 卡片banner操作
 - [ ] 权限管理
-- [ ] timestamp 汉化
-
-- [ ] 图片尺寸 filter
+- [ ] 图片尺寸限制
 - [ ] loading
-- [ ] 滚动加载
-- [ ] 卡顿问题
-- [ ] name
-- [ ] mobile
-- [X] lazyload
 
 TODO feature
 - [ ] markdown 下载
@@ -46,3 +34,9 @@ TODO  cdn
 TODO refactor
 - top-nav footer 显示控制 -> router
 - footer
+
+TODO
+- otaku 2
+- Pegasus 2
+- ppt & 视频录制 3
+- paper 5

@@ -3,8 +3,13 @@ import $http from 'axios';
 const baseUrl = 'posts';
 
 export function fetchArticleList(params) {
+  const tempParams = Object.assign({
+    _sort: 'created_at',
+    _order: 'DESC',
+  }, params);
+  console.log(tempParams);
   return $http.get(baseUrl, {
-    params,
+    params: tempParams,
   });
 }
 export function fetchArticleById(id) {

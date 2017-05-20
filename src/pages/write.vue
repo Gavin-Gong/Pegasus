@@ -15,7 +15,7 @@
         <el-form-item label="title">
           <el-input placeholder="请输入标题" v-model="postFields.title"></el-input>
         </el-form-item>
-        <el-form-item label="tag">
+        <el-form-item label="标签">
           <el-select
             class="long-select"
             v-model="postFields.tags"
@@ -30,16 +30,14 @@
             </el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="topic">
+        <el-form-item label="专题">
           <el-select
             class="long-select"
-            v-model="postFields.topics"
             filterable
-            clearable
-            placeholder="请选择专题">
+            v-model="postFields.topic">
             <el-option
-              v-for="(item, index) in topicList"
-              :key="index"
+              v-for="(item, key) in topicList"
+              :key="key"
               :label="item.title"
               :value="item">
             </el-option>
@@ -106,57 +104,6 @@
         previewRender(plainText) {
           return marked(plainText);
         },
-        // toolbar: [
-        //   {
-        //     name: "bold",
-        //     action: MDE.toggleBold,
-        //     className: "fa fa-bold",
-        //     title: "Bold",
-        //   },
-        //   {
-        //     name: "quote",
-        //     action: MDE.toggleBlockquote,
-        //     className: "fa fa-quote-left",
-        //     title: "Quote",
-        //   },
-        //   {
-        //     name: "preview",
-        //     action: MDE.togglePreview,
-        //     className: "fa fa-eye no-disable",
-        //     title: "Preview",
-        //   },
-        //   {
-        //     name: "side",
-        //     action: MDE.toggleSideBySide,
-        //     className: "fa fa-columns no-disable no-mobile",
-        //     title: "Side",
-        //   },
-        //   {
-        //     name: "Tag",
-        //     action (editor){
-        //       // Add your own code
-        //     },
-        //     className: "fa fa-star tag-btn",
-        //     title: "Custom Button",
-        //   },
-        //   {
-        //     name: "Topic",
-        //     action (editor){
-        //       // Add your own code
-        //     },
-        //     className: "fa fa-star ",
-        //     title: "Custom Button",
-        //   },
-        //   {
-        //     name: "Save",
-        //     action (editor){
-        //       // Add your own code
-        //     },
-        //     className: "fa fa-star",
-        //     title: "Custom Button",
-        //   },
-        // ],
-        // hideIcons: ['fullscreen'],
         autoDownloadFontAwesome: false,
       });
     },
@@ -165,10 +112,15 @@
         showDialog: false,
         postFields: {
           title: '',
-          topics: [],
+          topic: {},
           tags: [],
           body: '',
         },
+        List: [
+          { title: 'gg', id: 1 },
+          { title: 'gg', id: 2 },
+          { title: 'gg', id: 3 },
+        ],
       };
     },
     methods: {
