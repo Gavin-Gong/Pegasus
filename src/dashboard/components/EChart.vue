@@ -17,22 +17,24 @@
   // let myChart = null;
 
   export default {
-    created() {
-      this.$nextTick(() => {
-        const myChart = echarts.init(document.getElementById(this.id));
-        setTimeout(() => {
-          myChart.setOption(this.options);
-          console.log(this.options);
-        }, 0);
-      });
-    },
+    // created() {
+    //   this.$nextTick(() => {
+    //     setTimeout(() => {
+    //       myChart.setOption(this.options);
+    //       console.log(this.options);
+    //     }, 0);
+    //   });
+    // },
     updated() {
       console.log('updete');
       this.myChart.setOption(this.option);
     },
     mounted() {
-      console.log('updete');
-      this.myChart.setOption(this.option);
+      this.myChart = echarts.init(document.getElementById(this.id));
+      setTimeout(() => {
+        this.myChart.setOption(this.options);
+        console.log(this.options);
+      }, 1000);
     },
     // activated() {
     //   this.myChart.setOption(this.option);

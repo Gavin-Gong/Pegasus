@@ -1,7 +1,7 @@
  <template>
   <div id="app">
     <div class="main-content">
-      <top-nav></top-nav>
+      <!--<top-nav></top-nav>-->
       <div class="body-wrapper"
         >
         <transition name="slide-fade">

@@ -28,10 +28,6 @@
           </li>
         </ul>
       </el-card>
-      <!--<el-card class="netease">-->
-      <!--<div class="player-wrapper">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height=450 src="//music.163.com/outchain/player?type=0&id=398331989&auto=0&height=430"></iframe>
-      </div>-->
     </div>
   </div>
 </template>
@@ -84,12 +80,11 @@ export default {
 <style lang="scss">
 @import '~styles/mixins';
 #profile {
+  @include res-to( 0, 1240) {
+    display: none;
+  };
   min-height: 1px;
   .affix-wrapper {
-    // position: absolute;
-    // position: fixed;
-    // top: 0;
-    // width: inherit;
     .profile-data {
       text-align: center;
       box-shadow: none;

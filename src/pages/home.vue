@@ -1,10 +1,12 @@
 <template>
   <div id="home" class="clearfix">
-    <profile v-show="lg$" class="profile"></profile>
+    <top-nav></top-nav>
+    <profile v-if="lg$" class="profile"></profile>
     <div class="content">
       <placeholder v-if="showPlaceholder">
 
       </placeholder>
+
       <article-card
         v-for="(article, index) in articleList"
         v-loading=""
@@ -37,6 +39,7 @@ import screenMixin from 'mixins/screen';
 import Nprogress from 'nprogress';
 import Profile from '../pages/components/profile';
 import SideBar from '../pages/components/sidebar';
+import TopNav from '../pages/components/top-nav';
 import Placeholder from './components/placeholder';
 
 Vue.use(Button);
@@ -51,6 +54,7 @@ export default {
     SideBar,
     Profile,
     Placeholder,
+    TopNav,
   },
   mixins: [screenMixin],
 
@@ -82,21 +86,6 @@ export default {
     };
   },
   methods: {
-    // scrollLoad() {
-    //   /*eslint-disable*/
-    //   let loadStatus = null;
-    //   window.addEventListener('scroll', (toBottom = 0) => {
-    //     const sH = document.body.scrollHeight;
-    //     const sT = document.body.scrollTop;
-    //     // console.log('scrollHeight', document.body.scrollHeight);
-    //     // console.log('scrollTop', document.body.scrollTop);
-    //     // console.log('innerHeight', window.innerHeight);
-    //     if (sH <= sT + window.innerHeight + toBottom) {
-    //       console.log('is-bottom');
-    //       loadStatus = true;
-    //     }
-    //   });
-    // },
     fetchNextPage() {
       // this.barLoading = true;
       Nprogress.start();

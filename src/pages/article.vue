@@ -1,8 +1,9 @@
 <template>
   <div id="article-detail">
+    <top-nav></top-nav>
     <article-card :article="article">
       <div class="article-banner" slot="banner">
-        <img :src="$randomImg(1800, 300)" :alt="article.title">
+        <img :src="article.banner" :alt="article.title">
         <div class="mask"><h1 class="dp-ib">{{ article.title }}</h1></div>
       </div>
     </article-card>
@@ -17,6 +18,7 @@ import Comment from 'components/Comment';
 import Recommend from 'components/Recommend';
 import XIcon from 'components/Icon';
 import { Button } from 'element-ui';
+import TopNav from './components/top-nav';
 
 Vue.use(Button);
 /*eslint-disable*/
@@ -27,6 +29,7 @@ export default {
     XIcon,
     Comment,
     Recommend,
+    TopNav,
   },
   metaInfo() {
     return {

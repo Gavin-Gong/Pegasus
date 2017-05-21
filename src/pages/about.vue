@@ -1,5 +1,6 @@
 <template>
   <div class="article-typo" id="about">
+    <top-nav></top-nav>
     <div class="avatar" :style="avatar">
     </div>
     <div class="email-bar">
@@ -11,9 +12,11 @@
 
 <script>
 import XIcon from 'components/Icon';
+import 'highlightjs/styles/github.css';
+import TopNav from './components/top-nav';
+
 // import marked from 'marked';
 // import highlight from 'highlightjs';
-import 'highlightjs/styles/github.css';
 /* global marked*/
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -33,6 +36,7 @@ marked.setOptions({
 export default {
   components: {
     XIcon,
+    TopNav,
   },
   data() {
     return {

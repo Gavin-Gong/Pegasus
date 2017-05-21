@@ -10,7 +10,7 @@
       <li v-for="item in hotArticleList">
         <router-link :to="{name: 'Article', params: {id: item.id}}">{{ item.title }}</router-link>
         <p>
-          <i class="iconfont icon-hot"></i> 77</p>
+          <i class="iconfont icon-hot"></i> {{ item.view_count }}</p>
       </li>
     </ul>
   </div>
@@ -70,6 +70,9 @@ export default {
 };
 
 .sidebar {
+  @include res-to(0, 800) {
+    display: none;
+  }
   .divider {
     position: relative;
     width: 100%;
@@ -89,12 +92,9 @@ export default {
     color: #333;
     // font-size: 14px;
   }
-  .recent-post {
-    @include reset-list;
-    @include post-entry;
-  }
+
   .hot-title {
-    margin-top: 30px;
+    font-weight: 500;
   }
   .hot-post {
     @include reset-list;

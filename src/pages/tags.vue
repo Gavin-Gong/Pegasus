@@ -1,5 +1,6 @@
 <template>
   <div id="tags" class="matrix-layout" v-loading="isLoading">
+    <top-nav></top-nav>
     <x-card
       v-for="(tag, index) in tagList"
       width="1000px"
@@ -16,10 +17,12 @@
 
 <script>
   import XCard from './components/card';
+  import TopNav from './components/top-nav';
 
   export default {
     components: {
       XCard,
+      TopNav,
     },
     data() {
       return {

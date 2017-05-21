@@ -1,5 +1,6 @@
 <template>
   <div id="tag">
+    <top-nav></top-nav>
     <x-banner
       :width= "'100%'"
       :count="tag.post_count"
@@ -31,6 +32,7 @@
   import ArticleCard from 'components/article';
   import XBanner from './components/banner';
   import Placeholder from './components/placeholder';
+  import TopNav from './components/top-nav';
 
   export default {
     name: 'tag',
@@ -38,6 +40,7 @@
       ArticleCard,
       XBanner,
       Placeholder,
+      TopNav,
     },
     data() {
       return {

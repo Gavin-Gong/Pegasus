@@ -31,6 +31,13 @@
     created() {
       this.$store.dispatch('fetchArticleList', { query: { _limit: 20 } });
     },
+    watch: {
+      // $route() {
+      //   if (this.$route.name === 'DbPost') {
+      //     this.activedPost = this.listData[0];
+      //   }
+      // },
+    },
     data() {
       return {
         activedPost: {

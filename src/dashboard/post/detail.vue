@@ -58,11 +58,16 @@
         });
       },
       handleDelete() {
+        /*eslint-disable*/
         this.$msgbox.confirm('确认删除?').then(() => {
-          deleteArticle(this.$route.params.id);
+          return deleteArticle(this.$route.params.id);
         }).then(() => {
-          this.$msg.success('删除成功');
-          this.$store.dispatch('fetchArticleList', { _limit: 20 });
+          this.$store.dispatch('fetchArticleList', { _limit: 20 }).then((data) => {
+            this.$router.push({ name: 'DbPost', params: { id: data[0].id } });
+            this.$msg.success('删除成功');
+          });
+        }).catch(() => {
+          this.$router.push({ name: 'DbPost', params: { id: 1 } });
         });
       },
       handleChange(body) {

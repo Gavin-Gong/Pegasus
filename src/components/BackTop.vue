@@ -3,7 +3,7 @@
     <div class="backTop-wrapper">
       <div class="back-top"
         @click.prevent.stop="handleBackTop"
-        v-if="toTop > 100">
+        v-show="toTop > 100">
         <i class="el-icon-arrow-up"></i>
       </div>
     </div>

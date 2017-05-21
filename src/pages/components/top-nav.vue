@@ -2,7 +2,7 @@
   <div>
       <transition name="slidetop">
         <el-menu
-          v-show="isShow && lg$"
+          v-show="lg$"
           key="1"
           mode="horizontal"
           default-active="1"
@@ -23,12 +23,14 @@
             <li @click="showResult = true">
                 <i class="iconfont icon-search"></i>
             </li>
-            <li @click="$router.push({name: 'Write'})">
-              <i class="iconfont icon-edit"></i>
-            </li>
-            <li @click="$router.push({name: 'DbOverview'})">
-                <i class="iconfont icon-dashboard"></i>
-            </li>
+            <template v-if="isAuth">
+              <li @click="$router.push({name: 'Write'})">
+                <i class="iconfont icon-edit"></i>
+              </li>
+              <li @click="$router.push({name: 'DbOverview'})">
+                  <i class="iconfont icon-dashboard"></i>
+              </li>
+            </template>
           </ul>
         </el-menu>
       </transition>
@@ -37,7 +39,7 @@
         v-if="!lg$"
         :title="appBarTitle"
         key="2">
-        <mu-icon-button @click="openDrawer" v-touch:tap="openDrawer"  icon="menu" slot="left" touch />
+        <mu-icon-button @click="openDrawer" icon="menu" slot="left" touch />
         <mu-icon-button
           icon="search"
           slot="right"
@@ -82,7 +84,7 @@
           <li v-for="item in resultList">
             <router-link :to="{name: 'Article', params: {id: item.id}}">
               <h3>{{ item.title }}</h3>
-              <p>{{ item.body }}</p>
+              <p>{{ item.body.trim() }}</p>
             </router-link>
           </li>
           <p v-show="!resultList.length">暂无结果</p>
@@ -113,7 +115,6 @@ export default {
     let cache = null;
     window.addEventListener('scroll',
       this.throttle(() => {
-        console.log('ff');
         if (!cache) {
           cache = document.body.scrollTop;
         } else {
@@ -173,6 +174,9 @@ export default {
     },
     profile() {
       return this.$store.state.profile.data;
+    },
+    isAuth() {
+      return this.$store.state.auth.isAuth;
     },
   },
   watch: {
@@ -261,6 +265,7 @@ export default {
     .pegasus-logo {
       margin-left: 20px;
       margin-top: 10px;
+      max-width: 20px;
     }
     &:hover {
       border-bottom: none!important;

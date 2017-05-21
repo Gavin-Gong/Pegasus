@@ -1,5 +1,6 @@
 <template>
   <div id="topic">
+    <top-nav></top-nav>
     <x-banner :background="topic.banner" :count="topic.post_count" :title="topic.title">
     </x-banner>
     <ul class="article-list">
@@ -16,12 +17,14 @@
 <script>
   import ArticleCard from 'components/article';
   import XBanner from './components/banner';
+  import TopNav from './components/top-nav';
 
   export default {
     name: 'topic',
     components: {
       ArticleCard,
       XBanner,
+      TopNav,
     },
     data() {
       return {
