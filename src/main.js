@@ -21,7 +21,6 @@ import App from './App';
 import router from './router';
 import store from './store';
 import { imgView, timeStamp } from './filters';
-// ..
 Vue.component(appBar.name, appBar);
 Vue.component(icon.name, icon);
 Vue.component(drawer.name, drawer);
