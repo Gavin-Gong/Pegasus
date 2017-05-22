@@ -14,17 +14,8 @@
   Vue.use(Row);
   Vue.use(Col);
 
-  // let myChart = null;
 
   export default {
-    // created() {
-    //   this.$nextTick(() => {
-    //     setTimeout(() => {
-    //       myChart.setOption(this.options);
-    //       console.log(this.options);
-    //     }, 0);
-    //   });
-    // },
     updated() {
       console.log('updete');
       this.myChart.setOption(this.option);

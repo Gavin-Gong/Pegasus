@@ -9,9 +9,13 @@
 - [ ] 文章修改详情
 - [ ] 文章详情loading
 - [ ] 图片尺寸限制
+- [ ] 登录背景 -> qiniu
+- [ ] lazy-load
+- [ ] echart, font-awesome, Vue, cdn
 - [X] google font cdn
 - [X] 权限管理 未登录隐藏入口
 - [X] top-nav 组件注入
+
 
 ### Features
 - [ ] transition app

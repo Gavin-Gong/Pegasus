@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>progressive-web-app</title><link rel=manifest href=/static/manifest.json><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=theme-color content=#4DBA87><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=progressive-web-app><link rel=apple-touch-icon href=/static/img/icons/icon-152x152.png><meta name=msapplication-TileImage content=/static/img/icons/icon-144x144.png><link rel=stylesheet href=//at.alicdn.com/t/font_lb02gfbcqq9qkt9.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic"><link rel=stylesheet href="https://fonts.googleapis.com/icon?family=Material+Icons"><meta name=msapplication-TileColor content=#000000><link rel=preload href=/static/js/vendor.23884d5aec97f1fcb390.js as=script><link rel=preload href=/static/js/app.64d2bc9370422e7bc1af.js as=script><link rel=preload href=/static/css/app.6f6609b1bc0ddf23811bc5d55914ee37.css as=style><link rel=preload href=/static/js/manifest.3a0b9c8109be17dac7c8.js as=script><link href=/static/css/app.6f6609b1bc0ddf23811bc5d55914ee37.css rel=stylesheet></head><body><div id=app></div><script>(function() {
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Pegasus</title><link rel=manifest href=/static/manifest.json><link rel="shortcut icon" href=/static/favicon.ico><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name=theme-color content=#4DBA87><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=progressive-web-app><link rel=apple-touch-icon href=/static/img/icons/icon-152x152.png><meta name=msapplication-TileImage content=/static/img/icons/icon-144x144.png><link rel=stylesheet href=//at.alicdn.com/t/font_c456mowi38r529.css><link href=https://cdn.bootcss.com/nprogress/0.2.0/nprogress.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic"><link rel=stylesheet href="https://fonts.googleapis.com/icon?family=Material+Icons"><meta name=msapplication-TileColor content=#000000><link rel=prefetch href=/static/js/0.66cfc0534292eab46961.js as=script><link rel=prefetch href=/static/js/1.05d17ef0afd135abeac5.js as=script><link rel=prefetch href=/static/js/2.0ba20c08239f8b52aee7.js as=script><link rel=prefetch href=/static/js/3.310bb5b9c7b29161ebd5.js as=script><link rel=prefetch href=/static/js/4.3b462e8b209686e7c1bd.js as=script><link rel=prefetch href=/static/js/5.317994d5417391cb56fe.js as=script><link rel=prefetch href=/static/js/6.4460bf5e3ad0ccd6f41d.js as=script><link rel=prefetch href=/static/js/7.bb2723633d3b634638a4.js as=script><link rel=prefetch href=/static/js/8.52815272e84ad7a7386f.js as=script><link rel=prefetch href=/static/js/9.3623375cdb76b9cfa402.js as=script><link rel=prefetch href=/static/js/10.353add9704e6253ec628.js as=script><link rel=prefetch href=/static/js/11.a7ec37475b397cc303ac.js as=script><link rel=prefetch href=/static/js/12.1fa7e35b488c6d6ba1ee.js as=script><link rel=prefetch href=/static/js/13.ebaccce8283124083a06.js as=script><link rel=prefetch href=/static/js/14.1d7ad4ad1f4cf41fd962.js as=script><link rel=prefetch href=/static/js/15.7c888f0be855c08ee7f7.js as=script><link rel=prefetch href=/static/js/16.36278d4ab0afce42360f.js as=script><link rel=prefetch href=/static/js/17.a6794cee7f38f9873f2e.js as=script><link rel=prefetch href=/static/js/18.8b7b46b1a8e310051d32.js as=script><link rel=prefetch href=/static/js/19.3f190f4b0928c3a3ac8d.js as=script><link rel=preload href=/static/js/vendor.04d7c5a7ef4000610aab.js as=script><link rel=preload href=/static/js/app.4a38c8550162f23c3a03.js as=script><link rel=preload href=/static/css/app.8fb46388d6d83d372f43e2a60bc77df7.css as=style><link rel=preload href=/static/js/manifest.963031cbaf345e703ac5.js as=script><link href=/static/css/app.8fb46388d6d83d372f43e2a60bc77df7.css rel=stylesheet></head><body><div id=app></div><script>(function() {
         'use strict';
         // Check to make sure service workers are supported in the current browser,
         // and that the current page is accessed from a secure origin. Using a
@@ -11,38 +11,40 @@
               /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
             )
           );
-        if ('serviceWorker' in navigator &&
-            (window.location.protocol === 'https:' || isLocalhost)) {
-          navigator.serviceWorker.register('service-worker.js')
-          .then(function(registration) {
-            // updatefound is fired if service-worker.js changes.
-            registration.onupdatefound = function() {
-              // updatefound is also fired the very first time the SW is installed,
-              // and there's no need to prompt for a reload at that point.
-              // So check here to see if the page is already controlled,
-              // i.e. whether there's an existing service worker.
-              if (navigator.serviceWorker.controller) {
-                // The updatefound event implies that registration.installing is set
-                const installingWorker = registration.installing;
-                installingWorker.onstatechange = function() {
-                  switch (installingWorker.state) {
-                    case 'installed':
-                      // At this point, the old content will have been purged and the
-                      // fresh content will have been added to the cache.
-                      // It's the perfect time to display a "New content is
-                      // available; please refresh." message in the page's interface.
-                      break;
-                    case 'redundant':
-                      throw new Error('The installing ' +
-                                      'service worker became redundant.');
-                    default:
-                      // Ignore
+        window.addEventListener('load', function() {
+            if ('serviceWorker' in navigator &&
+                (window.location.protocol === 'https:' || isLocalhost)) {
+              navigator.serviceWorker.register('service-worker.js')
+              .then(function(registration) {
+                // updatefound is fired if service-worker.js changes.
+                registration.onupdatefound = function() {
+                  // updatefound is also fired the very first time the SW is installed,
+                  // and there's no need to prompt for a reload at that point.
+                  // So check here to see if the page is already controlled,
+                  // i.e. whether there's an existing service worker.
+                  if (navigator.serviceWorker.controller) {
+                    // The updatefound event implies that registration.installing is set
+                    const installingWorker = registration.installing;
+                    installingWorker.onstatechange = function() {
+                      switch (installingWorker.state) {
+                        case 'installed':
+                          // At this point, the old content will have been purged and the
+                          // fresh content will have been added to the cache.
+                          // It's the perfect time to display a "New content is
+                          // available; please refresh." message in the page's interface.
+                          break;
+                        case 'redundant':
+                          throw new Error('The installing ' +
+                                          'service worker became redundant.');
+                        default:
+                          // Ignore
+                      }
+                    };
                   }
                 };
-              }
-            };
-          }).catch(function(e) {
-            console.error('Error during service worker registration:', e);
-          });
-        }
-      })();</script><script src=https://cdn.bootcss.com/vue-router/2.5.3/vue-router.min.js></script><script src=https://cdn.bootcss.com/vuex/2.3.1/vuex.min.js></script><script src=https://cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js></script><script src=https://cdn.bootcss.com/marked/0.3.6/marked.min.js></script><script src=https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.js></script><link href=https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.css rel=stylesheet><script type=text/javascript src=/static/js/manifest.3a0b9c8109be17dac7c8.js></script><script type=text/javascript src=/static/js/vendor.23884d5aec97f1fcb390.js></script><script type=text/javascript src=/static/js/app.64d2bc9370422e7bc1af.js></script></body></html>
+              }).catch(function(e) {
+                console.error('Error during service worker registration:', e);
+              });
+            }
+        });
+      })();</script><script src=https://cdn.bootcss.com/vue-router/2.5.3/vue-router.min.js></script><script src=https://cdn.bootcss.com/vuex/2.3.1/vuex.min.js></script><script src=https://cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js></script><script src=https://cdn.bootcss.com/marked/0.3.6/marked.min.js></script><script src=https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.js></script><link href=https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.css rel=stylesheet><script type=text/javascript src=/static/js/manifest.963031cbaf345e703ac5.js></script><script type=text/javascript src=/static/js/vendor.04d7c5a7ef4000610aab.js></script><script type=text/javascript src=/static/js/app.4a38c8550162f23c3a03.js></script></body></html>
