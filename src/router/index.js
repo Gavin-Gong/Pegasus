@@ -1,32 +1,36 @@
 /* global VueRouter */
 
+import store from '../store';
 // import Vue from 'vue';
 // import Router from 'vue-router';
-import Home from 'pages/home';
-import Article from 'pages/article';
-import Topic from 'pages/topic';
-import Topics from 'pages/topics';
-import Tags from 'pages/tags';
-import Tag from 'pages/tag';
-import About from 'pages/about';
-import Write from 'pages/write';
-import NotFound from 'pages/404';
+const Home = () => import('pages/home');
+const Article = () => import('pages/article');
+const Topic = () => import('pages/topic');
+const Topics = () => import('pages/topics');
+const Tags = () => import('pages/tags');
+const Tag = () => import('pages/tag');
+const About = () => import('pages/about');
+const Write = () => import('pages/write');
+const NotFound = () => import('pages/404');
 
 // Dashboard
-import Dashboard from '../dashboard';
-import DbOverview from '../dashboard/overview';
-import DbPost from '../dashboard/post/index';
-import DbPostDetail from '../dashboard/post/detail';
-import DbTag from '../dashboard/tag/index';
-import DbTagDetail from '../dashboard/tag/detail';
-import DbTopic from '../dashboard/topic/index';
-import DbTopicDetail from '../dashboard/topic/detail';
-import DbProfile from '../dashboard/profile';
-import DbSettings from '../dashboard/settings';
-import Login from '../dashboard/login';
+/* eslint-disable no-dynamic-require */
+const Dashboard = () => import('../dashboard');
+const DbOverview = () => import('../dashboard/overview');
+const DbPost = () => import('../dashboard/post/index');
+const DbPostDetail = () => import('../dashboard/post/detail');
+const DbTag = () => import('../dashboard/tag/index');
+const DbTagDetail = () => import('../dashboard/tag/detail');
+const DbTopic = () => import('../dashboard/topic/index');
+const DbTopicDetail = () => import('../dashboard/topic/detail');
+const DbProfile = () => import('../dashboard/profile');
+const DbSettings = () => import('../dashboard/settings');
+const Login = () => import('../dashboard/login');
 
-import store from '../store';
-
+/*eslint-disable*/
+// 打包到同一个chunk中
+// const Foo = r => require.ensure([], () => r(require('./Foo.vue')), 'group-foo')
+// const Bar = r => require.ensure([], () => r(require('./Bar.vue')), 'group-foo')
 Vue.use(VueRouter);
 
 const router = new VueRouter({
