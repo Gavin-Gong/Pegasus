@@ -1,16 +1,17 @@
 export default {
   data() {
     return {
-      screenWidth: window.innerWidth,
+      screenWidth: window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth,
     };
   },
   created() {
     window.onresize = () => {
-      this.screenWidth = window.innerWidth;
+      this.screenWidth = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
     };
-  },
-  methods: {
-
   },
   computed: {
     xs$() {

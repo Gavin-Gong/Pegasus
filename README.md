@@ -2,6 +2,9 @@
 
 > A blog system build with vue.js.
 
+### custom element-ui theme
+`et element-variables.css -o src/theme`
+
 ## TODO
 
 ### Plan
@@ -10,8 +13,9 @@
 - [ ] 文章详情loading
 - [ ] 图片尺寸限制
 - [ ] 登录背景 -> qiniu
-- [ ] lazy-load
+- [ ] title deactived1
 - [ ] echart, font-awesome, Vue, cdn
+- [X] lazy-load
 - [X] google font cdn
 - [X] 权限管理 未登录隐藏入口
 - [X] top-nav 组件注入

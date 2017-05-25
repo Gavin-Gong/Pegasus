@@ -48,7 +48,7 @@ if (typeof DEV === 'undefined' || DEV === false) {
   axios.defaults.baseURL = 'http://120.24.177.234:3000';
 } else {
   axios.defaults.baseURL = 'http://127.0.0.1:3000';
-  axios.defaults.baseURL = 'http://192.168.1.2:3000';
+  // axios.defaults.baseURL = 'http://192.168.1.2:3000';
   // axios.defaults.baseURL = 'http://120.24.177.234:3000';
 }
 axios.interceptors.request.use(function (config) {

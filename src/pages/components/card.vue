@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="routeTo({name: routeName, params: {id: id}})">
     <img  v-lazy="bg">
     <div class="mask">
       <slot></slot>
@@ -12,7 +12,7 @@
       <p class="card-postCount">{{ count }} 篇文章</p>
       <el-button
         class="card-btn"
-        @click="routeTo({name: routeName, params: {id: id}})">查看</el-button>
+        @click.self="routeTo({name: routeName, params: {id: id}})">查看</el-button>
     </div>
   </div>
 </template>
@@ -108,6 +108,14 @@ export default {
     transform: translate(-50%);
     transition: transform .5s ease-in-out;
     cursor: pointer;
+    background: transparent;
+    color: #fff;
+    border-width: 1px;
+    &:hover {
+      background: #eee;
+      color: #333;
+      border: none;
+    }
   }
   .mask {
     position: absolute;

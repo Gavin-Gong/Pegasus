@@ -28,7 +28,7 @@ export default {
     logout() {
       this.$store.commit('LOGOUT');
       this.$router.push({ name: 'Home' });
-      this.$msg('退出成功');
+      this.$msg.info('退出成功');
     },
   },
   computed: {

@@ -1,5 +1,5 @@
 export function timeStamp(date) {
-  if (date) {
+  if (date && new Date(date) !== 'Invalid Date') {
     const jsDate = new Date(date);
     const nowDate = new Date();
 

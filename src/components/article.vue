@@ -30,7 +30,9 @@
       </ul>
     </div>
     <slot name="info"></slot>
-    <div :class="lineClamp ? 'line-clamp' : ''">
+    <div
+      @click="$router.push({name: 'Article', params:{id: article.id}})"
+      :class=" lineClamp ? 'line-clamp clickable' : ''">
       <div v-html="htmlBody"></div>
     </div>
     <div class="article-footer" v-show="lineClamp">
@@ -195,6 +197,7 @@ export default {
     }
     .line-clamp {
       @include line-clamp(5);
+      cursor: pointer;
     }
     .more-btn {
       @include center(20px);

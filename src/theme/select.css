@@ -4,7 +4,6 @@
   -------------------------- */
     /* Colors
   -------------------------- */
-    /*--color-primary: #20a0ff;*/
     /* Link
   -------------------------- */
     /* Border
@@ -94,7 +93,6 @@
   -------------------------- */
     /* Colors
   -------------------------- */
-    /*--color-primary: #20a0ff;*/
     /* Link
   -------------------------- */
     /* Border
@@ -230,7 +228,6 @@
   -------------------------- */
     /* Colors
   -------------------------- */
-    /*--color-primary: #20a0ff;*/
     /* Link
   -------------------------- */
     /* Border
@@ -329,9 +326,6 @@
 .el-input.is-disabled .el-input__inner::-webkit-input-placeholder{
     color: rgb(191, 217, 208);
 }
-.el-input.is-disabled .el-input__inner::-moz-placeholder{
-    color: rgb(191, 217, 208);
-}
 .el-input.is-disabled .el-input__inner:-ms-input-placeholder{
     color: rgb(191, 217, 208);
 }
@@ -362,9 +356,6 @@
     width: 100%;
 }
 .el-input__inner::-webkit-input-placeholder{
-    color: rgb(151, 190, 178);
-}
-.el-input__inner::-moz-placeholder{
     color: rgb(151, 190, 178);
 }
 .el-input__inner:-ms-input-placeholder{
@@ -494,9 +485,6 @@
 .el-textarea.is-disabled .el-textarea__inner::-webkit-input-placeholder{
     color: rgb(191, 217, 208);
 }
-.el-textarea.is-disabled .el-textarea__inner::-moz-placeholder{
-    color: rgb(191, 217, 208);
-}
 .el-textarea.is-disabled .el-textarea__inner:-ms-input-placeholder{
     color: rgb(191, 217, 208);
 }
@@ -521,9 +509,6 @@
 .el-textarea__inner::-webkit-input-placeholder{
     color: rgb(151, 190, 178);
 }
-.el-textarea__inner::-moz-placeholder{
-    color: rgb(151, 190, 178);
-}
 .el-textarea__inner:-ms-input-placeholder{
     color: rgb(151, 190, 178);
 }
@@ -543,7 +528,6 @@
   -------------------------- */
     /* Colors
   -------------------------- */
-    /*--color-primary: #20a0ff;*/
     /* Link
   -------------------------- */
     /* Border
@@ -724,7 +708,6 @@
   -------------------------- */
     /* Colors
   -------------------------- */
-    /*--color-primary: #20a0ff;*/
     /* Link
   -------------------------- */
     /* Border
@@ -848,7 +831,6 @@
   -------------------------- */
     /* Colors
   -------------------------- */
-    /*--color-primary: #20a0ff;*/
     /* Link
   -------------------------- */
     /* Border
@@ -957,7 +939,6 @@
   -------------------------- */
     /* Colors
   -------------------------- */
-    /*--color-primary: #20a0ff;*/
     /* Link
   -------------------------- */
     /* Border
@@ -1105,6 +1086,7 @@
 
 .el-select .el-input__inner{
     cursor: pointer;
+    padding-right: 35px;
 }
 
 .el-select .el-input__inner:focus{
@@ -1151,6 +1133,10 @@
 
 .el-select .el-input.is-disabled .el-input__inner:hover{
     border-color: rgb(209, 229, 222);
+}
+
+.el-select > .el-input{
+    display: block;
 }
 
 .el-select .el-tag__close{
@@ -1202,7 +1188,7 @@
     position: absolute;
     line-height: normal;
     white-space: normal;
-    z-index: 1000;
+    z-index: 1;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -1219,4 +1205,93 @@
 
 .el-select__tag .el-icon-close{
     font-size: 12px;
+}
+:root{
+    /* Transition
+  -------------------------- */
+    /* Colors
+  -------------------------- */
+    /*--color-primary: #20a0ff;*/
+    /* Link
+  -------------------------- */
+    /* Border
+  -------------------------- */
+    /* Box-shadow
+  -------------------------- */
+    /* Fill
+  -------------------------- */
+    /* Font
+  -------------------------- */
+    /* Size
+  -------------------------- */
+    /* z-index
+  -------------------------- */
+    /* Disable base
+  -------------------------- */
+    /* Icon
+  -------------------------- */
+    /* Checkbox
+  -------------------------- */
+    /* Radio
+  -------------------------- */
+    /* Select
+  -------------------------- */
+    /* Alert
+  -------------------------- */
+    /* Message Box
+  -------------------------- */
+    /* Message
+  -------------------------- */
+    /* Notification
+  -------------------------- */
+    /* Input
+  -------------------------- */
+    /* Cascader
+  -------------------------- */
+    /* Group
+  -------------------------- */
+    /* Tab
+  -------------------------- */
+    /* Button
+  -------------------------- */
+    /* cascader
+  -------------------------- */
+    /* Switch
+ -------------------------- */
+    /* Dialog
+ -------------------------- */
+    /* Table
+ -------------------------- */
+    /* Pagination
+ -------------------------- */
+    /* Popover
+ -------------------------- */
+    /* Tooltip
+  -------------------------- */
+    /* Tag
+  -------------------------- */
+    /* Dropdown
+  -------------------------- */
+    /* Badge
+  -------------------------- */
+    /* Card
+  --------------------------*/
+    /* Slider
+  --------------------------*/
+    /* Steps
+  --------------------------*/
+    /* Menu
+  --------------------------*/
+    /* Rate
+  --------------------------*/
+    /* DatePicker
+  --------------------------*/
+    /* Loading
+  --------------------------*/
+    /* Scrollbar
+  --------------------------*/
+    /* Carousel
+  --------------------------*/
+    /* Collapse
+  --------------------------*/
 }

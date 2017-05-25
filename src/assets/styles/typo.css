@@ -131,7 +131,8 @@ a {
 
 a:hover {
   color: #1abc9c;
-  text-decoration: underline;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .typo a {

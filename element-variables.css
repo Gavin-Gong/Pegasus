@@ -14,10 +14,10 @@
   /*--color-primary: #20a0ff;*/
   --color-primary: #41B883;
 
-  --color-success: #13ce66;
-  --color-warning: #f7ba2a;
-  --color-danger: #ff4949;
-  --color-info: #50bfff;
+  --color-success: #13ce99;
+  --color-warning: #f7ba00;
+  --color-danger: #ff4900;
+  --color-info: #50bfee;
 
   --color-secondary: color(var(--color-primary) s(99%) l(*0.9));
   --color-white: #fff;
