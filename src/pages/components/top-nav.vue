@@ -8,8 +8,8 @@
           default-active="1"
           :router="true"
           :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
-          <el-menu-item index="1" :route="{name: 'Home'}" class="logo-wrapper">
-            <img class="pegasus-logo" src="~assets/images/pegasus_logo.png" alt="pegasus" style="height: 40px">
+          <el-menu-item index="6" :route="{name: 'Home'}" class="logo-wrapper">
+            <!--<img class="pegasus-logo" src="~assets/images/pegasus_logo.png" alt="pegasus" style="height: 40px">-->
           </el-menu-item>
           <el-menu-item index="1" :route="{name: 'Home'}">
             <i class="iconfont icon-home"></i>主页</el-menu-item>

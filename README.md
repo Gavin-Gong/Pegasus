@@ -13,8 +13,10 @@
 - [ ] 文章详情loading
 - [ ] 图片尺寸限制
 - [ ] 登录背景 -> qiniu
-- [ ] title deactived1
-- [ ] echart, font-awesome, Vue, cdn
+- [ ] title deactived
+- [ ] echart, font-awesome, Vue -> cdn
+- [ ] diqus comment count
+- [ ] config.js
 - [X] lazy-load
 - [X] google font cdn
 - [X] 权限管理 未登录隐藏入口
@@ -35,6 +37,8 @@
 - [ ] side preview, no italic styles
 - [ ] editor empty img
 
+### workflow
+- [ ] auto deploy
 
 
 ### GG Plan

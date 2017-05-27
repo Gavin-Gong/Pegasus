@@ -13,11 +13,11 @@
         </el-form>
         <span class="dp-ib">
           <el-button type="primary" @click="login">登陆</el-button>
-          <el-button @click="$router.go(-1)">取消</el-button>
+          <el-button @click="$router.go(-1)">　返回　</el-button>
         </span>
       </el-card>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -60,10 +60,10 @@
       login() {
         if (this.name === 'admin' && this.password === '123123123') {
           this.$store.commit('LOGIN');
-          this.$msg.success('登陆成功！');
-          this.$router.push({ name: 'DbOverview' });
+          this.$msg.success('登陆成功');
+          this.$router.push({ name: 'Home' });
         } else {
-          this.$msg.error('登陆失败, 请确认登陆信息是否正确！');
+          this.$msg.error('登陆失败, 请确认登陆信息是否正确');
         }
       },
     },
@@ -86,7 +86,7 @@
   height: 100%;
   height: 100vh;
   overflow: hidden;
-  background: url(~assets/images/article-banner.jpg) 0 / cover;
+  background: #333 url(http://opazkqh2d.bkt.clouddn.com/17-5-22/66835913-file_1495435088121_add3.jpg) 0 / cover;
   .login-box {
     text-align: center;
     @include res-to(xs) {

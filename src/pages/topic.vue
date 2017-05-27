@@ -2,6 +2,10 @@
   <div id="topic">
     <top-nav></top-nav>
     <x-banner :background="topic.banner" :count="topic.post_count" :title="topic.title">
+      <template slot="more">
+        <li ><i class="iconfont icon-edit"> 编辑专题</i></li>
+        <li ><i class="iconfont icon-delete" style="color: rgba(255, 0, 0, .6)"> 删除专题 </i></li>
+      </template>
     </x-banner>
     <ul class="article-list">
       <li class="" v-for="(article, index) in topic.posts" :key="index">

@@ -7,7 +7,6 @@
       :background="tag.banner"
       :title="tag.title">
       <template slot="more">
-        <!--<li><i class="iconfont icon-create">创建标签</i></li>-->
         <li @click="editTag"><i class="iconfont icon-edit"> 编辑标签</i></li>
         <li @click="deleteTag"><i class="iconfont icon-delete" style="color: rgba(255, 0, 0, .6)"> 删除标签 </i></li>
       </template>

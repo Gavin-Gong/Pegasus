@@ -1,5 +1,5 @@
 <template>
-  <div id="article-detail">
+  <div id="article-detail" v-loading="isLoading">
     <top-nav></top-nav>
     <article-card :article="article">
       <div class="article-banner" slot="banner">
@@ -9,15 +9,19 @@
     </article-card>
     <comment></comment>
     <recommend></recommend>
+    <ul class="article-nav">
+
+    </ul>
   </div>
 </template>
 
 <script>
 import ArticleCard from 'components/article';
-import Comment from 'components/Comment';
+// import Comment from 'components/Comment';
 import Recommend from 'components/Recommend';
 import XIcon from 'components/Icon';
 import { Button } from 'element-ui';
+import Comment from './components/comment';
 import TopNav from './components/top-nav';
 
 Vue.use(Button);
@@ -34,24 +38,20 @@ export default {
   metaInfo() {
     return {
       title: `Pegasus - ${this.article.title}`,
-      changed(a, b, c) {
-        console.log(a, b, c);
-      },
     };
   },
-  mounted() {
+  beforeCreate () {
     this.$store.dispatch('fetchArticleById', this.$route.params.id)
-    document.addEventListener("visibilitychange", () => {
-     console.log(document.visibilityState)
-     if (document.visibilityState === 'hidden') {
-        document.title = `●﹏● | ${this.article.title}`
-     } else if (document.visibilityState === 'visible') {
-        document.title = `Pegasus | ${this.article.title}`
-     }
-    })
+  },
+  mounted() {
+    document.addEventListener("visibilitychange", this.handleTitleChange);
   },
   activated() {
-    // this.$store.dispatch('fetchArticleById', this.$route.params.id);
+    document.addEventListener("visibilitychange", this.handleTitleChange);
+  },
+  deactivated () {
+    document.removeEventListener('visibilitychange', this.handleTitleChange);
+    document.title = 'Pegasus';
   },
   beforeRouteUpdate(to, from, next) {
     this.$store.dispatch('fetchArticleById', this.$route.params.id);
@@ -59,11 +59,22 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
     };
   },
   methods: {
-    fetchArticles() {
-
+    handleTitleChange() {
+      if (document.visibilityState === 'hidden') {
+          document.title = `●﹏● | ${this.article.title}`
+      } else if (document.visibilityState === 'visible') {
+          document.title = `Pegasus | ${this.article.title}`
+      }
+    },
+    loadingArticle() {
+      this.isLoading = true;
+      this.$store.dispatch('fetchArticleById', this.$route.params.id).then((data) => {
+        this.isLoading = false;
+      });
     },
   },
   computed: {
@@ -99,7 +110,6 @@ export default {
     background: rgba(0,0,0,.1);
   }
   img {
-    // z-index: -1;
     width: 100%;
     height: 200px;
     top: 0;
@@ -107,10 +117,6 @@ export default {
     @include res-to(xs) {
       height: 160px;
     }
-    // max-width: calc(100% + 20px);
-    // margin-left: -10px;
-    // margin-top: -10%;
-    // filter: blur(7px);
   }
   .mask {
     position: absolute;

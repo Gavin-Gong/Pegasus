@@ -79,12 +79,15 @@ export default {
       }
       .img-wrapper {
         height: 100px;
+        .title {
+        }
       }
       a {
         cursor: pointer;
         display: block;
         margin-top: 10px;
         font-size: 20px;
+        @include line-clamp();
       }
       .info {
         text-align: left;

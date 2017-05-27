@@ -15,7 +15,9 @@
 html {
   background: rgba(238,238,238, .3);
 }
-
+.el-message {
+  border-radius: 100px!important;
+}
 #app {
   .article-list {
     li {
@@ -45,6 +47,11 @@ html {
   .mu-appbar {
     position: fixed;
     top: 0;
+    left: 0;
     background: #1abc9c;
+  }
+  .el-card {
+    border: none;
+    border-radius: 0;
   }
 }

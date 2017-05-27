@@ -1,12 +1,10 @@
 /* global DEV */
-import Vue from 'vue';
+// import Vue from 'vue';
+/* global Vue*/
 import Meta from 'vue-meta';
 import { Loading, Message, MessageBox } from 'element-ui';
 import Nprogress from 'nprogress';
-// import VueTouch from 'vue-touch';
-// imp
 /*eslint-disable*/
-// import 'muse-components/styles/base.less';
 import appBar from 'muse-components/appBar';
 import icon from 'muse-components/icon';
 import drawer from 'muse-components/drawer';
@@ -32,7 +30,6 @@ Vue.component(divider.name, divider);
 
 Vue.use(Meta);
 Vue.use(Loading);
-// Vue.use(VueTouch);
 Vue.filter('timestamp', timeStamp);
 Vue.filter('imgView', timeStamp);
 Vue.use(VueLazyload, {
@@ -45,27 +42,24 @@ Vue.prototype.$msgbox = MessageBox;
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 if (typeof DEV === 'undefined' || DEV === false) {
-  axios.defaults.baseURL = 'http://120.24.177.234:3000';
+  axios.defaults.baseURL = 'http://5000.gr45a82d.ce00ef5b.xunda-bj.goodrain.net:10080';
+  // axios.defaults.baseURL = 'http://120.24.177.234:3000';
 } else {
   axios.defaults.baseURL = 'http://127.0.0.1:3000';
   // axios.defaults.baseURL = 'http://192.168.1.2:3000';
   // axios.defaults.baseURL = 'http://120.24.177.234:3000';
 }
 axios.interceptors.request.use(function (config) {
-    console.log(Nprogress);
     Nprogress.start();
     return config;
   }, function (error) {
-    // Do something with request error
     return Promise.reject(error);
   });
 
-// Add a response interceptor
 axios.interceptors.response.use(function (response) {
     Nprogress.done();
     return response;
   }, function (error) {
-    // Do something with response error
     return Promise.reject(error);
   });
 

@@ -1,7 +1,5 @@
 <template>
   <div class="footer" v-if="isShow">
-    <p>© 2017 Gavin-Gong</p>
-    <p>Powered By Vuejs</p>
     <div class="btns-wrapper">
       <el-button
         v-show="!isAuth"
@@ -14,6 +12,8 @@
         <i class="iconfont icon-logout" style="font-size: 18px;"></i>
         退出登陆</el-button>
     </div>
+    <p>© 2017 Gavin-Gong</p>
+    <p>Powered By Vuejs</p>
   </div>
 </template>
 
@@ -46,13 +46,15 @@ export default {
 @import '~styles/mixins';
 .footer {
   position: absolute;
+  // top: 0;
   left: 0;
-  bottom: 0;
+  bottom: -60px;
   width: 100%;
   box-sizing: border-box;
   padding-top: 40px;
   padding-bottom: 25px;
-  height: 140px;
+  height: 200px;
+  // border-top: 1px solid #333;
   // background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
   text-align: center;
   .login-btn {

@@ -1,8 +1,6 @@
 @import '~styles/mixins';
 body {
-  .el-message-box {
-    width: 70%;
-  }
+
 }
 
 @include res-to(xs) {
@@ -14,7 +12,9 @@ body {
     height: 30px;
     border-bottom-width: 2px;
   }
-
+  .el-message-box {
+    width: 70%;
+  }
   // recommend
   .recommend {
 

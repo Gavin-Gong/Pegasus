@@ -88,6 +88,8 @@ export default {
     .profile-data {
       text-align: center;
       box-shadow: none;
+      @include card-shadow;
+      border: none;
       .avatar-wrapper {
         margin: auto;
         width: 100px;
@@ -115,14 +117,18 @@ export default {
       }
       .social-list {
         list-style: none;
+        display: block;
         margin-left: -20px;
-        // margin-top: 25px;
+        margin-right: -20px;
         padding: 30px 0 10px;
         border-top: 1px solid #eee;
         li {
           padding-left: 0;
           margin-left: 10px;
           display: inline-block;
+          &:first-child {
+            margin-left: 0;
+          }
           a {
             text-decoration: none;
             .iconfont {

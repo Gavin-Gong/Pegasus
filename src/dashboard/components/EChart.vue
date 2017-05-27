@@ -8,7 +8,11 @@
 
 <script>
   import { Card, Row, Col } from 'element-ui';
-  import echarts from 'echarts';
+  // import echarts from 'echarts/lib/echarts';
+  // import 'echarts/lib/component/tooltip';
+  // import 'echarts/lib/component/title';
+  // import 'echarts/lib/chart/line';]
+  /* global echarts */
 
   Vue.use(Card);
   Vue.use(Row);
@@ -34,7 +38,7 @@
       id: {},
       width: {
         type: String,
-        default: '900px',
+        default: '1200px',
       },
       height: {
         type: String,

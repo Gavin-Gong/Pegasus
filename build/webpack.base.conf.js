@@ -38,9 +38,11 @@ module.exports = {
 
   },
   externals: {
-    // "vue": "vue",
+    // "vue": "Vue",
     // "Router": "vue-router",
     // "Vuex": "vuex",
+    echarts: 'echarts',
+    axios: 'axios',
     vuex: {
         commonjs: 'vuex',
         commonjs2: 'vuex',

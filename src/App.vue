@@ -72,7 +72,7 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 120px;
+  margin-bottom: 200px;
 }
 #app {
   // text-align: center;

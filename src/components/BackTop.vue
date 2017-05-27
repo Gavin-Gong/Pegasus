@@ -12,6 +12,7 @@
 
 <script>
 import MoveTo from 'moveto';
+import { throttle } from 'lodash';
 
 export default {
   props: {
@@ -22,10 +23,9 @@ export default {
     //
   },
   created() {
-    window.onscroll = () => {
-      // console.log('scroll');
+    window.onscroll = throttle(() => {
       this.toTop = document.body.scrollTop;
-    };
+    }, 500);
   },
   data() {
     return {

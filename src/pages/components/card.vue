@@ -84,11 +84,13 @@ export default {
   margin-left: $offset;
   margin-bottom: $offset - 10px;
   text-align: center;
+  line-height: 0;
   background-size: cover;
   color: #fff;
   cursor: pointer;
   .card-title {
     // text-align: left;
+    margin-bottom: 10px;
     color: #fff;
     @include line-clamp(2);
     .iconfont {
@@ -99,7 +101,7 @@ export default {
   }
   .card-postCount {
     display: block;
-    margin: 10px auto 20px;
+    margin: 1px auto 20px;
   }
   .card-btn {
     position: absolute;
@@ -111,23 +113,28 @@ export default {
     background: transparent;
     color: #fff;
     border-width: 1px;
-    &:hover {
-      background: #eee;
-      color: #333;
-      border: none;
-    }
   }
   .mask {
     position: absolute;
     top: 0;
     left: 0;
-    // position: relative;
-    // padding: 40px 20px 60px;
     box-sizing: border-box;
     padding: 20px;
     height: 180px;
     width: 100%;
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.3);
+    transition: all .2s ease-in;
+  }
+  &:hover {
+    // @include card-shadow;
+  }
+  &:hover .mask {
+    background: rgba(0,0,0,.7);
+  }
+  &:hover .card-btn {
+    background: #eee;
+    color: #333;
+    border: none;
   }
   img {
     height: 180px;

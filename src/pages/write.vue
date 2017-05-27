@@ -10,9 +10,9 @@
       <textarea id="md-editor">
       </textarea>
     </div>
-    <el-dialog v-model="showDialog" :show-close="false" title="Addtional Infomation">
+    <el-dialog v-model="showDialog" :show-close="false" title="附加信息">
       <el-form label-position="right" label-width="80px">
-        <el-form-item label="title">
+        <el-form-item label="标题">
           <el-input placeholder="请输入标题" v-model="postFields.title"></el-input>
         </el-form-item>
         <el-form-item label="标签">
