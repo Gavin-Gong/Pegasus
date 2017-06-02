@@ -69,6 +69,7 @@ export default {
 @import '~styles/mixins';
 #about {
   padding: 20px;
+  max-width: 600px;
   @include res-to(xs) {
     padding: 0 10px;
   }

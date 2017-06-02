@@ -80,9 +80,11 @@
     },
     beforeDestroy() {
       this.$store.commit('SHOW_FOOTER');
+      this.unsetOvz();
     },
     deactivated() {
       this.$store.commit('SHOW_FOOTER');
+      this.unsetOvz();
     },
     activated() {
       this.$store.commit('HIDDEN_FOOTER');
@@ -135,6 +137,14 @@
       goBack() {
         history.back();
       },
+      setOvz() {
+        const bodyEle = document.querySelector('body');
+        bodyEle.style.overflow = 'hidden';
+      },
+      unsetOvz() {
+        const bodyEle = document.querySelector('html');
+        bodyEle.style.overflow = 'auto';
+      },
     },
     computed: {
       topicList() {
@@ -147,7 +157,7 @@
   };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #write {
   z-index: 10000;
   margin-top: -100px;

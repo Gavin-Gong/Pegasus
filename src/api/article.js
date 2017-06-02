@@ -4,8 +4,8 @@ const baseUrl = 'posts';
 
 export function fetchArticleList(params) {
   const tempParams = Object.assign({
-    _sort: 'created_at',
-    _order: 'DESC',
+    // _sort: 'created_at',
+    // _order: 'asc',
   }, params);
   console.log(tempParams);
   return $http.get(baseUrl, {

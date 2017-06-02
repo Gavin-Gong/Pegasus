@@ -11,11 +11,16 @@ run `npm run build`, Site files will be compiled into dist folder.
 
 ## TODO
 
+- iPad Air & mini & mobile
+- comment select
+- video record
+
+
 ### Plan
 - [ ] artilce detail -> loading
 - [ ] qiniu image size limit
-- [ ] font-awesome, Vue -> cdn
-- [ ] add custom opts to config.js
+- [ ] font-awesome, Vue -> cdni
+-  [ ] add custom opts to config.js
 - [ ] interagte firebase & wilddog
 
 

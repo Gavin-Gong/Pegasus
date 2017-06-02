@@ -4,7 +4,7 @@
   <ul>
     <li>
       <div class="img-wrapper" :style="`background: #ccc url(${$randomImg(250,100)}) 0 / cover`"></div>
-      <a class="title">这是一篇文章的名字</a>
+      <a class="title">原型工具大比拼</a>
       <div class="info">
         <div class="time">
           <i class="iconfont icon-date"></i> 2017-01-02
@@ -15,7 +15,7 @@
       </div>
     </li><li>
       <div class="img-wrapper" :style="`background: #ccc url(${$randomImg(250,100)}) 0 / cover`"></div>
-      <a class="title">这是一篇文章的名字</a>
+      <a class="title">Sketch or PS？</a>
       <div class="info">
         <div class="time">
           <i class="iconfont icon-date"></i> 2017-01-02
@@ -26,7 +26,7 @@
       </div>
     </li><li>
       <div class="img-wrapper" :style="`background: #ccc url(${$randomImg(250,100)}) 0 / cover`"></div>
-      <a class="title">这是一篇文章的名字</a>
+      <a class="title">UX 到底是什么</a>
       <div class="info">
         <div class="time">
           <i class="iconfont icon-date"></i> 2017-01-02

@@ -2,7 +2,8 @@
   <div id="login">
     <div class="login-box">
      <el-card>
-       <img src="~assets/images/pegasus_logo_dark.png" alt="" class="logo">
+       <img src="http://opazkqh2d.bkt.clouddn.com/17-5-28/53964232.jpg" alt="" class="logo">
+       <!--<img src="~assets/images/pegasus_logo_dark.png" alt="" class="logo">-->
         <el-form label-position="left" label-width="50px">
           <el-form-item label="账号">
             <el-input v-model="name"></el-input>

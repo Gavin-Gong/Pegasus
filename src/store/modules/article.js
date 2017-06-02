@@ -43,7 +43,7 @@ const mutations = {
 const actions = {
   fetchArticleList({ commit }, { query, type }) {
     if (!type) type = types.FETCH_ARTICLE_LIST;
-    return fetchArticleList(query).then(({ data }) => {
+    return fetchArticleList(Object.assign({ _sort: 'id', _order: 'DESC' }, query)).then(({ data }) => {
       commit(type, data);
       return data;
     });
@@ -54,10 +54,10 @@ const actions = {
       return data;
     });
   },
-  fetchHotArticleList({ dispatch, commit }, query = { _sort: 'view_count', _order: 'DESC', _limit: 10 }) {
+  fetchHotArticleList({ dispatch, commit }, query = { _sort: 'id', _order: 'DESC', _limit: 10 }) {
     return dispatch('fetchArticleList', { query, type: types.FETCH_HOT_ARHTICLE_LIST });
   },
-  fetchRecentArticleList({ dispatch, commit }, query = { _sort: 'created_at', _order: 'DESC', _limit: 10 }) {
+  fetchRecentArticleList({ dispatch, commit }, query = { _sort: 'created_at', _order: 'asc', _limit: 10 }) {
     return dispatch('fetchArticleList', { query, type: types.FETCH_RECENT_ARTICLE_LIST });
   },
   addToArticleList({ dispatch, commit }, query = { _limit: 5 }) {

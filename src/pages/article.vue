@@ -83,7 +83,11 @@ export default {
     },
   },
   watch: {
-    // $route
+    $route() {
+      if (this.$route.params.id) {
+        this.$store.dispatch('fetchArticleById', this.$route.params.id);
+      }
+    },
   },
 };
 </script>

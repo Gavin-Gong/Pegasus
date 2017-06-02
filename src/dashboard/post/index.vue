@@ -29,11 +29,11 @@
       MdEditor,
     },
     created() {
-      this.$store.dispatch('fetchArticleList', { query: { _limit: 20 } });
+      this.$store.dispatch('fetchArticleList', { query: { _limit: 20, _sort: 'id', _order: 'DESC' } });
     },
     watch: {
       // $route() {
-      //   if (this.$route.name === 'DbPost') {
+      //   if (this.$route.name === 'DbPost') {DESCDESC
       //     this.activedPost = this.listData[0];
       //   }
       // },

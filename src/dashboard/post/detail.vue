@@ -93,6 +93,9 @@
   //   overflow: scroll;
   // }
   .title-bar {
+    // position: fixed;
+    // top: 0px;
+    z-index: 100000000;
     margin: 20px 50%;
     width: 600px;
     transform: translateX(-50%);

@@ -25,7 +25,7 @@ Vue.use(Button);
 export default {
   created() {
     this.$store.dispatch('fetchHotArticleList');
-    this.$store.dispatch('fetchRecentArticleList');
+    // this.$store.dispatch('fetchRecentArticleList');
   },
   data() {
     return {
@@ -37,9 +37,9 @@ export default {
     },
   },
   computed: {
-    recentArticleList() {
-      return this.$store.state.article.recent;
-    },
+    // recentArticleList() {
+    //   return this.$store.state.article.recent;
+    // },
     hotArticleList() {
       return this.$store.state.article.hot;
     },

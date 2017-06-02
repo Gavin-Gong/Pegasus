@@ -45,7 +45,8 @@ if (typeof DEV === 'undefined' || DEV === false) {
   axios.defaults.baseURL = 'http://5000.gr45a82d.ce00ef5b.xunda-bj.goodrain.net:10080';
   // axios.defaults.baseURL = 'http://120.24.177.234:3000';
 } else {
-  axios.defaults.baseURL = 'http://127.0.0.1:3000';
+  // axios.defaults.baseURL = 'http://127.0.0.1:3000';
+  axios.defaults.baseURL = 'http://5000.gr45a82d.ce00ef5b.xunda-bj.goodrain.net:10080';
   // axios.defaults.baseURL = 'http://192.168.1.2:3000';
   // axios.defaults.baseURL = 'http://120.24.177.234:3000';
 }
