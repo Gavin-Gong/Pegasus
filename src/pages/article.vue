@@ -17,7 +17,6 @@
 
 <script>
 import ArticleCard from 'components/article';
-// import Comment from 'components/Comment';
 import Recommend from 'components/Recommend';
 import XIcon from 'components/Icon';
 import { Button } from 'element-ui';

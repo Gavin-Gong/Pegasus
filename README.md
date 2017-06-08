@@ -20,7 +20,7 @@ run `npm run build`, Site files will be compiled into dist folder.
 - [ ] artilce detail -> loading
 - [ ] qiniu image size limit
 - [ ] font-awesome, Vue -> cdni
--  [ ] add custom opts to config.js
+- [ ] add custom opts to config.js
 - [ ] interagte firebase & wilddog
 
 
@@ -39,8 +39,9 @@ run `npm run build`, Site files will be compiled into dist folder.
 - [ ] editor empty img
 
 ### workflow
-- [ ] auto deploy
+- [ ] auto deploy -> heroku 部署
 - [ ] interagte json-server for mock
+- [ ]
 
 
 ## Tips(for dev)

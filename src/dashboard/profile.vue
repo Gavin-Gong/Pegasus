@@ -64,7 +64,6 @@
       },
     },
     computed: {
-      /* global Vuex*/
       // ...Vuex.mapState({
       //   profile: state => state.profile.data,
       // }),

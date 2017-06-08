@@ -27,6 +27,9 @@ const DbProfile = () => import('../dashboard/profile');
 const DbSettings = () => import('../dashboard/settings');
 const Login = () => import('../dashboard/login');
 
+// demo
+const Demo = () => import('pages/demo');
+
 /*eslint-disable*/
 // 打包到同一个chunk中
 // const Foo = r => require.ensure([], () => r(require('./Foo.vue')), 'group-foo')
@@ -161,6 +164,10 @@ const router = new VueRouter({
     {
       path: '/404',
       component: NotFound,
+    },
+    {
+      path: '/demo',
+      component: Demo,
     },
     {
       path: '*',
