@@ -8,16 +8,13 @@
           default-active="1"
           :router="true"
           :class="['top-nav', {'dark-mode': darkMode}, {fixed: isFixed}]">
-          <el-menu-item index="6" :route="{name: 'Home'}" class="logo-wrapper">
-            <!--<img class="pegasus-logo" src="~assets/images/pegasus_logo.png" alt="pegasus" style="height: 40px">-->
-          </el-menu-item>
           <el-menu-item index="1" :route="{name: 'Home'}">
             <i class="iconfont icon-home"></i>主页</el-menu-item>
           <el-menu-item index="2" :route="{name: 'Topics'}">
             <i class="iconfont icon-topic"></i>专题</el-menu-item>
-          <el-menu-item index="4" :route="{name: 'Tags'}">
+          <el-menu-item index="3" :route="{name: 'Tags'}">
             <i class="iconfont icon-tag"></i>标签</el-menu-item>
-          <el-menu-item index="5" :route="{name: 'About'}">
+          <el-menu-item index="4" :route="{name: 'About'}">
             <i class="iconfont icon-profile"></i>关于我</el-menu-item>
           <ul class="op-bar dp-ib">
             <li @click="showResult = true">
@@ -131,7 +128,7 @@ export default {
         } else {
           this.darkMode = true;
         }
-      }, 500));
+      }, 1000));
   },
   data() {
     return {

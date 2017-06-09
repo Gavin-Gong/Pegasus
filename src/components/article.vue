@@ -35,13 +35,13 @@
       :class=" lineClamp ? 'line-clamp clickable' : ''">
       <div v-html="htmlBody"></div>
     </div>
-    <div class="article-footer" v-show="lineClamp">
+    <!--<div class="article-footer" v-show="lineClamp">
       <ul>
         <li><i class="iconfont icon-eye"></i> 346</li>
         <li><i class="iconfont icon-like-line"></i> 56</li>
         <li><i class="iconfont icon-comment"></i> 12</li>
       </ul>
-    </div>
+    </div>-->
     <!--<el-button
       v-if="lineClamp"
       @click="$router.push({name: 'Article', params: {id: article.id}})"
@@ -140,7 +140,7 @@ export default {
   @import '~styles/article';
   @import '~styles/utils';
   .article-card {
-    padding: 30px 30px 15px;
+    padding: 30px 30px 40px;
     @include res-to(xs) {
       padding: 15px 10px 10px;
       // padding: 20px 20px;

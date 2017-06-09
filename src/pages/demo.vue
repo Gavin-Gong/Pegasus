@@ -23,6 +23,7 @@
     }
   });
 
+
   Vue.use(Card);
   Vue.use(Form);
   Vue.use(FormItem);

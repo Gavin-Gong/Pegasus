@@ -8,7 +8,7 @@
       </div>
     </article-card>
     <comment></comment>
-    <recommend></recommend>
+    <!--<recommend></recommend>-->
     <ul class="article-nav">
 
     </ul>

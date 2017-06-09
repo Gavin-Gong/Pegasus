@@ -9,19 +9,16 @@ clone this repo.
 run `npm i` to install packages.
 run `npm run build`, Site files will be compiled into dist folder.
 
-## TODO
-
-- iPad Air & mini & mobile
-- comment select
-- video record
-
 
 ### Plan
+- [ ] refactor
+- [ ] redesign
 - [ ] artilce detail -> loading
 - [ ] qiniu image size limit
-- [ ] font-awesome, Vue -> cdni
+- [ ] font-awesome, Vue -> cdn
 - [ ] add custom opts to config.js
-- [ ] interagte firebase & wilddog
+- [ ] update pwa template
+- [ ] line-clamp -> js
 
 
 ### Features
@@ -41,7 +38,6 @@ run `npm run build`, Site files will be compiled into dist folder.
 ### workflow
 - [ ] auto deploy -> heroku 部署
 - [ ] interagte json-server for mock
-- [ ]
 
 
 ## Tips(for dev)
